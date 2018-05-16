@@ -28,4 +28,4 @@ class Category extends Component {
 
 
 
-export default Todos;
+export default Category;
