@@ -2,11 +2,11 @@ import axios from "axios";
 
 export default {
     getStuff: () => {
-        return axios.get("/testingRoutes/");
+        return axios.get("/testingRoutes");
     },
 
-    getOneItem: (id) =>{
-        return axios.get("/testingRoutes/" + id)
-    }
+    // getOneItem: (id) =>{
+    //     return axios.get("/testingRoutes/" + id)
+    // }
 
 }
