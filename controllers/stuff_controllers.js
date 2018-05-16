@@ -7,9 +7,13 @@ var db = require("../models");
 var Sequelize = require("sequelize");
 
 module.exports = {
+
   findAllItems: function(req, res) {
+    let someObject;
     db.Item.findAll({}).then(function(results) {
       res.json(results);
+      someObject = results;
+    
     });
   },
 

@@ -6,6 +6,10 @@ router.get("/",
   stuff_controllers.findAllItems
 );
 
+// router.get("/:id",
+//   stuff_controllers.findAllItems
+// );
+
 router.post("/",
   stuff_controllers.addItem
 );
