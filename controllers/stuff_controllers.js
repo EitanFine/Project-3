@@ -11,7 +11,19 @@ module.exports = {
     db.Item.findAll({}).then(function(results) {
       res.json(results);
     });
+  },
+
+  addItem: function(req,res){
+    db.Item.create(req.body).then(function(result) {
+      res.redirect("/");
+    });
   }
+
+
+
+
+
+
 };
 
 // let anotherObject;
@@ -335,5 +347,5 @@ module.exports = {
 router.use(passport.initialize());
 router.use(passport.session());
 
-module.exports = router;
+// module.exports = router;
 //require this back in server.js
