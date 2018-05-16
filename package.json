@@ -4,8 +4,9 @@
   "description": "",
   "main": "server.js",
   "scripts": {
+    "client": "node scripts/start-client.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "concurrently \"nodemon server.js\" \"npm run client\""
   },
   "repository": {
     "type": "git",
@@ -28,5 +29,8 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^4.37.7"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1"
   }
 }

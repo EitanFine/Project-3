@@ -35,7 +35,7 @@ app.use(express.static("public"));
 // require("./routes/api-routes.js")(app);
 // const routes = require("./controllers/stuff_controllers.js");
 const routes = require("./routes/testingroutes.js");
-app.use(routes);
+app.use("/testingRoutes", routes);
 
 // Syncing our sequelize models and then starting our Express app
 // ===========================================================
