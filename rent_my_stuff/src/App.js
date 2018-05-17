@@ -43,26 +43,36 @@ class App extends Component {
 const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription }) => (
   <div>
     <div className='container'>
-    <div class="panel panel">
-  <div class="panel-heading">
-  <h4><b>For Rent:</b> {itemName}.</h4>
-  </div>
-  <div class="panel-body">
-  <div className='row'>
-        <div className='col-sm-4'>
-          <img style={{ height: '225px', width: '90%', border: '2px solid #F19F4D', borderRadius: '5%' }} src={itemURL} alt="img" />
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4><b>For Rent:</b> {itemName}.</h4>
         </div>
-        <div className='col-sm-8'>
-          
-            <h4><b>Id:</b> {id}.</h4>
-            <h4><b>Price:</b> ${itemPrice}. (per day)</h4>
-            <h4><b>Description</b></h4>
-            <p>{itemDescription}.</p>
-         
+        <div class="panel-body">
+          <div className='row'>
+            <div className='col-sm-4'>
+              <img style={{ height: '225px', width: '90%', borderRadius: '5%' }} src={itemURL} alt="img" />
+            </div>
+            <div className='col-sm-8'>
+              <div className='row'>
+                <div className='col-sm-6'>
+                  <h4><b>Id:</b> {id}.</h4>
+                  <h4><b>Price:</b> ${itemPrice}. (per day)</h4>
+                </div>
+                <div className='col-sm-6 text-right'>
+                  <button className="btn btn-lg">View Listing</button>
+                </div>
+              </div>
+              <div className='row'>
+                <div className='col-sm-12'>
+                  <h4><b>Description</b></h4>
+                  <p>{itemDescription}.</p>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-  </div>
-</div>
     </div>
   </div>
 
