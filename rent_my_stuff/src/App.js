@@ -64,7 +64,7 @@ const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt })
               <div className='row'>
                 <div className='col-sm-6'>
                   <h4><b>Listing Id:</b> {id}.</h4>
-                  <h4><b>Price:</b> ${itemPrice}. (per day)</h4>
+                  <h4><b>Price:</b> ${itemPrice}. <span style={{color: '#626262', fontFamily: "'Timmana', sans-serif"}}>(per day)</span></h4>
                 </div>
                 <div className='col-sm-6 text-right'>
                   <button className="btn btn-lg">View Listing</button>
@@ -83,7 +83,9 @@ const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt })
           </div>
           <div className='row'>
           <div className='col-sm-12 text-right'>
-          <h5 style={{fontFamily: "'Timmana', sans-serif"}} className='text-right'><span>Posted On: </span>{Moment(createdAt).format('LL')}</h5>
+          <h5 style={{fontFamily: "'Timmana', sans-serif"}}
+           className='text-right'><span>Posted On: </span>
+           {Moment(createdAt).format('LL')}</h5>
           </div>
           </div>
         </div>
