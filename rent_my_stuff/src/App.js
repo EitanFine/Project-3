@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
+import Moment from 'moment';
 
 class App extends Component {
 
@@ -27,7 +28,14 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={() => {
               return this.state.stuff.map(item => {
-                return <Stuff key={item.id} itemURL={item.itemURL} id={item.id} itemPrice={item.itemPrice} itemName={item.itemName} itemDescription={item.itemDescription} />;
+                return <Stuff key={item.id}
+                  itemURL={item.itemURL}
+                  id={item.id}
+                  itemPrice={item.itemPrice}
+                  itemName={item.itemName}
+                  itemDescription={item.itemDescription}
+                  createdAt={item.createdAt}
+                />;
               })
             }} />
             {/* <Route exact path="/category" component={Category} /> */}
@@ -40,14 +48,14 @@ class App extends Component {
   }
 }
 
-const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription }) => (
+const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt }) => (
   <div>
     <div className='container'>
-      <div class="panel panel-default">
-        <div class="panel-heading">
-          <h4><b>For Rent:</b> {itemName}.</h4>
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h4><b>For Rent:</b> {itemName}</h4>
         </div>
-        <div class="panel-body">
+        <div className="panel-body">
           <div className='row'>
             <div className='col-sm-4'>
               <img style={{ height: '225px', width: '90%', borderRadius: '5%' }} src={itemURL} alt="img" />
@@ -55,7 +63,7 @@ const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription }) => (
             <div className='col-sm-8'>
               <div className='row'>
                 <div className='col-sm-6'>
-                  <h4><b>Id:</b> {id}.</h4>
+                  <h4><b>Listing Id:</b> {id}.</h4>
                   <h4><b>Price:</b> ${itemPrice}. (per day)</h4>
                 </div>
                 <div className='col-sm-6 text-right'>
@@ -64,12 +72,19 @@ const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription }) => (
               </div>
               <div className='row'>
                 <div className='col-sm-12'>
+                <hr/>
                   <h4><b>Description</b></h4>
                   <p>{itemDescription}.</p>
+                  
 
                 </div>
               </div>
             </div>
+          </div>
+          <div className='row'>
+          <div className='col-sm-12 text-right'>
+          <h5 style={{fontFamily: "'Timmana', sans-serif"}} className='text-right'><span>Posted On: </span>{Moment(createdAt).format('LL')}</h5>
+          </div>
           </div>
         </div>
       </div>
