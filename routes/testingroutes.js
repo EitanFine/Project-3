@@ -14,4 +14,8 @@ router.post("/",
   stuff_controllers.addItem
 );
 
+router.get("/oneitem/:id",
+  stuff_controllers.findOneItem
+);
+
 module.exports = router;

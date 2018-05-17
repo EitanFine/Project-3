@@ -9,6 +9,7 @@ var Sequelize = require("sequelize");
 module.exports = {
 
   findAllItems: function(req, res) {
+    console.log("findAll")
     db.Item.findAll({}).then(function(results) {
       res.json(results);    
     });
@@ -18,9 +19,28 @@ module.exports = {
     db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
+  },
+
+  findOneItem: function(req, res) {
+    db.Item.findOne({
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function (result) {
+      db.User.findOne({
+        where: {
+          id: result.itemUserId
+        }
+      })
+    })
+    .then(function(results) {
+      res.json(results);    
+    });
   }
 
 };
+
 
 // let anotherObject;
 // router.get("/", function(req, res) {

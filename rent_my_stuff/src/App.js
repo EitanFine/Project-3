@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
 import Moment from 'moment';
+import SingleItem from "./components/SingleItem";
+
 
 class App extends Component {
 
@@ -18,6 +20,25 @@ class App extends Component {
           stuff: res.data
         });
       })
+
+  }
+
+  renderStuff = () => {
+    return this.state.stuff.map(item => {
+      return <Stuff key={item.id}
+        itemURL={item.itemURL}
+        id={item.id}
+        itemPrice={item.itemPrice}
+        itemName={item.itemName}
+        itemDescription={item.itemDescription}
+        createdAt={item.createdAt}
+        handleGetItem={this.handleGetItem}
+      />;
+    })
+  }
+
+  renderSingleItem = (props) => {
+    return <SingleItem id={props.match.params} />
   }
 
   render() {
@@ -26,18 +47,8 @@ class App extends Component {
         <div>
           {/* <Nav /> */}
           <Switch>
-            <Route exact path="/" render={() => {
-              return this.state.stuff.map(item => {
-                return <Stuff key={item.id}
-                  itemURL={item.itemURL}
-                  id={item.id}
-                  itemPrice={item.itemPrice}
-                  itemName={item.itemName}
-                  itemDescription={item.itemDescription}
-                  createdAt={item.createdAt}
-                />;
-              })
-            }} />
+            <Route exact path="/" render={this.renderStuff} />
+            <Route path="/singleitem/:id" render={this.renderSingleItem} />
             {/* <Route exact path="/category" component={Category} /> */}
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
@@ -63,30 +74,28 @@ const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt })
             <div className='col-sm-8'>
               <div className='row'>
                 <div className='col-sm-6'>
-                  <h4><b>Listing Id:</b> {id}.</h4>
-                  <h4><b>Price:</b> ${itemPrice}. <span style={{color: '#626262', fontFamily: "'Timmana', sans-serif"}}>(per day)</span></h4>
+                  <h4><b>Listing Id:</b>  {id}.</h4>
+                  <h4><b>Price:</b> ${itemPrice}. <span style={{ color: '#626262', fontFamily: "'Timmana', sans-serif" }}>(per day)</span></h4>
                 </div>
                 <div className='col-sm-6 text-right'>
-                  <button className="btn btn-lg">View Listing</button>
+                  <Link to={`/singleitem/${id}`}><button className="btn btn-lg">View Listing</button></Link>
                 </div>
               </div>
               <div className='row'>
                 <div className='col-sm-12'>
-                <hr/>
+                  <hr />
                   <h4><b>Description</b></h4>
                   <p>{itemDescription}.</p>
-                  
-
                 </div>
               </div>
             </div>
           </div>
           <div className='row'>
-          <div className='col-sm-12 text-right'>
-          <h5 style={{fontFamily: "'Timmana', sans-serif"}}
-           className='text-right'><span>Posted On: </span>
-           {Moment(createdAt).format('LL')}</h5>
-          </div>
+            <div className='col-sm-12 text-right'>
+              <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
+                className='text-right'><span>Posted On: </span>
+                {Moment(createdAt).format('LL')}</h5>
+            </div>
           </div>
         </div>
       </div>

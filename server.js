@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("./config/passport")
-
+const logger = require("morgan");
 // Sets up the Express App
 // =============================================================
 const app = express();
@@ -14,6 +14,7 @@ const db = require("./models");
 app.use(session(({ secret: "keyboard cat", resave: true, saveUninitialized: true })))
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(logger('dev'))
 
 // Sets up the Express app to handle data parsing
 

@@ -5,8 +5,8 @@ export default {
         return axios.get("/testingRoutes");
     },
 
-    // getOneItem: (id) =>{
-    //     return axios.get("/testingRoutes/" + id)
-    // }
+    getOneItem: (id) =>{
+        return axios.get(`/testingRoutes/oneitem/${id}`)
+    }
 
 }
