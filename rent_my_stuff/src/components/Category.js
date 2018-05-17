@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import API from "./../utils/API";
 import CategoryItem from './CategoryItem';
+import { Input, TextArea, FormBtn } from "./Form";
 
 
 class Category extends Component {
@@ -46,7 +47,7 @@ class Category extends Component {
         }
 
         return (
-            <div className="Category">
+            <div className="Category">               
                 <h2> Category </h2>
                 {CategoryItems}
             </div>

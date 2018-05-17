@@ -17,6 +17,11 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             allowNull: false
         },
+
+        itemCategorytype: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         //Categories Id Foreign Key
         itemCatId: {
             type: DataTypes.INTEGER,
