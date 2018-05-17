@@ -7,43 +7,52 @@ var db = require("../models");
 var Sequelize = require("sequelize");
 
 module.exports = {
-  findAllItems: function(req, res) {
+  findAllItems: function (req, res) {
     console.log("findAll");
-    db.Item.findAll({}).then(function(results) {
+    db.Item.findAll({}).then(function (results) {
       res.json(results);
     });
   },
 
-  addItem: function(req, res) {
-    db.Item.create(req.body).then(function(result) {
+  addItem: function (req, res) {
+    db.Item.create(req.body).then(function (result) {
       res.redirect("/");
     });
   },
 
   findOneItem: function(req, res) {
+    let info = {};
     db.Item.findOne({
       where: {
         id: req.params.id
       }
-    })
-      .then(function(result) {
-        db.User.findOne({
-          where: {
-            id: result.itemUserId
-          }
-        });
-      })
-      .then(function(results) {
-        res.json(results);
+    }).then(function(result) {
+      info.singleitem = (result.dataValues);
+      db.User.findOne({
+        where: {
+          id: result.dataValues.itemUserId
+        }
+      }).then(function(meh) {
+        info.user = (meh.dataValues);
+        res.json(info);
       });
+    });
   },
 
-  findAllUsers: function(req, res) {
-    db.User.findAll({}).then(function(result) {
+  findAllUsers: function (req, res) {
+    db.User.findAll({}).then(function (result) {
       res.json(result);
     });
   },
-  
+
+
+
+  findAllCategories: function (req, res) {
+    db.Category.findAll({}).then(function (results) {
+      res.json(results);
+    });
+  }
+
 };
 
 // let anotherObject;

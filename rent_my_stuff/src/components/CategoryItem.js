@@ -6,7 +6,6 @@ class CategoryItem
     render() {       
         return (
             <li className="Category">
-             <h3> hardcoded for Category </h3>
                 <strong> {this.props.categoryName}</strong>                 
             </li>
         );

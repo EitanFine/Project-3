@@ -5,6 +5,7 @@ import API from "./utils/API";
 import Moment from 'moment';
 import SingleItem from "./components/SingleItem";
 import Stuff from "./components/Stuff";
+import Category from "./components/Category";
 
 
 
@@ -52,7 +53,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
-            {/* <Route exact path="/category" component={Category} /> */}
+            <Route exact path="/category" component={Category} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
