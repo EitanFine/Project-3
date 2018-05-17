@@ -27,7 +27,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={() => {
               return this.state.stuff.map(item => {
-                return <Stuff id={item.id} itemName={item.itemName} itemDescription={item.itemDescription} />;
+                return <Stuff key={item.id} id={item.id} itemName={item.itemName} itemDescription={item.itemDescription} />;
               })
             }} />
             {/* <Route exact path="/category" component={Category} /> */}
