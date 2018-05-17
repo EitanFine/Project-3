@@ -36,6 +36,10 @@ module.exports = function (sequelize, DataTypes) {
             type: DataTypes.BLOB,
             allowNull: true
         },
+        itemURL: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         //item rental price
         itemPrice: {
             type: DataTypes.DECIMAL(10,2),

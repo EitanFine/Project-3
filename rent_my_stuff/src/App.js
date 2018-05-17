@@ -9,14 +9,14 @@ class App extends Component {
     stuff: []
   }
 
-  componentDidMount(){
+  componentDidMount() {
     API.getStuff()
-    .then(res => {
-      console.log("STUFF", res);
-      this.setState({
-        stuff: res.data
-      });
-    })
+      .then(res => {
+        console.log("STUFF", res);
+        this.setState({
+          stuff: res.data
+        });
+      })
   }
 
   render() {
@@ -27,12 +27,12 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={() => {
               return this.state.stuff.map(item => {
-                return <Stuff key={item.id} id={item.id} itemName={item.itemName} itemDescription={item.itemDescription} />;
+                return <Stuff key={item.id} itemURL={item.itemURL} id={item.id} itemPrice={item.itemPrice} itemName={item.itemName} itemDescription={item.itemDescription} />;
               })
             }} />
             {/* <Route exact path="/category" component={Category} /> */}
             {/* <Route exact path="/category/:id" component={Category} /> */}
-            {/* <Route component={NoMatch} /> */} 
+            {/* <Route component={NoMatch} /> */}
           </Switch>
         </div>
       </Router>
@@ -40,12 +40,36 @@ class App extends Component {
   }
 }
 
-const Stuff = ({id, itemName, itemDescription}) => (
-  <ul>
-    <li>Id: {id}</li>
-    <li>Item Name: {itemName}</li>
-    <li>Item Description: {itemDescription}</li>
-  </ul>
+const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription }) => (
+  <div>
+    <div className='container'>
+    <div class="panel panel">
+  <div class="panel-heading">
+  <h4><b>For Rent:</b> {itemName}.</h4>
+  </div>
+  <div class="panel-body">
+  <div className='row'>
+        <div className='col-sm-4'>
+          <img style={{ height: '225px', width: '90%', border: '2px solid #F19F4D', borderRadius: '5%' }} src={itemURL} alt="img" />
+        </div>
+        <div className='col-sm-8'>
+          
+            <h4><b>Id:</b> {id}.</h4>
+            <h4><b>Price:</b> ${itemPrice}. (per day)</h4>
+            <h4><b>Description</b></h4>
+            <p>{itemDescription}.</p>
+         
+        </div>
+      </div>
+  </div>
+</div>
+    </div>
+  </div>
+
+
+
+
+
 );
 
 export default App;
