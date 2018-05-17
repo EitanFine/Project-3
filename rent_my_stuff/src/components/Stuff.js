@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import API from "../utils/API";
+// import API from "../utils/API";
 import Moment from 'moment';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as  Link } from "react-router-dom";
 
 
 

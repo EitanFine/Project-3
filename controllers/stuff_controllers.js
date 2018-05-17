@@ -21,37 +21,44 @@ module.exports = {
   },
 
   findOneItem: function(req, res) {
-    let info = {};
+    // db.Item.findOne({
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // })
+    // .then(function (result) {
+    //   console.log("resulr, ", result.itemUserId)
+    //   db.User.findOne({
+    //     where: {
+    //       id: result.itemUserId
+    //     }
+    //   })
+    // })
     db.Item.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(result) {
-      info.singleitem = (result.dataValues);
+    }).then(function (result) {
+      console.log("resut: ", result)
+
       db.User.findOne({
         where: {
           id: result.dataValues.itemUserId
         }
-      }).then(function(meh) {
-        info.user = (meh.dataValues);
-        res.json(info);
-      });
-    });
-  },
-
-  findAllUsers: function (req, res) {
-    db.User.findAll({}).then(function (result) {
-      res.json(result);
-    });
-  },
-
-
-
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
-      res.json(results);
-    });
+      })
+      .then(function(results) {
+        console.log({itemInfo:result, userInfo: results})
+  
+        res.json({itemInfo:result, userInfo: results});    
+      })
+      .catch( (err) => {
+        console.log(err)
+      })
+      
+    })
+    
   }
+ 
 
 };
 
@@ -378,3 +385,5 @@ router.use(passport.session());
 
 // module.exports = router;
 //require this back in server.js
+
+
