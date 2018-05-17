@@ -6,9 +6,9 @@ router.get("/",
   stuff_controllers.findAllItems
 );
 
-// router.get("/:id",
-//   stuff_controllers.findAllItems
-// );
+router.get("/users",
+  stuff_controllers.findAllUsers
+);
 
 router.post("/",
   stuff_controllers.addItem
