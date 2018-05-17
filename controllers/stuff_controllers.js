@@ -22,22 +22,44 @@ module.exports = {
   },
 
   findOneItem: function(req, res) {
+    // db.Item.findOne({
+    //   where: {
+    //     id: req.params.id
+    //   }
+    // })
+    // .then(function (result) {
+    //   console.log("resulr, ", result.itemUserId)
+    //   db.User.findOne({
+    //     where: {
+    //       id: result.itemUserId
+    //     }
+    //   })
+    // })
     db.Item.findOne({
       where: {
         id: req.params.id
       }
-    })
-    .then(function (result) {
+    }).then(function (result) {
+      console.log("resut: ", result)
+
       db.User.findOne({
         where: {
           id: result.itemUserId
         }
       })
+      .then(function(results) {
+        console.log({itemInfo:result, userInfo: results})
+  
+        res.json({itemInfo:result, userInfo: results});    
+      })
+      .catch( (err) => {
+        console.log(err)
+      })
+      
     })
-    .then(function(results) {
-      res.json(results);    
-    });
+    
   }
+ 
 
 };
 
@@ -365,3 +387,62 @@ router.use(passport.session());
 
 // module.exports = router;
 //require this back in server.js
+
+
+var infoObj;
+router.get("/iteminfo1/:id", function (req, res) {
+  // need to wrap the binary image
+  console.log("TEST");
+  console.log(req.params.id);
+  // console.log(req);
+  db.Item.findOne({
+    where: {
+      id: req.params.id
+    }
+  }).then(function (result) {
+    db.User.findOne({
+      where: {
+        id: result.itemUserId
+      }
+    }).then(function (resultU) {
+      db.RentedDates.findAll({
+        where: {
+          rentItemId: result.id
+        }
+      }).then(function (resultR) {
+        var dates = [];
+        for (var i = 0; i < resultR.length; i++) {
+          dates.push(resultR[i].rentedDate);
+        }
+        if (result.itemImage !== null) {
+          result.itemImage = new Buffer(result.itemImage).toString("base64");
+        }
+        console.log("RENTED DATES: ", dates);
+        infoObj = {
+          itemId: result.id,
+          itemDescription: result.itemDescription,
+          itemPrice: result.itemPrice,
+          itemName: result.itemName,
+          itemImage: result.itemImage,
+          name: resultU.name,
+          email: resultU.email,
+          streetAddress: resultU.streetAddress,
+          city: resultU.city,
+          state: resultU.state,
+          zipcode: resultU.zipcode,
+          rentedDates: dates
+        };
+        res.render("itemInfo", infoObj);
+      });
+      infoObj = [];
+      hbsObject.user = req.user ? req.user.id : null;
+    });
+
+    router.post("/iteminfo1/:id", function (req, res) {
+      db.RentedDates.create(req.body).then(function (result) {
+        console.log("meh")
+      });
+    });
+
+  });
+});

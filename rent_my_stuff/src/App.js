@@ -33,7 +33,6 @@ class App extends Component {
         itemName={item.itemName}
         itemDescription={item.itemDescription}
         createdAt={item.createdAt}
-        handleGetItem={this.handleGetItem}
       />;
     })
   }
@@ -60,7 +59,7 @@ class App extends Component {
   }
 }
 
-const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt, handleGetItem }) => (
+const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt }) => (
   <div>
     <div className='container'>
       <div className="panel panel-default">
