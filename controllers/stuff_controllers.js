@@ -45,6 +45,7 @@ module.exports = {
         where: {
           id: result.dataValues.itemUserId
         }
+<<<<<<< HEAD
       })
       .then(function(results) {
         console.log({itemInfo:result, userInfo: results})
@@ -57,6 +58,25 @@ module.exports = {
       
     })
     
+=======
+      }).then(function(meh) {
+        info.user = (meh.dataValues);
+        res.json(info);
+      });
+    });
+  },
+
+  findAllUsers: function (req, res) {
+    db.User.findAll({}).then(function (result) {
+      res.json(result);
+    });
+  },
+  
+  findAllCategories: function (req, res) {
+    db.Category.findAll({}).then(function (results) {
+      res.json(results);
+    });
+>>>>>>> Lan
   }
  
 
