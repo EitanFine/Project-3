@@ -9,7 +9,8 @@ import SingleItem from "./components/SingleItem";
 class App extends Component {
 
   state = {
-    stuff: []
+    stuff: [],
+    id: ""
   }
 
   componentDidMount() {
@@ -59,7 +60,7 @@ class App extends Component {
   }
 }
 
-const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt }) => (
+const Stuff = ({ itemURL, id, itemPrice, itemName, itemDescription, createdAt, handleGetItem }) => (
   <div>
     <div className='container'>
       <div className="panel panel-default">
