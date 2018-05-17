@@ -45,20 +45,6 @@ module.exports = {
         where: {
           id: result.dataValues.itemUserId
         }
-<<<<<<< HEAD
-      })
-      .then(function(results) {
-        console.log({itemInfo:result, userInfo: results})
-  
-        res.json({itemInfo:result, userInfo: results});    
-      })
-      .catch( (err) => {
-        console.log(err)
-      })
-      
-    })
-    
-=======
       }).then(function(meh) {
         info.user = (meh.dataValues);
         res.json(info);
@@ -76,7 +62,6 @@ module.exports = {
     db.Category.findAll({}).then(function (results) {
       res.json(results);
     });
->>>>>>> Lan
   }
  
 

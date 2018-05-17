@@ -7,7 +7,7 @@ import SingleItem from "./components/SingleItem";
 import Stuff from "./components/Stuff";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
-import SignUp from "./components/SignUp/SignUp.js";
+import SignUp from "./components/SignupForm";
 
 
 
@@ -29,6 +29,13 @@ class App extends Component {
 
   }
 
+  setUser = (user) => {
+    console.log("USER", user);
+    this.setState({
+      user,
+      loggedIn: true
+    })
+  }
   renderStuff = () => {
     return this.state.stuff.map(item => {
       return <Stuff key={item.id}
