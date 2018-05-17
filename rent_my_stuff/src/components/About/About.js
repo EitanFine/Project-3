@@ -18,7 +18,7 @@ class About extends React.Component {
                         <div className="row">
                             <div className="col-md-4 col-xs-4 center">
                                 <div className="caption">
-                                    <img className="mix-auto rounded-circle" src="./images/alex.png" alt="..." />
+                                    <img className="ah mix-auto rounded-circle" src="./images/alex.png" alt="..." />
 
                                     <h3 className="team">Alex Baranov</h3>
                                     <p>Full Stack Web Developer</p>
@@ -37,7 +37,7 @@ class About extends React.Component {
                             </div>
                             <div className="col-md-4 col-xs-4 center">
                                 <div className="caption">
-                                    <img style="width: 250px; height: 250px" className="mix-auto rounded-circle" src="./images/inom.png"
+                                    <img className="ah mix-auto rounded-circle" src="./images/inom.png"
                                         alt="..." />
 
                                     <h3 className="team">Inom Ibragimov</h3>
@@ -57,7 +57,7 @@ class About extends React.Component {
                             </div>
                             <div className="col-md-4 col-xs-4 center">
                                 <div className="caption">
-                                    <img style="width: 250px; height: 250px" className="mix-auto rounded-circle" src="./images/eitan.png"
+                                    <img  className="ah mix-auto rounded-circle" src="./images/eitan.png"
                                         alt="..." />
 
                                     <h3 className="team">Eitan Fine</h3>
@@ -80,7 +80,7 @@ class About extends React.Component {
                             <div className="col-md-2 col-xs-2 "></div>
                             <div className="col-md-4 col-xs-4 center">
                                 <div className="caption">
-                                    <img style="width: 250px; height: 250px" className="mix-auto rounded-circle" src="./images/john.png"
+                                    <img  className="ah mix-auto rounded-circle" src="./images/john.png"
                                         alt="..." />
 
                                     <h3 className="team">John Palumbo</h3>
@@ -100,7 +100,7 @@ class About extends React.Component {
                             </div>
                             <div className="col-md-4 col-xs-4 center">
                                 <div className="caption">
-                                    <img style="width: 250px; height: 250px" className="mix-auto rounded-circle" src="./images/lan.png"
+                                    <img className="ah mix-auto rounded-circle" src="./images/lan.png"
                                         alt="..." />
 
                                     <h3 className="team">Lan Ejiri</h3>

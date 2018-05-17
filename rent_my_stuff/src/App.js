@@ -6,6 +6,8 @@ import Moment from 'moment';
 import SingleItem from "./components/SingleItem";
 import Stuff from "./components/Stuff";
 import Category from "./components/Category";
+import About from "./components/About/About.js";
+import SignUp from "./components/SignUp/SignUp.js";
 
 
 
@@ -54,6 +56,8 @@ class App extends Component {
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/signup" component={SignUp} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
