@@ -11,5 +11,21 @@ export default {
 
     getAllUsers: () => {
         return axios.get("/testingRoutes/users");
+    },
+
+    getCurrentUser: () => {
+            return axios.get("/testingRoutes/getUser")
+    },
+    
+    signUp: (newUser) => {
+        return axios.post("/testingRoutes/signup", newUser)
+    },
+
+    login: (user) => {
+        return axios.post("/testingRoutes/login", user)
+    },
+
+    logout: () => {
+        return axios.get("/testingRoutes/logout")
     }
 }
