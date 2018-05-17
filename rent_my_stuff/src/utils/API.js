@@ -7,6 +7,9 @@ export default {
 
     getOneItem: (id) =>{
         return axios.get(`/testingRoutes/oneitem/${id}`)
-    }
+    },
 
+    getAllUsers: () => {
+        return axios.get("/testingRoutes/users");
+    }
 }
