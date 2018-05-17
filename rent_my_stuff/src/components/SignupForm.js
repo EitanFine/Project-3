@@ -73,7 +73,7 @@ class SignupForm extends Component {
           <Col span={2} offset={3}>
             <label>Password: </label>
           </Col>
-          <Col span={4}>
+          <Col span={3}>
             <input name="password" required  type="password" value={this.state.password} onChange={this.handleInputChange} />
           </Col>
         </Row>
