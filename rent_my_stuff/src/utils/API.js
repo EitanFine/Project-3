@@ -23,14 +23,15 @@ export default {
     },
     
     signUp: (newUser) => {
-        return axios.post("/testingRoutes/signup", newUser)
+        console.log('New User: ', newUser)
+        return axios.post("/auth/signup", newUser)
     },
 
     login: (user) => {
-        return axios.post("/testingRoutes/login", user)
+        return axios.post("/auth/login", user)
     },
 
     logout: () => {
-        return axios.get("/testingRoutes/logout")
+        return axios.get("/auth/logout")
     }
 }

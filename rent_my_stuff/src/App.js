@@ -6,7 +6,7 @@ import Moment from 'moment';
 import SingleItem from "./components/SingleItem";
 import Stuff from "./components/Stuff";
 import Category from "./components/Category";
-
+import { SignupForm, Login } from "./components";
 
 
 class App extends Component {
@@ -27,6 +27,13 @@ class App extends Component {
 
   }
 
+  setUser = (user) => {
+    console.log("USER", user);
+    this.setState({
+      user,
+      loggedIn: true
+    })
+  }
   renderStuff = () => {
     return this.state.stuff.map(item => {
       return <Stuff key={item.id}
@@ -54,6 +61,8 @@ class App extends Component {
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
+            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
