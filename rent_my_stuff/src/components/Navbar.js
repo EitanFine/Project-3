@@ -20,9 +20,11 @@ const Navbar = ({loggedIn, logout}) => {
             <Link className="nav-item nav-link" to="/HowItWorks">How It Works</Link>
             </li>
           {loggedIn ? 
-            <li className="nav-item">
+            [<li className="nav-item">
               <a className="nav-item nav-link" href="#" onClick={logout}>Logout</a>
-            </li>
+            </li>,
+            <li className="nav-item"><Link className="nav-item nav-link" to="/MyItems">My Account</Link> </li>
+            ]
             : 
             [
               <li key="signup" className="nav-item">

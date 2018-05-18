@@ -7,28 +7,37 @@ var db = require("../models");
 var Sequelize = require("sequelize");
 
 module.exports = {
-  findAllItems: function(req, res) {
+  findAllItems: function (req, res) {
     console.log("findAll");
-    db.Item.findAll({}).then(function(results) {
+    db.Item.findAll({}).then(function (results) {
       res.json(results);
     });
   },
 
+<<<<<<< HEAD
   addItem: function(req, res) {
     console.log(" stuff controller additem ",req.body);
     db.Item.create(req.body).then(function(result) {
+=======
+  addItem: function (req, res) {
+    db.Item.create(req.body).then(function (result) {
+>>>>>>> alex
       res.redirect("/");
     });
   },
 
+<<<<<<< HEAD
    
 
   findOneItem: function(req, res) {
+=======
+  findOneItem: function (req, res) {
+>>>>>>> alex
     db.Item.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(result) {
+    }).then(function (result) {
       console.log("resut: ", result);
 
       db.User.findOne({
@@ -36,7 +45,7 @@ module.exports = {
           id: result.dataValues.itemUserId
         }
       })
-        .then(function(results) {
+        .then(function (results) {
           console.log({ itemInfo: result, userInfo: results });
           console.log("RESULTS: ", results);
 
@@ -48,22 +57,26 @@ module.exports = {
     });
   },
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> alex
 
-  findAllCategories: function(req, res) {
-    db.Category.findAll({}).then(function(results) {
+  findAllCategories: function (req, res) {
+    db.Category.findAll({}).then(function (results) {
       res.json(results);
     });
   },
 
-  allItemsByUser: function(req, res) {
+  allItemsByUser: function (req, res) {
     db.Item.findAll({
       where: {
         itemUserId: req.user.id
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       }
-    }).then(function(results) {
+    }).then(function (results) {
       res.json(results);
     });
+<<<<<<< HEAD
   }
 };
 
@@ -337,21 +350,28 @@ module.exports = {
 
   findAllCategories: function(req, res) {
     db.Category.findAll({}).then(function(results) {
+=======
+  },
+  
+  findAllCategories: function (req, res) {
+    db.Category.findAll({}).then(function (results) {
+>>>>>>> alex
       res.json(results);
     });
   },
 
-  allItemsByUser: function(req, res) {
+  allItemsByUser: function (req, res) {
     db.Item.findAll({
       where: {
         itemUserId: 1
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       }
-    }).then(function(results) {
+    }).then(function (results) {
       res.json(results);
     });
   }
 };
+
 
 
 router.use(passport.initialize());
