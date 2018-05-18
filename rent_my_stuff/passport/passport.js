@@ -10,7 +10,7 @@ passport.serializeUser(function (user, done) {
 
 passport.deserializeUser(function (id, done) {
   db.User.findById(id)
-    .then(function (err, user) {
+    .then(user => {
       done(null, user);
     })
     .catch(err => done(err));
@@ -21,7 +21,7 @@ passport.use(new LocalStrategy({
 },
   function (email, password, done) {
     console.log('passport')
-    db.User.findOne({ where: { email: email} })
+    db.User.findOne({ where: { email:email} })
       .then(user => {
         console.log("USER", user)
         if (!user) {
