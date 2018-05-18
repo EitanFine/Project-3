@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+//import DeleteButton from "../Buttons/DeleteButton";
+
 import API from "../../utils/API";
 //import SingleItem from "../SingleItem";
 import Stuff from "../Stuff";
@@ -27,6 +29,7 @@ class MyItems extends Component {
   render() {
     return this.state.stuff.map(item => {
       return (
+        <div>
         <Stuff
           key={item.id}
           itemURL={item.itemURL}
@@ -36,6 +39,8 @@ class MyItems extends Component {
           itemDescription={item.itemDescription}
           createdAt={item.createdAt}
         />
+        {/* <DeleteButton/> */}
+        </div>
       );
     });
   }

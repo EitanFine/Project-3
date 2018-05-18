@@ -45,5 +45,9 @@ router.get("/myitems",
   stuff_controllers.allItemsByUser
 );
 
+router.delete("/myitems/id/:id",
+  stuff_controllers.deleteOneItem
+);
+
 
 module.exports = router;

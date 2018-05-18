@@ -20,7 +20,7 @@ module.exports = {
     });
   },
 
-  findOneItem: function (req, res) {
+  findOneItem: function(req, res) {
     db.Item.findOne({
       where: {
         id: req.params.id
@@ -60,12 +60,18 @@ module.exports = {
     }).then(function(results) {
       res.json(results);
     });
+  },
+
+  deleteOneItem: function(req, res) {
+    db.Item.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(result){
+      console.log("=================================",result)
+    })
   }
 };
 
-
-
-
 router.use(passport.initialize());
 router.use(passport.session());
-

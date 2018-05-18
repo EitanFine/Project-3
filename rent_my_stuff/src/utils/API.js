@@ -12,6 +12,9 @@ export default {
   getOneItem: id => {
     return axios.get(`/testingRoutes/oneitem/${id}`);
   },
+  destroyOneItem: id => {
+    return axios.delete(`/testingRoutes/myitems/${id}`);
+  },
   signUp: newUser => {
     return axios.post("/auth/signup", newUser);
   },
