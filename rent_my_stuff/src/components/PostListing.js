@@ -25,7 +25,6 @@ class PostListing extends Component {
     loadCategories = () => {
         API.findAllCategories()
             .then(res => {
-                console.log("PostListing GetCategories  res: ", res.data);
                 this.setState({
                     categories: res.data
                 });
@@ -43,12 +42,12 @@ class PostListing extends Component {
     };
 
     handleRBchange = changeEvent => {
-        //console.log("handleRBchange: ", changeEvent.target.value);
         let itemCategorytype = changeEvent.target.value;
         this.setState({
             itemCategorytype
         });
-        console.log('rb change show state: ', this.state)
+        this.clearForm();
+
     };
 
     handleSelectedChange = e => {
@@ -70,10 +69,21 @@ class PostListing extends Component {
                 itemURL: this.state.itemURL,
                 itemPrice: this.state.itemPrice
             })
-                .then(res => this.loadCategories())
+                .then(res => {  this.loadCategories();
+                                this.clearForm() } )
                 .catch(err => console.log(err));
         }
     };
+
+    clearForm(){
+       this.setState({
+        itemDescription: "",
+        itemCatId: "",
+        itemName: "",
+        itemURL: "",
+        itemPrice: ""
+       })
+    }
 
     validateForm() {
         let isButtonDisabled = false;
