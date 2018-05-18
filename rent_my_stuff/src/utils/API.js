@@ -13,6 +13,17 @@ export default {
     getOneItem: (id) =>{
         return axios.get(`/testingRoutes/oneitem/${id}`)
     },
+    signUp: (newUser) => {
+        return axios.post("/auth/signup", newUser)
+      },
+    
+      login: (user) => {
+        return axios.post("/auth/login", user)
+      },
+    
+      logout: () => {
+        return axios.get("/auth/logout");
+      }
 
     // getAllUsers: () => {
     //     return axios.get("/testingRoutes/users");

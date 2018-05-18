@@ -16,7 +16,6 @@ class Login extends Component{
   state = {
     email: "",
     password: "",
-    redirectTo: ""
   }
 
   handleInputChange = event => {
@@ -26,7 +25,7 @@ class Login extends Component{
 
   handleLogin = event => {
     event.preventDefault();
-    API.login({ email: this.state.email, password: this.state.password})
+    API.login({email: this.state.email, password: this.state.password})
     .then((res) => {
         console.log("RES", res);
         this.props.setUser(res.data)
@@ -42,6 +41,7 @@ class Login extends Component{
     }
     return (
       <Wrapper>
+        <form onSubmit={this.handleLogin}>
         <Row>
           <Col>
             <h1 style={styles.header}>Login</h1>
@@ -52,7 +52,7 @@ class Login extends Component{
             <label>Email: </label>
           </Col>
           <Col span={3}>
-            <input name="email" type="text" value={this.state.email} onChange={this.handleInputChange} />
+            <input name="email" required type="text" value={this.state.email} onChange={this.handleInputChange} />
           </Col>
         </Row>
         <Row>
@@ -60,14 +60,15 @@ class Login extends Component{
             <label>Password: </label>
           </Col>
           <Col span={4}>
-            <input name="password" type="password" value={this.state.password} onChange={this.handleInputChange} />
+            <input name="password" required type="password" value={this.state.password} onChange={this.handleInputChange} />
           </Col>
         </Row>
         <Row>
           <Col span={2} offset={3}>
-            <button onClick={this.handleLogin}>Submit</button>
+            <input type="submit" value="Log In"/>
           </Col>
         </Row>
+        </form>
       </Wrapper>
     );
   }

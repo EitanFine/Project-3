@@ -7,7 +7,7 @@ import SingleItem from "./components/SingleItem";
 // import Stuff from "./components/Stuff";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
-import SignUp from "./components/SignupForm";
+import {SignupForm, Login} from "./components";
 
 
 
@@ -63,7 +63,8 @@ class App extends Component {
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/login" component={Login} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
