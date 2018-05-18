@@ -26,5 +26,9 @@ router.get("/postlisting",
   stuff_controllers.findAllCategories
 );
 
+router.get("/myitems",
+  stuff_controllers.allItemsByUser
+);
+
 
 module.exports = router;
