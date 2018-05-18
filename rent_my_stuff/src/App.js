@@ -11,6 +11,7 @@ import SignUp from "./components/SignupForm";
 import PostListing from './components/PostListing';
 import { SignupForm, Login, Navbar } from "./components";
 import MyItems from './components/UserSpecific/MyItems';
+import HowItWorks from './components/HowItWorks.js';
 
 
 
@@ -78,6 +79,7 @@ class App extends Component {
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
+            <Route exact path="/howitworks" component={HowItWorks} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
             <Route exact path="/postlisting" component={PostListing} />
