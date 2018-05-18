@@ -82,12 +82,8 @@ class App extends Component {
             <Route exact path="/howitworks" component={HowItWorks} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
-<<<<<<< HEAD
             <Route exact path="/postlisting" component={PostListing} />
             <Route exact path="/myitems" component={MyItems} />
-=======
-            {/* <Route exact path="/postlisting" component={PostListing} /> */}
->>>>>>> alex
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
