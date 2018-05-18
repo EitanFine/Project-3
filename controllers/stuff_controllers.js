@@ -7,15 +7,15 @@ var db = require("../models");
 var Sequelize = require("sequelize");
 
 module.exports = {
-  findAllItems: function (req, res) {
+  findAllItems: function(req, res) {
     console.log("findAll");
-    db.Item.findAll({}).then(function (results) {
+    db.Item.findAll({}).then(function(results) {
       res.json(results);
     });
   },
 
-  addItem: function (req, res) {
-    db.Item.create(req.body).then(function (result) {
+  addItem: function(req, res) {
+    db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
   },
@@ -38,36 +38,42 @@ module.exports = {
       where: {
         id: req.params.id
       }
-    }).then(function (result) {
-      console.log("resut: ", result)
+    }).then(function(result) {
+      console.log("resut: ", result);
 
       db.User.findOne({
         where: {
           id: result.dataValues.itemUserId
         }
       })
-      .then(function(results) {
-        console.log({itemInfo:result, userInfo: results})
-        console.log("RESULTS: ",results)
-  
-        res.json({itemInfo:result, userInfo: results});    
-      })
-      .catch( (err) => {
-        console.log(err)
-      })
-      
-    })
-    
+        .then(function(results) {
+          console.log({ itemInfo: result, userInfo: results });
+          console.log("RESULTS: ", results);
+
+          res.json({ itemInfo: result, userInfo: results });
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    });
   },
 
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
+  findAllCategories: function(req, res) {
+    db.Category.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  },
+
+  allItemsByUser: function(req, res) {
+    db.Item.findAll({
+      where: {
+        itemUserId: 1
+        //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
+      }
+    }).then(function(results) {
       res.json(results);
     });
   }
-
-   
-
 };
 
 // let anotherObject;
@@ -393,5 +399,3 @@ router.use(passport.session());
 
 // module.exports = router;
 //require this back in server.js
-
-
