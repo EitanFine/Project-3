@@ -40,7 +40,10 @@ class Category extends Component {
         if (this.state.categories) {
             CategoryItems = this.state.categories.map(category => {
                 return (
-                    <CategoryItem Category={category} categoryName={category.categoryName} key={category.id} id={category.id} />
+                    <CategoryItem Category={category} 
+                    categoryName={category.categoryName} 
+                    categoryType={category.categoryType} 
+                    key={category.id} id={category.id} />
                 )
 
             });

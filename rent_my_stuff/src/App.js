@@ -8,6 +8,8 @@ import SingleItem from "./components/SingleItem";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
 import { SignupForm, Login } from "./components";
+import SignUp from "./components/SignupForm";
+import PostListing from './components/PostListing';
 
 
 
@@ -77,6 +79,8 @@ class App extends Component {
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
 
+            <Route exact path="/signup" component={SignUp} />
+            <Route exact path="/postlisting" component={PostListing} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>

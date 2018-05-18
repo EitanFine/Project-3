@@ -58,8 +58,15 @@ module.exports = {
       
     })
     
+  },
+
+  findAllCategories: function (req, res) {
+    db.Category.findAll({}).then(function (results) {
+      res.json(results);
+    });
   }
- 
+
+   
 
 };
 

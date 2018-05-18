@@ -18,10 +18,10 @@ module.exports = function (sequelize, DataTypes) {
             allowNull: false
         },
 
-        // itemCategorytype: {
-        //     type: DataTypes.STRING,
-        //     allowNull: false
-        // },
+        itemCategorytype: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
         //Categories Id Foreign Key
         itemCatId: {
             type: DataTypes.INTEGER,

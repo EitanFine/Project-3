@@ -1,11 +1,7 @@
 import axios from "axios";
 
 export default {
-
-    // findAllCategories: () => {
-    //     return axios.get("/testingRoutes/category");        
-    // } ,
-
+   
     getStuff: () => {
         return axios.get("/testingRoutes");
     },
@@ -27,6 +23,15 @@ export default {
       logout: () => {
         return axios.get("/auth/logout");
       }
+
+
+    findAllCategories: () => {
+        return axios.get("/testingRoutes/category");        
+    } ,
+
+    addItem: (id) =>{
+        return axios.post("/testingRoutes/additem")
+    },
 
     // getAllUsers: () => {
     //     return axios.get("/testingRoutes/users");
