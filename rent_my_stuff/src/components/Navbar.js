@@ -17,7 +17,7 @@ const Navbar = ({loggedIn, logout}) => {
             <Link className="nav-item nav-link" to="/About">About</Link>
             </li>
           <li className="nav-item">
-            <Link className="nav-item nav-link" to="/howItWorks">How It Works</Link>
+            <Link className="nav-item nav-link" to="/HowItWorks">How It Works</Link>
             </li>
           {loggedIn ? 
             <li className="nav-item">
