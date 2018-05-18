@@ -10,10 +10,10 @@ class SingleItem extends Component {
         }
     }
     componentDidMount() {
-        console.log("test: ", this.props.id)
+        //console.log("test: ", this.props.id)
         API.getOneItem(this.props.id.id)
             .then(res => {
-                console.log("item", res.data);
+                //console.log("item", res.data);
                 this.setState({
                     item: res.data
                 });
@@ -24,7 +24,7 @@ class SingleItem extends Component {
     }
     render() {
         const { item } = this.state;
-        console.log(this.state.item.itemInfo? this.state.item.itemInfo.itemName: "", " sofnoid")
+        //console.log(this.state.item.itemInfo? this.state.item.itemInfo.itemName: "", " sofnoid")
         return (
             <div>
                 <div className='container'>

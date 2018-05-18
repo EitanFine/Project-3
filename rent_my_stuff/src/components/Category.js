@@ -23,7 +23,7 @@ class Category extends Component {
     loadCategories = () => {
         API.findAllCategories()
             .then(res => {
-                console.log(" GetCategories  res: ", res);
+                //console.log(" GetCategories  res: ", res);
                 this.setState({
                     categories: res.data
                 });

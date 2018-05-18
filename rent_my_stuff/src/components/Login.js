@@ -28,7 +28,7 @@ class Login extends Component{
     event.preventDefault();
     API.login({email: this.state.email, password: this.state.password})
     .then((res) => {
-        console.log("RES", res);
+        //console.log("login RES.data", res.data);
         this.props.setUser(res.data)
         this.setState({
           redirectTo: "/"
