@@ -28,8 +28,9 @@ export default {
     return axios.get("/auth/logout");
   },
 
-  addItem: id => {
-    return axios.post("/testingRoutes/additem");
+  addItem: item => {
+    console.log(" api. additem " , item);
+    return axios.post("/testingRoutes/additem" ,item);
   },
 
   getAllUsers: () => {
