@@ -4,14 +4,14 @@ import "./About.css"
 class About extends React.Component {
     render() {
         return (
-            <div className="container">
+            <div className="container about">
                 <div className="panel panel-primary">
                     <div className="panel-heading">
 
                     </div>
                     <div className="panel-body">
                         <div className="row text-center">
-                            <img src="http://eequalso2.com/wp-content/uploads/2017/11/meet_the_team_header.jpg" alt="meet the team header" />
+                            <img id="meettheteam" src="http://eequalso2.com/wp-content/uploads/2017/11/meet_the_team_header.jpg" alt="meet the team header" />
                             <br />
                             <br />
                         </div>
