@@ -48,6 +48,7 @@ module.exports = {
       })
       .then(function(results) {
         console.log({itemInfo:result, userInfo: results})
+        console.log("RESULTS: ",results)
   
         res.json({itemInfo:result, userInfo: results});    
       })

@@ -2,9 +2,9 @@ import axios from "axios";
 
 export default {
 
-    findAllCategories: () => {
-        return axios.get("/testingRoutes/category");        
-    } ,
+    // findAllCategories: () => {
+    //     return axios.get("/testingRoutes/category");        
+    // } ,
 
     getStuff: () => {
         return axios.get("/testingRoutes");
@@ -14,7 +14,7 @@ export default {
         return axios.get(`/testingRoutes/oneitem/${id}`)
     },
 
-    getAllUsers: () => {
-        return axios.get("/testingRoutes/users");
-    }
+    // getAllUsers: () => {
+    //     return axios.get("/testingRoutes/users");
+    // }
 }

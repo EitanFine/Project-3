@@ -6,9 +6,9 @@ router.get("/",
   stuff_controllers.findAllItems
 );
 
-router.get("/users",
-  stuff_controllers.findAllUsers
-);
+// router.get("/users",
+//   stuff_controllers.findAllUsers
+// );
 
 router.post("/",
   stuff_controllers.addItem
@@ -18,7 +18,7 @@ router.get("/oneitem/:id",
   stuff_controllers.findOneItem
 );
 
-router.get("/category",
-  stuff_controllers.findAllCategories
-);
+// router.get("/category",
+//   stuff_controllers.findAllCategories
+// );
 module.exports = router;

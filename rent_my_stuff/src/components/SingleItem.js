@@ -46,7 +46,8 @@ class SingleItem extends Component {
                                         </div>
                                         <div className='col-sm-6 text-left'>
                                         {item.userInfo?<h4><b>Contact:</b>  {item.userInfo.name}.</h4>:""}
-                                        {item.userInfo?<h4><b>Address:</b>  {item.userInfo.streetAddress}, {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}.</h4>:""}
+                                        {item.userInfo?<h4><b>Address:</b>  {item.userInfo.streetAddress}, 
+                                        {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}.</h4>:""}
                                         {item.userInfo?<h4><b>Email:</b>  {item.userInfo.email}.</h4>:""}
                                         </div>
                                     </div>
