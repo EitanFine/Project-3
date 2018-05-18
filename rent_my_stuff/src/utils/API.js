@@ -1,35 +1,42 @@
 import axios from "axios";
 
 export default {
+  findAllCategories: () => {
+    return axios.get("/testingRoutes/category");
+  },
 
-    // findAllCategories: () => {
-    //     return axios.get("/testingRoutes/category");        
-    // } ,
+  getStuff: () => {
+    return axios.get("/testingRoutes");
+  },
 
-    getStuff: () => {
-        return axios.get("/testingRoutes");
-    },
+  getOneItem: id => {
+    return axios.get(`/testingRoutes/oneitem/${id}`);
+  },
+  signUp: newUser => {
+    return axios.post("/auth/signup", newUser);
+  },
+  getCurrentUser: function() {
+    return axios.get("/auth/getUser");
+  },
 
-    getOneItem: (id) =>{
-        return axios.get(`/testingRoutes/oneitem/${id}`)
-    },
-    signUp: (newUser) => {
-        return axios.post("/auth/signup", newUser)
-      },
-      getCurrentUser: function(){
-        return axios.get("/auth/getUser");
-      },
-      
-      login: (user) => {
-        console.log("=========>", user)
-        return axios.post("/auth/login", user)
-      },
-    
-      logout: () => {
-        return axios.get("/auth/logout");
-      }
+  login: user => {
+    console.log("=========>", user);
+    return axios.post("/auth/login", user);
+  },
 
-    // getAllUsers: () => {
-    //     return axios.get("/testingRoutes/users");
-    // }
-}
+  logout: () => {
+    return axios.get("/auth/logout");
+  },
+
+  addItem: id => {
+    return axios.post("/testingRoutes/additem");
+  },
+
+  getAllUsers: () => {
+    return axios.get("/testingRoutes/users");
+  },
+
+  getAllByUser: id => {
+    return axios.get("/testingRoutes/myitems");
+  }
+};
