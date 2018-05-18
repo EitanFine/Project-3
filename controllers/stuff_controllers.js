@@ -14,25 +14,13 @@ module.exports = {
     });
   },
 
-<<<<<<< HEAD
-  addItem: function(req, res) {
-    console.log(" stuff controller additem ",req.body);
-    db.Item.create(req.body).then(function(result) {
-=======
   addItem: function (req, res) {
     db.Item.create(req.body).then(function (result) {
->>>>>>> inom
       res.redirect("/");
     });
   },
 
-<<<<<<< HEAD
-   
-
-  findOneItem: function(req, res) {
-=======
   findOneItem: function (req, res) {
->>>>>>> inom
     db.Item.findOne({
       where: {
         id: req.params.id
@@ -56,38 +44,9 @@ module.exports = {
         });
     });
   },
-<<<<<<< HEAD
 
   findAllCategories: function(req, res) {
     db.Category.findAll({}).then(function(results) {
-=======
-
-
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
-      res.json(results);
-    });
-  },
-
-  allItemsByUser: function (req, res) {
-    db.Item.findAll({
-      where: {
-        itemUserId: req.user.id
-        //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
-      }
-    }).then(function (results) {
-      res.json(results);
-    });
-
-  findAllCategories: function(req, res) {
-    db.Category.findAll({}).then(function(results) {
-
-  },
-  
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
-
->>>>>>> inom
       res.json(results);
     });
   },
@@ -108,5 +67,3 @@ module.exports = {
 router.use(passport.initialize());
 router.use(passport.session());
 
-// module.exports = router;
-//require this back in server.js
