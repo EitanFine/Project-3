@@ -21,19 +21,6 @@ module.exports = {
   },
 
   findOneItem: function(req, res) {
-    // db.Item.findOne({
-    //   where: {
-    //     id: req.params.id
-    //   }
-    // })
-    // .then(function (result) {
-    //   console.log("resulr, ", result.itemUserId)
-    //   db.User.findOne({
-    //     where: {
-    //       id: result.itemUserId
-    //     }
-    //   })
-    // })
     db.Item.findOne({
       where: {
         id: req.params.id
@@ -57,6 +44,7 @@ module.exports = {
         });
     });
   },
+<<<<<<< HEAD
 
   findAllCategories: function(req, res) {
     db.Category.findAll({}).then(function(results) {
@@ -341,58 +329,27 @@ module.exports = {
 
 //   });
 // });
+=======
+>>>>>>> alex
 
-// var catObj = {};
-// var catNumber;
-// router.get("/category/:category", function (req, res) {
-//   db.Category.findAll({
-//     where: {
-//       categoryName: req.params.category
-//     }
-//   })
-//     .then(function (result) {
-//       catNumber = result[0].dataValues.id;
-//     })
-//     .then(function () {
-//       db.Item.findAll({
-//         where: {
-//           itemcatId: catNumber
-//         }
-//       })
-//         .then(function (newresult) {
-//           catObj.Item = newresult;
-//         })
-//         .then(function () {
-//           db.Category.findAll({}).then(function (anotherresult) {
-//             catObj.categories = anotherresult;
-//             catObj.user = req.user ? req.user.id : null
-//             res.render("index", catObj);
-//           });
-//         });
-//     });
-// });
+  findAllCategories: function(req, res) {
+    db.Category.findAll({}).then(function(results) {
+      res.json(results);
+    });
+  },
 
-// //about page
-// router.get("/about", function(req, res) {
-//   db.Category.findAll({}).then(function(result) {
-//     anotherObject = {
-//       categories: result
-//     };
-//     anotherObject.user = req.user ? req.user.id : null;
-//     res.render("about", anotherObject);
-//   });
-// });
+  allItemsByUser: function(req, res) {
+    db.Item.findAll({
+      where: {
+        itemUserId: 1
+        //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
+      }
+    }).then(function(results) {
+      res.json(results);
+    });
+  }
+};
 
-// //howitworks page
-// router.get("/howitworks", function(req, res) {
-//   db.Category.findAll({}).then(function(result) {
-//     anotherObject = {
-//       categories: result
-//     };
-//     anotherObject.user = req.user ? req.user.id : null;
-//     res.render("howitworks", anotherObject);
-//   });
-// });
 
 router.use(passport.initialize());
 router.use(passport.session());
