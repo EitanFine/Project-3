@@ -12,7 +12,7 @@ class MyItems extends Component {
   }  
   componentDidMount() {
 //change this line so it grabs current user
-    API.getAllByUser(1)
+    API.getAllByUser()
       .then(res => {
         console.log("item", res.data);
         this.setState({

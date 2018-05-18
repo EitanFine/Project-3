@@ -67,7 +67,7 @@ module.exports = {
   allItemsByUser: function(req, res) {
     db.Item.findAll({
       where: {
-        itemUserId: 1
+        itemUserId: req.user.id
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       }
     }).then(function(results) {
