@@ -9,7 +9,7 @@ class MyItems extends Component {
     this.state = {
       stuff: []
     };
-  }
+  }  
   componentDidMount() {
 //change this line so it grabs current user
     API.getAllByUser(1)
