@@ -14,7 +14,7 @@ class MyItems extends Component {
 //change this line so it grabs current user
     API.getAllByUser()
       .then(res => {
-        console.log("item", res.data);
+        //console.log("item", res.data);
         this.setState({
           stuff: res.data
         });

@@ -9,7 +9,9 @@ var Sequelize = require("sequelize");
 module.exports = {
   findAllItems: function(req, res) {
     console.log("findAll");
-    db.Item.findAll({}).then(function(results) {
+    db.Item.findAll({
+      order: [['id', 'DESC']]
+    }).then(function(results) {
       res.json(results);
     });
   },
@@ -26,8 +28,7 @@ module.exports = {
         id: req.params.id
       }
     }).then(function(result) {
-      console.log("resut: ", result);
-
+      //console.log("resut: ", result);
       db.User.findOne({
         where: {
           id: result.dataValues.itemUserId
@@ -46,7 +47,7 @@ module.exports = {
   },
 
   findAllCategories: function(req, res) {
-    db.Category.findAll({}).then(function(results) {
+    db.Category.findAll({ }).then(function(results) {
       res.json(results);
     });
   },

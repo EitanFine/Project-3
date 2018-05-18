@@ -4,6 +4,11 @@ import API from "../utils/API";
 
 import { FormBtn, Input, TextArea } from './Form';
 
+const styles = {
+        paddingTop:'1.35%'
+}
+
+
 class PostListing extends Component {
     constructor() {
         super();
@@ -44,14 +49,14 @@ class PostListing extends Component {
     handleRBchange = changeEvent => {
         let itemCategorytype = changeEvent.target.value;
         this.setState({
-            itemCategorytype
+            itemCategorytype: changeEvent.target.value
         });
         this.clearForm();
 
     };
 
     handleSelectedChange = e => {
-        console.log(e.target.value);
+        //console.log(e.target.value);
         this.setState({
             itemCatId: e.target.value
         });
@@ -69,20 +74,22 @@ class PostListing extends Component {
                 itemURL: this.state.itemURL,
                 itemPrice: this.state.itemPrice
             })
-                .then(res => {  this.loadCategories();
-                                this.clearForm() } )
+                .then(res => {
+                    this.loadCategories();
+                    this.clearForm()
+                })
                 .catch(err => console.log(err));
         }
     };
 
-    clearForm(){
-       this.setState({
-        itemDescription: "",
-        itemCatId: "",
-        itemName: "",
-        itemURL: "",
-        itemPrice: ""
-       })
+    clearForm() {
+        this.setState({
+            itemDescription: "",
+            itemCatId: "",
+            itemName: "",
+            itemURL: "",
+            itemPrice: ""
+        })
     }
 
     validateForm() {
@@ -114,35 +121,50 @@ class PostListing extends Component {
 
                         {/* < radio butons for 'rental' or 'service' - followed with dynamic select category*/}
                         {/* make this a component - will can be used (needed)  in navbar */}
-                        <div className="radio">
-                            <label>
-                                <input type="radio" value="rental"
-                                    checked={this.state.itemCategorytype === 'rental'}
-                                    onChange={this.handleRBchange} />
-                                Rent your item
-                            </label>
-                        </div>
-                        <div className="radio">
-                            <label>
-                                <input type="radio" value="service"
-                                    checked={this.state.itemCategorytype === 'service'}
-                                    onChange={this.handleRBchange} />
-                                Offer Services
-                            </label>
+                        <div className="panel panel-default">
+                            <div className="panel-heading">
+                                <div className='row'>
+                                    <div className='col-sm-2'>
+                                        <div className="radio">
+                                            <label >
+                                                <input type="radio" value="rental"
+                                                    checked={this.state.itemCategorytype === 'rental'}
+                                                    onChange={this.handleRBchange} />
+                                                Rent your item
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-2'>
+                                        <div className="radio">
+                                            <label>
+                                                <input type="radio" value="service"
+                                                    checked={this.state.itemCategorytype === 'service'}
+                                                    onChange={this.handleRBchange} />
+                                                Offer Services
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div className='col-sm-2' style={styles}>
+                                        <select  onChange={this.handleSelectedChange} >
+                                            <option selected value="" >Please Select...</option>
+                                            {SelectOptions}
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
-                        <select onChange={this.handleSelectedChange} >
-                            {SelectOptions}
-                        </select>
+
+
                         {/* end radio button and select category */}
-
+                        <label for="itemName">List your Item or Service</label>
                         <Input
                             value={this.state.itemName}
                             onChange={this.handleInputChange}
                             name="itemName"
                             placeholder="List Item or Service (required)"
                         />
-
+                        <label for="itemDescription">Description of Item or Service</label>
                         <TextArea
                             value={this.state.itemDescription}
                             onChange={this.handleInputChange}
@@ -150,16 +172,18 @@ class PostListing extends Component {
                             placeholder="Description (required)"
                         />
 
+                        <label for="itemURL">Optional Image URL</label>
                         <Input
                             value={this.state.itemURL}
                             onChange={this.handleInputChange}
                             name="itemURL"
                             placeholder="Insert Image URL (optional)"
                         />
-
+                        <label for="itemPrice">Price </label>
                         <Input
                             value={this.state.itemPrice}
                             onChange={this.handleInputChange}
+                            type="number"
                             name="itemPrice"
                             placeholder="Price (required)"
                         />

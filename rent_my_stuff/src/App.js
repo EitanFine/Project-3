@@ -29,7 +29,7 @@ class App extends Component {
   componentDidMount() {
     API.getStuff()
       .then(res => {
-        console.log("STUFF", res);
+        //console.log("STUFF", res);
         this.setState({
           stuff: res.data,
         });
@@ -45,7 +45,7 @@ class App extends Component {
 
 
   setUser = (user) => {
-    console.log("USER", user);
+    //console.log("USER", user);
     this.setState({
       user,
       loggedIn: true
