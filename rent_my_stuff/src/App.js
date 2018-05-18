@@ -7,9 +7,13 @@ import SingleItem from "./components/SingleItem";
 // import Stuff from "./components/Stuff";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
+<<<<<<< HEAD
 import { SignupForm, Login } from "./components";
 import SignUp from "./components/SignupForm";
 import PostListing from './components/PostListing';
+=======
+import { SignupForm, Login, Navbar } from "./components";
+>>>>>>> alex
 
 
 
@@ -72,6 +76,7 @@ class App extends Component {
         <div>
           {/* <Nav /> */}
           <Switch>
+            {/* <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} /> */}
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />

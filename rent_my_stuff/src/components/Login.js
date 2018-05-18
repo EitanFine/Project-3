@@ -33,7 +33,8 @@ class Login extends Component{
         this.setState({
           redirectTo: "/"
         });
-      });
+      })
+      .catch(err => console.log(err))
   }
 
   render(){

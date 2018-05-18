@@ -22,6 +22,7 @@ export default {
       },
       
       login: (user) => {
+        console.log("=========>", user)
         return axios.post("/auth/login", user)
       },
     
