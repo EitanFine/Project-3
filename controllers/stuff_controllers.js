@@ -15,10 +15,13 @@ module.exports = {
   },
 
   addItem: function(req, res) {
+    console.log(" stuff controller additem ",req.body);
     db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
   },
+
+   
 
   findOneItem: function(req, res) {
     db.Item.findOne({

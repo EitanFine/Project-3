@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const stuff_controllers = require("../controllers/stuff_controllers");
+const db = require("../models");
 
 router.get("/",
   stuff_controllers.findAllItems
@@ -25,6 +26,20 @@ router.get("/category",
 router.get("/postlisting",
   stuff_controllers.findAllCategories
 );
+
+// router.post("/addItem",
+//  console.log (" testing routes additem" ,"");
+//   stuff_controllers.addItem
+// );
+
+router.post("/addItem", (req, res) => {
+  console.log (" testing routes additem " , req.body);
+  db.Item.create(req.body)
+    .then(results => res.status(200).json("/"))
+    .catch(err => console.log( 'testing route err ' , err));
+});
+
+
 
 router.get("/myitems",
   stuff_controllers.allItemsByUser
