@@ -103,7 +103,7 @@ class SignupForm extends Component {
         </Row>
         <Row>
           <Col span={2} offset={3}>
-            <label>state: </label>
+            <label>State: </label>
           </Col>
           <Col span={3}>
             <input name="state" type="text" value={this.state.state} onChange={this.handleInputChange} />
@@ -111,7 +111,7 @@ class SignupForm extends Component {
         </Row>
         <Row>
           <Col span={2} offset={3}>
-            <label>zipcode: </label>
+            <label>Zip Code: </label>
           </Col>
           <Col span={3}>
             <input name="zipcode" type="text" value={this.state.zipcode} onChange={this.handleInputChange} />
