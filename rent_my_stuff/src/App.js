@@ -72,18 +72,22 @@ class App extends Component {
       <Router>
         <div>
           {/* <Nav /> */}
+          <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
           <Switch>
-            {/* <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} /> */}
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
+<<<<<<< HEAD
 
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/postlisting" component={PostListing} />
             <Route exact path="/myitems" component={MyItems} />
+=======
+            {/* <Route exact path="/postlisting" component={PostListing} /> */}
+>>>>>>> alex
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
