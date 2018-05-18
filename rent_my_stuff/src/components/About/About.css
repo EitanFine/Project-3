@@ -1,9 +1,13 @@
-/* * {
+.about {
     text-align: center;
-} */
+}
 
 img.ah {
     height: 250px;
     width: 250px;
     border-radius: 50%;
+}
+
+#meettheteam {
+    margin: auto;
 }
