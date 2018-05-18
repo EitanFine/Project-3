@@ -15,10 +15,13 @@ module.exports = {
   },
 
   addItem: function(req, res) {
+    console.log(" stuff controller additem ",req.body);
     db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
   },
+
+   
 
   findOneItem: function(req, res) {
     // db.Item.findOne({
@@ -67,7 +70,7 @@ module.exports = {
   allItemsByUser: function(req, res) {
     db.Item.findAll({
       where: {
-        itemUserId: 1
+        itemUserId: req.user.id
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       }
     }).then(function(results) {
