@@ -16,7 +16,10 @@ export default {
     signUp: (newUser) => {
         return axios.post("/auth/signup", newUser)
       },
-    
+      getCurrentUser: function(){
+        return axios.get("/auth/getUser");
+      },
+      
       login: (user) => {
         return axios.post("/auth/login", user)
       },

@@ -14,6 +14,7 @@ const styles = {
 
 class Login extends Component{ 
   state = {
+    redirectTo: "",
     email: "",
     password: "",
   }

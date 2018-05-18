@@ -7,7 +7,7 @@ import SingleItem from "./components/SingleItem";
 // import Stuff from "./components/Stuff";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
-import {SignupForm, Login} from "./components";
+import { SignupForm, Login } from "./components";
 
 
 
@@ -15,7 +15,11 @@ class App extends Component {
 
   state = {
     stuff: [],
-    id: ""
+    id: "",
+    loggedIn: false,
+    user: null,
+    email: "",
+    password: "",
   }
 
   componentDidMount() {
@@ -23,11 +27,18 @@ class App extends Component {
       .then(res => {
         console.log("STUFF", res);
         this.setState({
-          stuff: res.data
+          stuff: res.data,
         });
       })
-
+    API.getCurrentUser()
+      .then(res => {
+        this.setState({
+          user: res.data.user,
+          loggedIn: res.data.user || false
+        })
+      })
   }
+
 
   setUser = (user) => {
     console.log("USER", user);
@@ -64,7 +75,8 @@ class App extends Component {
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
+
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
