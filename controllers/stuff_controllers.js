@@ -14,8 +14,8 @@ module.exports = {
     });
   },
 
-  addItem: function (req, res) {
-    db.Item.create(req.body).then(function (result) {
+  addItem: function(req, res) {
+    db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
   },
@@ -62,6 +62,8 @@ module.exports = {
     });
   }
 };
+
+
 
 
 router.use(passport.initialize());
