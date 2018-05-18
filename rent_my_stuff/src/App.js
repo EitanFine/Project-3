@@ -72,7 +72,7 @@ class App extends Component {
       <Router>
         <div>
           {/* <Nav /> */}
-          <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
+          <Navbar loggedIn={this.state.loggedIn} logout={this.logout} />
           <Switch>
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
@@ -80,10 +80,7 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
-
-            <Route exact path="/signup" component={SignUp} />
-            <Route exact path="/postlisting" component={PostListing} />
-            <Route exact path="/myitems" component={MyItems} />
+            {/* <Route exact path="/postlisting" component={PostListing} /> */}
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
