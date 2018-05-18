@@ -11,7 +11,7 @@ class About extends React.Component {
                     </div>
                     <div className="panel-body">
                         <div className="row text-center">
-                            <img src="http://eequalso2.com/wp-content/uploads/2017/11/meet_the_team_header.jpg" />
+                            <img src="http://eequalso2.com/wp-content/uploads/2017/11/meet_the_team_header.jpg" alt="meet the team header" />
                             <br />
                             <br />
                         </div>
@@ -23,13 +23,13 @@ class About extends React.Component {
                                     <h3 className="team">Alex Baranov</h3>
                                     <p>Full Stack Web Developer</p>
                                     <p>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-linkedin"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-stack-overflow"></i>
                                         </a>
                                     </p>
@@ -43,13 +43,13 @@ class About extends React.Component {
                                     <h3 className="team">Inom Ibragimov</h3>
                                     <p>Full Stack Web Developer</p>
                                     <p>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-linkedin"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-stack-overflow"></i>
                                         </a>
                                     </p>
@@ -63,13 +63,13 @@ class About extends React.Component {
                                     <h3 className="team">Eitan Fine</h3>
                                     <p>Full Stack Web Developer</p>
                                     <p>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-linkedin"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-stack-overflow"></i>
                                         </a>
                                     </p>
@@ -86,13 +86,13 @@ class About extends React.Component {
                                     <h3 className="team">John Palumbo</h3>
                                     <p>Full Stack Web Developer</p>
                                     <p>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-linkedin"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-stack-overflow"></i>
                                         </a>
                                     </p>
@@ -106,13 +106,13 @@ class About extends React.Component {
                                     <h3 className="team">Lan Ejiri</h3>
                                     <p>Full Stack Web Developer</p>
                                     <p>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-github"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-linkedin"></i>
                                         </a>
-                                        <a href="#">
+                                        <a href="https://www.google.com/">
                                             <i className="fab fa-stack-overflow"></i>
                                         </a>
                                     </p>

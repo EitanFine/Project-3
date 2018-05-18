@@ -10,6 +10,7 @@ import About from "./components/About/About.js";
 import SignUp from "./components/SignupForm";
 import PostListing from './components/PostListing';
 import { SignupForm, Login, Navbar } from "./components";
+import MyItems from './components/UserSpecific/MyItems';
 
 
 
@@ -82,6 +83,7 @@ class App extends Component {
 
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/postlisting" component={PostListing} />
+            <Route exact path="/myitems" component={MyItems} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>

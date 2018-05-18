@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import Moment from "moment";
+//import Moment from "moment";
 
 import { FormBtn, Input, TextArea } from './Form';
 
@@ -14,7 +14,7 @@ class PostListing extends Component {
             itemCategorytype: "rental",  // keep rental as default value
             itemCatId: "",
             itemName: "",
-            itemDescription: "",
+           // itemDescription: "",
             itemURL: "",
             itemPrice: ""
         }
