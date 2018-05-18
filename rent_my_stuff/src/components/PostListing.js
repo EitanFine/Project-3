@@ -14,7 +14,6 @@ class PostListing extends Component {
             itemCategorytype: "rental",  // keep rental as default value
             itemCatId: "",
             itemName: "",
-           // itemDescription: "",
             itemURL: "",
             itemPrice: ""
         }
@@ -101,7 +100,7 @@ class PostListing extends Component {
         return (
             <div>
                 <div className='container'>
-                    <form>
+                    <form >
 
                         {/* < radio butons for 'rental' or 'service' - followed with dynamic select category*/}
                         {/* make this a component - will can be used (needed)  in navbar */}

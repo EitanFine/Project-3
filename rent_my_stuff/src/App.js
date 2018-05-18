@@ -80,8 +80,6 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
-
-            <Route exact path="/signup" component={SignUp} />
             <Route exact path="/postlisting" component={PostListing} />
             <Route exact path="/myitems" component={MyItems} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
