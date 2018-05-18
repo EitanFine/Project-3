@@ -1,17 +1,22 @@
 import axios from "axios";
 
 export default {
-
-    // findAllCategories: () => {
-    //     return axios.get("/testingRoutes/category");        
-    // } ,
-
+   
     getStuff: () => {
         return axios.get("/testingRoutes");
     },
 
     getOneItem: (id) =>{
         return axios.get(`/testingRoutes/oneitem/${id}`)
+    },
+
+
+    findAllCategories: () => {
+        return axios.get("/testingRoutes/category");        
+    } ,
+
+    addItem: (id) =>{
+        return axios.post("/testingRoutes/additem")
     },
 
     // getAllUsers: () => {

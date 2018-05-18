@@ -6,7 +6,7 @@ class CategoryItem
     render() {       
         return (
             <li className="Category">
-                <strong> {this.props.id} - {this.props.categoryName}</strong>                 
+                <strong> {this.props.id} - {this.props.categoryType}- {this.props.categoryName}</strong>                 
             </li>
         );
     }
