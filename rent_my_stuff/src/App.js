@@ -11,15 +11,12 @@ import SignUp from "./components/SignupForm";
 import PostListing from './components/PostListing';
 import { SignupForm, Login, Navbar } from "./components";
 import MyItems from './components/UserSpecific/MyItems';
-import HowItWorks from './components/HowItWorks.js';
 
 
 
 class App extends Component {
 
   state = {
-    stuff: [],
-    id: "",
     loggedIn: false,
     user: null,
     email: "",
@@ -36,13 +33,15 @@ class App extends Component {
       })
     API.getCurrentUser()
       .then(res => {
-        this.setState({
-          user: res.data.user,
-          loggedIn: res.data.user || false
-        })
+        this.setState({user: res.data.user, loggedIn: res.data.user || false})
       })
   }
 
+  handleLogout = () => {
+    API.logout()
+    .then(() => {this.setState({ user: null, loggedIn: false});
+    });
+  }
 
   setUser = (user) => {
     //console.log("USER", user);
@@ -52,6 +51,7 @@ class App extends Component {
     })
   }
   renderStuff = () => {
+    if (!this.state.stuff) return null;
     return this.state.stuff.map(item => {
       return <Stuff key={item.id}
         itemURL={item.itemURL}
@@ -64,6 +64,7 @@ class App extends Component {
     })
   }
 
+
   renderSingleItem = (props) => {
     return <SingleItem id={props.match.params} />
   }
@@ -73,17 +74,15 @@ class App extends Component {
       <Router>
         <div>
           {/* <Nav /> */}
-          <Navbar loggedIn={this.state.loggedIn} logout={this.logout} />
+          <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
           <Switch>
             <Route exact path="/" render={this.renderStuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
-            <Route exact path="/howitworks" component={HowItWorks} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
             <Route exact path="/postlisting" component={PostListing} />
-            <Route exact path="/myitems" component={MyItems} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>

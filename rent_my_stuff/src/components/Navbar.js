@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Navbar = ({loggedIn, logout}) => {
+const Navbar = ({ loggedIn, logout}) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link to="/">Home</Link>
@@ -21,9 +21,10 @@ const Navbar = ({loggedIn, logout}) => {
             </li>
           {loggedIn ? 
             [
-            <li className="nav-item"><Link className="nav-item nav-link" to="/MyItems">My Account</Link> </li>,
-            <li className="nav-item"><Link className="nav-item nav-link" to="/PostListing">Post Listing</Link></li>,
-            <li className="nav-item">,
+            <li className="nav-item" key={1}><Link  className="nav-item nav-link" to="/MyItems">My Account</Link> </li>,
+            <li className="nav-item" key={2}><Link  className="nav-item nav-link" to="/PostListing">
+            Post Listing</Link></li>,
+            <li className="nav-item" key={3}>
               <a className="nav-item nav-link" href="/logout" onClick={logout}>Logout</a>
             </li>
             ]

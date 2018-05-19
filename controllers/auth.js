@@ -15,10 +15,6 @@ router.post("/login", passport.authenticate("local"), (req, res) => {
   res.json({ user: req.user });
 });
 
-router.get('/testing', passport.authenticate("local"), (req, res) => {
-  res.status(200).json('it works');
-})
-
 router.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
