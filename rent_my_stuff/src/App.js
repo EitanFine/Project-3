@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
-import Moment from 'moment';
 import SingleItem from "./components/SingleItem";
 import Stuff from "./components/Stuff";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
-import SignUp from "./components/SignupForm";
 import PostListing from './components/PostListing';
+import HowItWorks from './components/HowItWorks';
 import { SignupForm, Login, Navbar } from "./components";
 import MyItems from './components/UserSpecific/MyItems';
 
@@ -81,6 +80,8 @@ class App extends Component {
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
+            <Route exact path="/howitworks" component={HowItWorks} />
+            <Route exact path="/myitems" component={MyItems} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
             <Route exact path="/postlisting" component={PostListing} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
