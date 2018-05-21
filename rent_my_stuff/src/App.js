@@ -11,8 +11,6 @@ import HowItWorks from './components/HowItWorks';
 import { SignupForm, Login, Navbar } from "./components";
 import MyItems from './components/UserSpecific/MyItems';
 
-
-
 class App extends Component {
 
   state = {
@@ -45,7 +43,10 @@ class App extends Component {
   loadItems = () =>{
     API.getStuff()
       .then(res => {
+<<<<<<< HEAD
         //console.log("STUFF", res);
+=======
+>>>>>>> inom
         this.setState({
           stuff: res.data,
         });
@@ -66,6 +67,7 @@ class App extends Component {
       loggedIn: true
     })
   }
+<<<<<<< HEAD
   // renderStuff = () => {
   //   if (!this.state.stuff) return null;
   //   return this.state.stuff.map(item => {
@@ -80,6 +82,20 @@ class App extends Component {
   //   })
   // }
 
+=======
+  renderStuff = () => {
+    return this.state.stuff.map(item => {
+      return <Stuff key={item.id}
+        itemURL={item.itemURL}
+        id={item.id}
+        itemPrice={item.itemPrice}
+        itemName={item.itemName}
+        itemDescription={item.itemDescription}
+        createdAt={item.createdAt}
+      />; 
+    })
+  }
+>>>>>>> inom
 
   renderSingleItem = (props) => {
     return <SingleItem id={props.match.params} />
