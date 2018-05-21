@@ -18,46 +18,28 @@ var geocodio = new Geocodio(config);
 
 module.exports = {
   findAllItems: function(req, res) {
-<<<<<<< HEAD
     console.log("findAll");
     db.Item.findAll({
       order: [['id', 'DESC']]
     }).then(function(results) {
-=======
-    db.Item.findAll({}).then(function(results) {
->>>>>>> inom
       res.json(results);
     });
   },
 
   addItem: function(req, res) {
-<<<<<<< HEAD
-    req.body.itemUserId = req.user.id;
-
-    console.log("ADD ITEM: ===============>", req.body);
-=======
->>>>>>> inom
     db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
   },
 
-<<<<<<< HEAD
-=======
    
 
->>>>>>> inom
   findOneItem: function(req, res) {
     db.Item.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(result) {
-<<<<<<< HEAD
-      //console.log("resut: ", result);
-=======
-
->>>>>>> inom
       db.User.findOne({
         where: {
           id: result.dataValues.itemUserId
@@ -80,22 +62,7 @@ module.exports = {
   },
 
   findAllCategories: function(req, res) {
-<<<<<<< HEAD
-    db.Category.findAll({ }).then(function(results) {
-      res.json(results);
-    });
-  },
-
-  allItemsByUser: function(req, res) {
-    db.Item.findAll({
-      where: {
-        itemUserId: req.user.id
-        //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
-      }
-    }).then(function(results) {
-=======
     db.Category.findAll({}).then(function(results) {
->>>>>>> inom
       res.json(results);
     });
   },
