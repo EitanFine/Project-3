@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import API from "../../utils/API";
 //import SingleItem from "../SingleItem";
 import Stuff from "../Stuff";
+import {Redirect} from "react-router-dom"
 
 class MyItems extends Component {
   constructor() {
@@ -27,6 +28,10 @@ class MyItems extends Component {
   }
 
   render() {
+
+    if (!this.props.loggedIn){
+      return <Redirect to="/" />;
+    }
     return this.state.stuff.map(item => {
       return (
         <div>

@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import API from "../utils/API";
+import { Redirect } from "react-router-dom"
 //import Moment from "moment";
 
 import { FormBtn, Input, TextArea } from './Form';
 
 const styles = {
-        paddingTop:'1.35%'
+    paddingTop: '1.35%'
 }
 
 
@@ -13,8 +14,9 @@ class PostListing extends Component {
     constructor() {
         super();
         this.state = {
+
             categories: [],
-            itemUserId: "1",     //using default for testing - non-null field 
+            itemUserId: "",     //using default for testing - non-null field 
             itemDescription: "",
             itemCategorytype: "rental",  // keep rental as default value
             itemCatId: "",
@@ -25,7 +27,9 @@ class PostListing extends Component {
     }
     componentDidMount() {
         this.loadCategories();
+
     }
+
 
     loadCategories = () => {
         API.findAllCategories()
@@ -37,6 +41,7 @@ class PostListing extends Component {
             .catch(err => {
                 console.log("Error in PostListing getCategories: ", err)
             });
+
     }
 
     handleInputChange = event => {
@@ -64,9 +69,9 @@ class PostListing extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        if (this.state.itemUserId && this.state.itemCatId && this.state.itemName) {
+        if (this.state.itemCatId && this.state.itemName) {
+            console.log(this.state.itemCatId)
             API.addItem({
-                itemUserId: this.state.itemUserId,
                 itemCategorytype: this.state.itemCategorytype,
                 itemCatId: this.state.itemCatId,
                 itemName: this.state.itemName,
@@ -76,6 +81,7 @@ class PostListing extends Component {
             })
                 .then(res => {
                     this.loadCategories();
+                    this.props.loadItems();
                     this.clearForm()
                 })
                 .catch(err => console.log(err));
@@ -94,7 +100,6 @@ class PostListing extends Component {
 
     validateForm() {
         let isButtonDisabled = false;
-        if (!this.state.itemUserId) return true;
         if (!this.state.itemCategorytype) return true;
         if (!this.state.itemCatId) return true;
         if (!this.state.itemName) return true;
@@ -113,8 +118,13 @@ class PostListing extends Component {
             return <option value={selopts.id} key={selopts.id}> {selopts.categoryName} </option>
         })
 
-
+        if (!this.props.loggedIn) {
+            
+                return <Redirect to="/" />;
+            
+        }
         return (
+
             <div>
                 <div className='container'>
                     <form >
@@ -145,7 +155,7 @@ class PostListing extends Component {
                                         </div>
                                     </div>
                                     <div className='col-sm-2' style={styles}>
-                                        <select  onChange={this.handleSelectedChange} >
+                                        <select onChange={this.handleSelectedChange} >
                                             <option selected value="" >Please Select...</option>
                                             {SelectOptions}
                                         </select>

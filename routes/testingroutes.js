@@ -33,8 +33,8 @@ router.get("/postlisting",
 // );
 
 router.post("/addItem", (req, res) => {
-  console.log (" testing routes additem " , req.body);
-  db.Item.create(req.body)
+  req.body.itemUserId = req.user.id
+  db.Item.create(req.body)  
     .then(results => res.status(200).json("/"))
     .catch(err => console.log( 'testing route err ' , err));
 });

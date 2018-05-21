@@ -17,6 +17,9 @@ module.exports = {
   },
 
   addItem: function(req, res) {
+    req.body.itemUserId = req.user.id;
+
+    console.log("ADD ITEM: ===============>", req.body);
     db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });

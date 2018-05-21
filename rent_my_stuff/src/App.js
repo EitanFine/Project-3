@@ -23,17 +23,21 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.loadItems();
+    API.getCurrentUser()
+      .then(res => {
+        this.setState({user: res.data.user, loggedIn: res.data.user || false})
+      })
+  }
+
+  loadItems = () =>{
     API.getStuff()
       .then(res => {
         //console.log("STUFF", res);
         this.setState({
           stuff: res.data,
         });
-      })
-    API.getCurrentUser()
-      .then(res => {
-        this.setState({user: res.data.user, loggedIn: res.data.user || false})
-      })
+      });
   }
 
   handleLogout = () => {
@@ -81,9 +85,9 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
             <Route exact path="/howitworks" component={HowItWorks} />
-            <Route exact path="/myitems" component={MyItems} />
+            <Route exact path="/myitems" render={() => <MyItems loggedIn={this.state.loggedIn} />} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
-            <Route exact path="/postlisting" component={PostListing} />
+            <Route exact path="/postlisting" render={() => <PostListing loggedIn={this.state.loggedIn} loadItems={this.loadItems} />} />
             {/* <Route exact path="/category/:id" component={Category} /> */}
             {/* <Route component={NoMatch} /> */}
           </Switch>
