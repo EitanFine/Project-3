@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from "moment";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import SingleItem from "../components/SingleItem";
 
 class Stuff extends Component {
@@ -59,9 +59,9 @@ class Stuff extends Component {
                       </h4>
                     </div>
                     <div className="col-sm-6 text-right">
-                      <a href={`/singleitem/${item.id}`}>
+                      <Link to={`/singleitem/${item.id}`}>
                         <button className="btn btn-lg">View Listing</button>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div className="row">

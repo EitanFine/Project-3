@@ -52,7 +52,7 @@ class App extends Component {
   }
 
   renderSingleItem = (props) => {
-    return <SingleItem id={props.match.params} />
+    return <SingleItem id={props.match.params.id} />
   }
 
   render() {
@@ -63,7 +63,7 @@ class App extends Component {
           <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
           <Switch>
             <Route exact path="/" component={Stuff} />
-            <Route path="/singleitem/:id" render={this.renderSingleItem} />
+            <Route path="/singleitem/:id" component={SingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />

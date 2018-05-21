@@ -30,7 +30,7 @@ class SingleItem extends Component {
 
 
     componentWillMount() {
-        API.getOneItem(this.props.id.id)
+        API.getOneItem(this.props.match.params.id)
             .then(res => {
                 this.setState({
                     item: res.data
