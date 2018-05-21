@@ -18,12 +18,12 @@ export default {
   signUp: newUser => {
     return axios.post("/auth/signup", newUser);
   },
-  getCurrentUser: function() {
+  getCurrentUser: function () {
     return axios.get("/auth/getUser");
   },
 
   login: user => {
-    console.log("=========>", user);
+
     return axios.post("/auth/login", user);
   },
 
@@ -32,8 +32,8 @@ export default {
   },
 
   addItem: item => {
-    console.log(" api. additem " , item);
-    return axios.post("/testingRoutes/additem" ,item);
+    console.log(" api. additem ", item);
+    return axios.post("/testingRoutes/additem", item);
   },
 
   getAllUsers: () => {
