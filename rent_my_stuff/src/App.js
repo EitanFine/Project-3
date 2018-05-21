@@ -52,18 +52,6 @@ class App extends Component {
       loggedIn: true
     })
   }
-  renderStuff = () => {
-    return this.state.stuff.map(item => {
-      return <Stuff key={item.id}
-        itemURL={item.itemURL}
-        id={item.id}
-        itemPrice={item.itemPrice}
-        itemName={item.itemName}
-        itemDescription={item.itemDescription}
-        createdAt={item.createdAt}
-      />; 
-    })
-  }
 
   renderSingleItem = (props) => {
     return <SingleItem id={props.match.params} />

@@ -6,72 +6,62 @@ var router = express.Router();
 var db = require("../models");
 var Sequelize = require("sequelize");
 
-var Geocodio = require('geocodio');
+var Geocodio = require("geocodio");
 
 var config = {
-    api_key: '50cad5fed331adf803989a338aee9ffaf5f04a8'
+  api_key: "50cad5fed331adf803989a338aee9ffaf5f04a8"
 };
 
 var geocodio = new Geocodio(config);
 
-
-
 module.exports = {
   findAllItems: function(req, res) {
-<<<<<<< HEAD
     console.log("findAll");
     db.Item.findAll({
-      order: [['id', 'DESC']]
+      order: [["id", "DESC"]]
     }).then(function(results) {
-=======
-    db.Item.findAll({}).then(function(results) {
->>>>>>> inom
       res.json(results);
     });
   },
 
   addItem: function(req, res) {
-<<<<<<< HEAD
     req.body.itemUserId = req.user.id;
 
     console.log("ADD ITEM: ===============>", req.body);
-=======
->>>>>>> inom
     db.Item.create(req.body).then(function(result) {
       res.redirect("/");
     });
   },
 
-<<<<<<< HEAD
-=======
-   
-
->>>>>>> inom
   findOneItem: function(req, res) {
     db.Item.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(result) {
-<<<<<<< HEAD
-      //console.log("resut: ", result);
-=======
-
->>>>>>> inom
       db.User.findOne({
         where: {
           id: result.dataValues.itemUserId
         }
       })
         .then(function(results) {
-          var address = results.streetAddress + " " + results.city + " " + results.state + " " + results.zipcode;
-          console.log(address)
-          geocodio.get('geocode', {q: address}, function (err, response){
+          var address =
+            results.streetAddress +
+            " " +
+            results.city +
+            " " +
+            results.state +
+            " " +
+            results.zipcode;
+          console.log(address);
+          geocodio.get("geocode", { q: address }, function(err, response) {
             if (err) throw err;
-            res.json({ itemInfo: result, userInfo: results, lat: JSON.parse(response) });
-
-        });
-
+            res.json({
+              itemInfo: result,
+              userInfo: results,
+              lat: JSON.parse(response)
+            });
+          });
         })
         .catch(err => {
           console.log(err);
@@ -80,8 +70,7 @@ module.exports = {
   },
 
   findAllCategories: function(req, res) {
-<<<<<<< HEAD
-    db.Category.findAll({ }).then(function(results) {
+    db.Category.findAll({}).then(function(results) {
       res.json(results);
     });
   },
@@ -93,9 +82,6 @@ module.exports = {
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       }
     }).then(function(results) {
-=======
-    db.Category.findAll({}).then(function(results) {
->>>>>>> inom
       res.json(results);
     });
   },
@@ -105,9 +91,11 @@ module.exports = {
       where: {
         id: req.params.id
       }
-    }).then(function(result){
-      res.status(200).json(result);
-    }).catch(err => res.status(500).json(err));
+    })
+      .then(function(result) {
+        res.status(200).json(result);
+      })
+      .catch(err => res.status(500).json(err));
   }
 };
 
