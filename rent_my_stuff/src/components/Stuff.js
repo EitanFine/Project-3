@@ -59,9 +59,9 @@ class Stuff extends Component {
                       </h4>
                     </div>
                     <div className="col-sm-6 text-right">
-                      <Link to={`/singleitem/${item.id}`}>
+                      <a href={`/singleitem/${item.id}`}>
                         <button className="btn btn-lg">View Listing</button>
-                      </Link>
+                      </a>
                     </div>
                   </div>
                   <div className="row">
