@@ -69,8 +69,8 @@ module.exports = {
         id: req.params.id
       }
     }).then(function(result){
-      console.log("=================================",result)
-    })
+      res.status(200).json(result);
+    }).catch(err => res.status(500).json(err));
   }
 };
 

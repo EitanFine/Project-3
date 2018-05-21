@@ -13,7 +13,7 @@ export default {
     return axios.get(`/testingRoutes/oneitem/${id}`);
   },
   destroyOneItem: id => {
-    return axios.delete(`/testingRoutes/myitems/${id}`);
+    return axios.delete(`testingRoutes/myitems/id/${id}`);
   },
   signUp: newUser => {
     return axios.post("/auth/signup", newUser);

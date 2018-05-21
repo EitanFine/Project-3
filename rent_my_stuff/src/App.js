@@ -23,13 +23,13 @@ class App extends Component {
   }
 
   componentDidMount() {
-    API.getStuff()
-      .then(res => {
-        //console.log("STUFF", res);
-        this.setState({
-          stuff: res.data,
-        });
-      })
+    // API.getStuff()
+    //   .then(res => {
+    //     //console.log("STUFF", res);
+    //     this.setState({
+    //       stuff: res.data,
+    //     });
+    //   })
     API.getCurrentUser()
       .then(res => {
         this.setState({user: res.data.user, loggedIn: res.data.user || false})
@@ -49,19 +49,19 @@ class App extends Component {
       loggedIn: true
     })
   }
-  renderStuff = () => {
-    if (!this.state.stuff) return null;
-    return this.state.stuff.map(item => {
-      return <Stuff key={item.id}
-        itemURL={item.itemURL}
-        id={item.id}
-        itemPrice={item.itemPrice}
-        itemName={item.itemName}
-        itemDescription={item.itemDescription}
-        createdAt={item.createdAt}
-      />;
-    })
-  }
+  // renderStuff = () => {
+  //   if (!this.state.stuff) return null;
+  //   return this.state.stuff.map(item => {
+  //     return <Stuff key={item.id}
+  //       itemURL={item.itemURL}
+  //       id={item.id}
+  //       itemPrice={item.itemPrice}
+  //       itemName={item.itemName}
+  //       itemDescription={item.itemDescription}
+  //       createdAt={item.createdAt}
+  //     />;
+  //   })
+  // }
 
 
   renderSingleItem = (props) => {
@@ -75,7 +75,7 @@ class App extends Component {
           {/* <Nav /> */}
           <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
           <Switch>
-            <Route exact path="/" render={this.renderStuff} />
+            <Route exact path="/" component={Stuff} />
             <Route path="/singleitem/:id" render={this.renderSingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
