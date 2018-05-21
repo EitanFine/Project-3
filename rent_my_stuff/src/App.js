@@ -21,37 +21,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    // API.getStuff()
-    //   .then(res => {
-    //     //console.log("STUFF", res);
-    //     this.setState({
-    //       stuff: res.data,
-    //     });
-    //   })
-=======
     this.loadItems();
->>>>>>> alex
     API.getCurrentUser()
       .then(res => {
         this.setState({user: res.data.user, loggedIn: res.data.user || false})
       })
-<<<<<<< HEAD
-=======
+
   }
 
   loadItems = () =>{
     API.getStuff()
       .then(res => {
-<<<<<<< HEAD
-        //console.log("STUFF", res);
-=======
->>>>>>> inom
         this.setState({
           stuff: res.data,
         });
       });
->>>>>>> alex
+
   }
 
   handleLogout = () => {
@@ -67,22 +52,6 @@ class App extends Component {
       loggedIn: true
     })
   }
-<<<<<<< HEAD
-  // renderStuff = () => {
-  //   if (!this.state.stuff) return null;
-  //   return this.state.stuff.map(item => {
-  //     return <Stuff key={item.id}
-  //       itemURL={item.itemURL}
-  //       id={item.id}
-  //       itemPrice={item.itemPrice}
-  //       itemName={item.itemName}
-  //       itemDescription={item.itemDescription}
-  //       createdAt={item.createdAt}
-  //     />;
-  //   })
-  // }
-
-=======
   renderStuff = () => {
     return this.state.stuff.map(item => {
       return <Stuff key={item.id}
@@ -95,7 +64,6 @@ class App extends Component {
       />; 
     })
   }
->>>>>>> inom
 
   renderSingleItem = (props) => {
     return <SingleItem id={props.match.params} />
