@@ -6,39 +6,37 @@ var router = express.Router();
 var db = require("../models");
 var Sequelize = require("sequelize");
 
+var Geocodio = require('geocodio');
+
+var config = {
+    api_key: '50cad5fed331adf803989a338aee9ffaf5f04a8'
+};
+
+var geocodio = new Geocodio(config);
+
+
+
 module.exports = {
   findAllItems: function(req, res) {
-    console.log("findAll");
     db.Item.findAll({}).then(function(results) {
       res.json(results);
     });
   },
 
-<<<<<<< HEAD
   addItem: function(req, res) {
-    console.log(" stuff controller additem ",req.body);
     db.Item.create(req.body).then(function(result) {
-=======
-  addItem: function (req, res) {
-    db.Item.create(req.body).then(function (result) {
->>>>>>> inom
       res.redirect("/");
     });
   },
 
-<<<<<<< HEAD
    
 
   findOneItem: function(req, res) {
-=======
-  findOneItem: function (req, res) {
->>>>>>> inom
     db.Item.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(result) {
-      console.log("resut: ", result);
 
       db.User.findOne({
         where: {
@@ -46,48 +44,23 @@ module.exports = {
         }
       })
         .then(function(results) {
-          console.log({ itemInfo: result, userInfo: results });
-          console.log("RESULTS: ", results);
+          var address = results.streetAddress + " " + results.city + " " + results.state + " " + results.zipcode;
+          console.log(address)
+          geocodio.get('geocode', {q: address}, function (err, response){
+            if (err) throw err;
+            res.json({ itemInfo: result, userInfo: results, lat: JSON.parse(response) });
 
-          res.json({ itemInfo: result, userInfo: results });
+        });
+
         })
         .catch(err => {
           console.log(err);
         });
     });
   },
-<<<<<<< HEAD
 
   findAllCategories: function(req, res) {
     db.Category.findAll({}).then(function(results) {
-=======
-
-
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
-      res.json(results);
-    });
-  },
-
-  allItemsByUser: function (req, res) {
-    db.Item.findAll({
-      where: {
-        itemUserId: req.user.id
-        //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
-      }
-    }).then(function (results) {
-      res.json(results);
-    });
-
-  findAllCategories: function(req, res) {
-    db.Category.findAll({}).then(function(results) {
-
-  },
-  
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
-
->>>>>>> inom
       res.json(results);
     });
   },

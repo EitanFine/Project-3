@@ -13,8 +13,6 @@ import { SignupForm, Login, Navbar } from "./components";
 import MyItems from './components/UserSpecific/MyItems';
 import HowItWorks from './components/HowItWorks.js';
 
-
-
 class App extends Component {
 
   state = {
@@ -29,7 +27,6 @@ class App extends Component {
   componentDidMount() {
     API.getStuff()
       .then(res => {
-        console.log("STUFF", res);
         this.setState({
           stuff: res.data,
         });
@@ -60,7 +57,7 @@ class App extends Component {
         itemName={item.itemName}
         itemDescription={item.itemDescription}
         createdAt={item.createdAt}
-      />;
+      />; 
     })
   }
 
