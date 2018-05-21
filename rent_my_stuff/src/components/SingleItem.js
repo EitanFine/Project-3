@@ -53,7 +53,7 @@ class SingleItem extends Component {
                 <div className='container'>
                     <div className="panel panel-default">
                         <div className="panel-heading text-center">
-                            {item.itemInfo ? <h4 style={{ fontSize: '20px' }}><b>For Rent:</b> {item.itemInfo.itemName}</h4> : ""}
+                            {item.itemInfo ? <h4 style={{ fontSize: '20px' }}><b>Listing: </b> {item.itemInfo.itemName}</h4> : ""}
                         </div>
                         <div className="panel-body">
                             <div className='row'>
