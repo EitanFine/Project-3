@@ -26,10 +26,6 @@ class App extends Component {
       .then(res => {
         this.setState({user: res.data.user, loggedIn: res.data.user || false})
       })
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e9594af76efefc9ed8e42e92d17079de6732dbf
   }
 
   loadItems = () =>{
@@ -39,10 +35,6 @@ class App extends Component {
           stuff: res.data,
         });
       });
-<<<<<<< HEAD
-=======
-
->>>>>>> 5e9594af76efefc9ed8e42e92d17079de6732dbf
   }
 
   handleLogout = () => {
