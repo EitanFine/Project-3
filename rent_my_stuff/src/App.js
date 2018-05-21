@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
-import SingleItem from "./components/SingleItem";
-import Stuff from "./components/Stuff";
-import Services from "./components/Services";
-import Everything from "./components/Everything";
-import Category from "./components/Category";
-import About from "./components/About/About.js";
-import PostListing from './components/PostListing';
-import HowItWorks from './components/HowItWorks';
-import { SignupForm, Login, Navbar } from "./components";
-import MyItems from './components/UserSpecific/MyItems';
+import { SignupForm, Login, Navbar, PostListing, Category, About, HowItWorks, Everything, Services, Stuff, SingleItem, MyItems } from "./components";
 
 class App extends Component {
 
