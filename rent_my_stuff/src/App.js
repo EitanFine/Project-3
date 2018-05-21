@@ -4,6 +4,8 @@ import './App.css';
 import API from "./utils/API";
 import SingleItem from "./components/SingleItem";
 import Stuff from "./components/Stuff";
+import Services from "./components/Services";
+import Everything from "./components/Everything";
 import Category from "./components/Category";
 import About from "./components/About/About.js";
 import PostListing from './components/PostListing';
@@ -62,7 +64,9 @@ class App extends Component {
           {/* <Nav /> */}
           <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
           <Switch>
-            <Route exact path="/" component={Stuff} />
+            <Route exact path="/" component={Everything} />
+            <Route exact path="/rentals" component={Stuff} />
+            <Route exact path="/services" component={Services} />
             <Route path="/singleitem/:id" component={SingleItem} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />

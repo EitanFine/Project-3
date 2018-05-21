@@ -62,7 +62,7 @@ class MyItems extends Component {
             <div className="panel panel-default">
               <div className="panel-heading">
                 <h4>
-                  <b>For Rent:</b> {item.itemName}
+                  <b>Personal Listing:</b> {item.itemName}
                 </h4>
                 <button
                   style={{ float: "right" }}

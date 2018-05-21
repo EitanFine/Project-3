@@ -31,7 +31,7 @@ class Login extends Component{
         //console.log("login RES.data", res.data);
         this.props.setUser(res.data)
         this.setState({
-          redirectTo: "/"
+          redirectTo: "/myitems"
         });
       })
       .catch(err => console.log(err))

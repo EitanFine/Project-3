@@ -11,7 +11,10 @@ const Navbar = ({ loggedIn, logout}) => {
       <div className="collapse navbar-collapse" id="navbarNav">
         <ul className="navbar-nav">
           <li className="nav-item">
-            <Link className="nav-item nav-link" to="/">Home</Link>
+            <Link className="nav-item nav-link" to="/rentals">Rentals</Link>
+            </li>
+          <li className="nav-item">
+            <Link className="nav-item nav-link" to="/services">Services</Link>
             </li>
           <li className="nav-item">
             <Link className="nav-item nav-link" to="/About">About</Link>

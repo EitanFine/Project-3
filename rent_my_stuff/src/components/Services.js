@@ -3,7 +3,7 @@ import API from "../utils/API";
 import Moment from "moment";
 import { BrowserRouter as Link } from "react-router-dom";
 
-class Stuff extends Component {
+class Services extends Component {
   state = {
     stuff: []
   };
@@ -18,14 +18,14 @@ class Stuff extends Component {
 
   renderStuff = () => {
     return this.state.stuff.map(item => {
-      if (item.itemCategorytype === "rental") {
+      if (item.itemCategorytype === "service") {
         return (
           <div>
             <div className="container">
               <div className="panel panel-default">
                 <div className="panel-heading">
                   <h4>
-                    <b>For Rent:</b> {item.itemName}
+                    <b>Service:</b> {item.itemName}
                   </h4>
                 </div>
                 <div className="panel-body">
@@ -101,4 +101,4 @@ class Stuff extends Component {
   }
 }
 
-export default Stuff;
+export default Services;
