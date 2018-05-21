@@ -26,19 +26,23 @@ class App extends Component {
       .then(res => {
         this.setState({user: res.data.user, loggedIn: res.data.user || false})
       })
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5e9594af76efefc9ed8e42e92d17079de6732dbf
   }
 
   loadItems = () =>{
     API.getStuff()
       .then(res => {
-<<<<<<< HEAD
-        //console.log("STUFF", res);
-=======
->>>>>>> inom
         this.setState({
           stuff: res.data,
         });
       });
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5e9594af76efefc9ed8e42e92d17079de6732dbf
   }
 
   handleLogout = () => {
@@ -54,35 +58,6 @@ class App extends Component {
       loggedIn: true
     })
   }
-<<<<<<< HEAD
-  // renderStuff = () => {
-  //   if (!this.state.stuff) return null;
-  //   return this.state.stuff.map(item => {
-  //     return <Stuff key={item.id}
-  //       itemURL={item.itemURL}
-  //       id={item.id}
-  //       itemPrice={item.itemPrice}
-  //       itemName={item.itemName}
-  //       itemDescription={item.itemDescription}
-  //       createdAt={item.createdAt}
-  //     />;
-  //   })
-  // }
-
-=======
-  renderStuff = () => {
-    return this.state.stuff.map(item => {
-      return <Stuff key={item.id}
-        itemURL={item.itemURL}
-        id={item.id}
-        itemPrice={item.itemPrice}
-        itemName={item.itemName}
-        itemDescription={item.itemDescription}
-        createdAt={item.createdAt}
-      />; 
-    })
-  }
->>>>>>> inom
 
   renderSingleItem = (props) => {
     return <SingleItem id={props.match.params} />

@@ -13,13 +13,6 @@ class SingleItem extends Component {
             longitude: ""
         }
     }
-<<<<<<< HEAD
-    componentDidMount() {
-        //console.log("test: ", this.props.id)
-        API.getOneItem(this.props.id.id)
-            .then(res => {
-                //console.log("item", res.data);
-=======
 
 
     onPositionReceived = (position) => {
@@ -39,7 +32,6 @@ class SingleItem extends Component {
     componentWillMount() {
         API.getOneItem(this.props.id.id)
             .then(res => {
->>>>>>> inom
                 this.setState({
                     item: res.data
                 });
@@ -50,17 +42,12 @@ class SingleItem extends Component {
             })
     }
     render() {
-<<<<<<< HEAD
-        const { item } = this.state;
-        //console.log(this.state.item.itemInfo? this.state.item.itemInfo.itemName: "", " sofnoid")
-=======
         const { item, latitude, longitude } = this.state;
         var lat = item.lat ? item.lat.results[0].location.lat : "";
         var lng = item.lat ? item.lat.results[0].location.lng : "";
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(this.onPositionReceived, this.locationNotReceived)
         }
->>>>>>> inom
         return (
             <div>
                 <div className='container'>
