@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from "moment";
 import { BrowserRouter as Link } from "react-router-dom";
-import SingleItem from "./components/SingleItem";
+import SingleItem from "../components/SingleItem";
 
 class Stuff extends Component {
   state = {
