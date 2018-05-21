@@ -59,7 +59,7 @@ class Stuff extends Component {
                       </h4>
                     </div>
                     <div className="col-sm-6 text-right">
-                      <Link to={`/singleitem/${console.log("Item ID: ", item.id)}`}>
+                      <Link to={`/singleitem/${item.id}`}>
                         <button className="btn btn-lg">View Listing</button>
                       </Link>
                     </div>
