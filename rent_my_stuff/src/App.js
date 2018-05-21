@@ -23,23 +23,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-<<<<<<< HEAD
-    // API.getStuff()
-    //   .then(res => {
-    //     //console.log("STUFF", res);
-    //     this.setState({
-    //       stuff: res.data,
-    //     });
-    //   })
-=======
     this.loadItems();
->>>>>>> alex
     API.getCurrentUser()
       .then(res => {
         this.setState({user: res.data.user, loggedIn: res.data.user || false})
       })
-<<<<<<< HEAD
-=======
   }
 
   loadItems = () =>{
@@ -50,7 +38,6 @@ class App extends Component {
           stuff: res.data,
         });
       });
->>>>>>> alex
   }
 
   handleLogout = () => {
