@@ -6,7 +6,7 @@ import Stuff from "../Stuff";
 import {Redirect} from "react-router-dom"
 
 import Moment from "moment";
-import { BrowserRouter as Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 class MyItems extends Component {
   constructor() {
