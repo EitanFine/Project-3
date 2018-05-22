@@ -19,6 +19,7 @@ router.get("/oneitem/:id",
   stuff_controllers.findOneItem
 );
 
+
 router.get("/category",
   stuff_controllers.findAllCategories
 );

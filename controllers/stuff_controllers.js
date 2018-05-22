@@ -33,6 +33,15 @@ module.exports = {
     });
   },
 
+  addComment: function(req, res){
+    req.body.commentUserId = req.user.id;
+    req.body.commentUserName = req.user.name;
+    db.Comment.create(req.body)
+      .then( result =>{
+        res.redirect('/')
+      })
+  },
+
   findOneItem: function(req, res) {
     db.Item.findOne({
       where: {
