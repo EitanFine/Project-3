@@ -10,7 +10,7 @@ var Geocodio = require("geocodio");
 
 var config = {
   api_key: "50cad5fed331adf803989a338aee9ffaf5f04a8"
-};  
+};
 
 var geocodio = new Geocodio(config);
 
