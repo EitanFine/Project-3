@@ -15,6 +15,9 @@ export default {
   destroyOneItem: id => {
     return axios.delete(`testingRoutes/myitems/id/${id}`);
   },
+  updateOneItem: body => {
+    return axios.put(`testingRoutes/myitems/id/${body.id}`, body);
+  },
   signUp: newUser => {
     return axios.post("/auth/signup", newUser);
   },
