@@ -3,6 +3,7 @@ import API from "../utils/API";
 import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
 import CommentBox from "./CommentBox";
+import { Link } from "react-router-dom";
 import DayPicker from 'react-day-picker';
 
 
@@ -32,12 +33,12 @@ class SingleItem extends Component {
 
 
     componentWillMount() {
-        API.getOneItem(this.props.match.params.id)
+        API.getOneItem(this.props.itemId)
             .then(res => {
                 this.setState({
                     item: res.data
                 });
-console.log("SINGLEiTEM: ", res)
+                console.log("SINGLEiTEM: ", res)
             })
             .catch((err) => {
                 console.log(err)
@@ -89,7 +90,13 @@ console.log("SINGLEiTEM: ", res)
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}.</h4> : ""}<br />
                                 </div>
                             </div>
-                            <CommentBox itemId={this.props.match.params.id}/>
+                            {this.props.loggedIn ?
+                                <CommentBox itemId={this.props.itemId} />
+                                :
+                                <div>
+                                    <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
+                                </div>
+                            }
                             <div className='row'>
                                 <div className='col-sm-12 text-right'>
                                     {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}

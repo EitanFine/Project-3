@@ -17,11 +17,11 @@ class App extends Component {
     this.loadItems();
     API.getCurrentUser()
       .then(res => {
-        this.setState({user: res.data.user, loggedIn: res.data.user || false})
+        this.setState({ user: res.data.user, loggedIn: res.data.user || false })
       })
   }
 
-  loadItems = () =>{
+  loadItems = () => {
     API.getStuff()
       .then(res => {
         this.setState({
@@ -32,8 +32,9 @@ class App extends Component {
 
   handleLogout = () => {
     API.logout()
-    .then(() => {this.setState({ user: null, loggedIn: false});
-    });
+      .then(() => {
+        this.setState({ user: null, loggedIn: false });
+      });
   }
 
   setUser = (user) => {
@@ -53,12 +54,12 @@ class App extends Component {
       <Router>
         <div>
           {/* <Nav /> */}
-          <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout}/>
+          <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
           <Switch>
             <Route exact path="/" component={Everything} />
             <Route exact path="/rentals" component={Stuff} />
             <Route exact path="/services" component={Services} />
-            <Route path="/singleitem/:id" component={SingleItem} />
+            <Route path="/singleitem/:id" render={(props) => <SingleItem itemId={props.match.params.id} loggedIn={this.state.loggedIn} />} />
             <Route exact path="/category" component={Category} />
             <Route exact path="/about" component={About} />
             <Route exact path="/signup" component={SignupForm} />
