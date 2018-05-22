@@ -2,7 +2,12 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
+<<<<<<< HEAD
 import CommentBox from "./CommentBox";
+=======
+import DayPicker from 'react-day-picker';
+
+>>>>>>> 7638780db34fa7856a48efd706545e78c5d95e03
 
 class SingleItem extends Component {
     constructor() {
@@ -35,7 +40,7 @@ class SingleItem extends Component {
                 this.setState({
                     item: res.data
                 });
-
+console.log("SINGLEiTEM: ", res)
             })
             .catch((err) => {
                 console.log(err)
