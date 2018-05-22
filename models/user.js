@@ -62,7 +62,10 @@ module.exports = function (sequelize, DataTypes) {
     User.hook("beforeCreate", function (user) {
         user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     });
-
+    User.hook("beforeCreate", function (user) {
+        user.creditCard = bcrypt.hashSync(user.creditCard, bcrypt.genSaltSync(10), null);
+    });
+    
 
     return User;
 };
