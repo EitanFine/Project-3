@@ -68,6 +68,7 @@ class PostListing extends Component {
     }
 
     handleFormSubmit = event => {
+        alert("            Thank You!\n     Your "+ this.state.itemName +" is Posted!")
         event.preventDefault();
         if (this.state.itemCatId && this.state.itemName) {
             console.log(this.state.itemCatId)
