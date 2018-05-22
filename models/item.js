@@ -79,7 +79,7 @@ module.exports = function (sequelize, DataTypes) {
         models.Item.hasMany(models.RentedDates, { foreignKey: 'rentItemId' });
     };
 
-    Items.associate = (models) => {
+    Item.associate = (models) => {
         models.Item.hasMany(models.Comment, { foreignKey: 'commentItemId'} )
     };
 
