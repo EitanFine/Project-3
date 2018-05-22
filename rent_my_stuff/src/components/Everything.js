@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from "moment";
 import { Link } from "react-router-dom";
-
+import './Everything.css';
+import RentImg from './rms_rent.png';
+import Service from './rms_service.png';
 class Everything extends Component {
   state = {
     stuff: []
@@ -18,13 +20,26 @@ class Everything extends Component {
 
   renderStuff = () => {
     return (
-      <div>
-        <Link to="/rentals">
-          <h1>go to rentals, put picture here</h1>
-        </Link>
-        <Link to="/services">
-          <h1>go to services, put picture here</h1>
-        </Link>
+
+      <div className='container-fluid background' >
+        <div style={{ height: '300px' }}>
+        </div>
+        <div className='row'>
+          <div className='col-sm-5 text-center imageDiv' >
+          <Link to="/services">
+              <img className='logoImg' src={Service} alt="Services" />
+            </Link>
+          </div>
+          <div className='col-sm-2'>
+          </div>
+          <div className='col-sm-5 text-centert imageDiv'>
+            <Link to="/rentals">
+              <img className='logoImg' src={RentImg} alt="Rent My Stuff" />
+            </Link>
+          </div>
+        </div>
+        <div style={{ height: '300px' }}>
+        </div>
       </div>
     );
   };
