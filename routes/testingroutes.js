@@ -15,6 +15,8 @@ router.post("/",
   stuff_controllers.addItem
 );
 
+
+
 router.get("/oneitem/:id",
   stuff_controllers.findOneItem
 );
@@ -40,6 +42,13 @@ router.post("/addItem", (req, res) => {
     .catch(err => console.log( 'testing route err ' , err));
 });
 
+router.post("/addComment",
+ stuff_controllers.addComment
+);
+
+router.get("/oneItem/id/:id", 
+  stuff_controllers.getComments
+);
 
 
 router.get("/myitems",

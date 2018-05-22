@@ -54,7 +54,7 @@ module.exports = function (sequelize, DataTypes) {
     };
 
     User.associate = models => {
-        models.User.hasMany(models.Comment, {foreingKey: "commentUserName"})
+        models.User.hasMany(models.Comment, {foreingKey: "commentUserId"})
     }
 
     // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database

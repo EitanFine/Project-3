@@ -33,13 +33,26 @@ module.exports = {
     });
   },
 
-  addComment: function(req, res){
+  addComment(req, res) {
     req.body.commentUserId = req.user.id;
     req.body.commentUserName = req.user.name;
     db.Comment.create(req.body)
       .then( result =>{
         res.redirect('/')
       })
+  },
+
+  getComments(req, res) {
+  db.Comment.find({
+    where: {
+      commentItemId: req.params.id
+    }
+    .then(res =>{
+      res.json(results)
+    })
+    .catch(err => {console.log(err)})
+  })
+
   },
 
   findOneItem: function(req, res) {
