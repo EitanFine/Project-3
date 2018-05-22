@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 const session = require("express-session");
 const passport = require("./config/passport");
 const logger = require("morgan");
+var SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 
 const {auth} = require("./controllers")
 // Sets up the Express App
@@ -14,7 +16,15 @@ const PORT = process.env.PORT || 5000;
 // Requiring our models for syncing
 const db = require("./models");
 
-app.use(session(({ secret: "keyboard cat", resave: true, saveUninitialized: true })))
+app.use(session(({ 
+  secret: "keyboard cat", 
+  resave: true, 
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: db.sequelize
+  }) 
+})));
+
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(logger('dev'))
