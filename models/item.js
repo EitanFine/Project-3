@@ -1,7 +1,7 @@
 
 var Category = require('./category');
 var User = require('./user');
-
+const Comment = require('./Comments')
 
 
 //ITEM TABLE - 
@@ -77,6 +77,10 @@ module.exports = function (sequelize, DataTypes) {
 
     Item.associate = function (models) {
         models.Item.hasMany(models.RentedDates, { foreignKey: 'rentItemId' });
+    };
+
+    Items.associate = (models) => {
+        models.Item.hasMany(models.Comment, { foreignKey: 'commentItemId'} )
     };
 
     return Item;

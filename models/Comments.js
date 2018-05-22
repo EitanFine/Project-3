@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false
         },
-        commentUser: {
+        commentUserName: {
             type: DataTypes.STRING,
             allowNull: false
         }
@@ -27,7 +27,7 @@ module.exports = (sequelize, DataTypes) => {
     Comment.associate = models => {
         models.Comment.belongsTo(models.User, {
             onDelete: "CASCADE",
-            foreignKey: "commentUser"
+            foreignKey: "commentUserName"
         }
     )
     }
