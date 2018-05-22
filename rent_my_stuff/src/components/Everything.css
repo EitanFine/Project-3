@@ -1,0 +1,13 @@
+.imageDiv .logoImg:hover {
+ transform: scale(1.1);
+ }
+ .imageDiv .logoImg:active {
+ transform: translateY(4px);
+ }
+ .background{
+    background-image: url('./rms_front_org.svg');
+    background-size: cover;
+    width: 96%;
+    height: 100%;
+    
+ }
