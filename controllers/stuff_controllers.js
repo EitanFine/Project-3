@@ -79,7 +79,7 @@ module.exports = {
   },
 
   findAllCategories: function(req, res) {
-    db.Category.findAll({}).then(function(results) {
+    db.Category.findAll({order: [["id", "DESC"]]}).then(function(results) {
       res.json(results);
     });
   },
@@ -89,7 +89,8 @@ module.exports = {
       where: {
         itemUserId: req.user.id
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
-      }
+      },
+      order: [["id", "DESC"]]
     }).then(function(results) {
       res.json(results);
     });
