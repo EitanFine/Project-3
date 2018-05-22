@@ -10,7 +10,7 @@ var Geocodio = require("geocodio");
 
 var config = {
   api_key: "50cad5fed331adf803989a338aee9ffaf5f04a8"
-};
+};  
 
 var geocodio = new Geocodio(config);
 
@@ -93,13 +93,8 @@ module.exports = {
     });
   },
 
-<<<<<<< HEAD
-  findAllCategories: function (req, res) {
-    db.Category.findAll({}).then(function (results) {
-=======
   findAllCategories: function(req, res) {
     db.Category.findAll({order: [["id", "DESC"]]}).then(function(results) {
->>>>>>> 7638780db34fa7856a48efd706545e78c5d95e03
       res.json(results);
     });
   },
@@ -109,14 +104,9 @@ module.exports = {
       where: {
         itemUserId: req.user.id
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
-<<<<<<< HEAD
-      }
-    }).then(function (results) {
-=======
       },
       order: [["id", "DESC"]]
     }).then(function(results) {
->>>>>>> 7638780db34fa7856a48efd706545e78c5d95e03
       res.json(results);
     });
   },
