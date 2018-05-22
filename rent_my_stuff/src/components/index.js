@@ -7,7 +7,7 @@ export { default as Services } from "./Services";
 export { default as Stuff } from "./Stuff";
 export { default as SingleItem} from "./SingleItem";
 export { default as MyItems} from "./UserSpecific/MyItems";
-export { default as HowItWorks } from "./HowItWorks";
+export { default as HowItWorks } from "./HowItWorks/HowItWorks";
 export { default as PostListing} from "./PostListing";
 export { default as Category} from "./Category";
 export { default as CommentBox} from "./CommentBox"

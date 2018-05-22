@@ -1,5 +1,5 @@
 import React from 'react';
-
+import "./howitworks.css";
 
 
     class HowItWorks extends React.Component {
@@ -30,7 +30,7 @@ import React from 'react';
                             </div>
                         </div>
                         <hr />
-                        <div className="row">
+                        <div className="row howitworks-textcenter">
                             <div className="col-sm-4 asd">
                                 <span className="glyphicon glyphicon-search"></span>
                                 <h4> Find the Perfect Stuff</h4>
