@@ -35,7 +35,7 @@ class SingleItem extends Component {
                 this.setState({
                     item: res.data
                 });
-
+console.log("SINGLEiTEM: ", res)
             })
             .catch((err) => {
                 console.log(err)
