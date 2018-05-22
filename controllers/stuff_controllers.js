@@ -118,6 +118,18 @@ module.exports = {
         res.status(200).json(result);
       })
       .catch(err => res.status(500).json(err));
+  },
+
+  editOneItem: function(req, res) {
+
+    db.Item.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(result) {
+      res.status(200).json(result);
+    })
+    .catch(err => res.status(500).json(err));
   }
 };
 

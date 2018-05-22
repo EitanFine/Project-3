@@ -59,5 +59,9 @@ router.delete("/myitems/id/:id",
   stuff_controllers.deleteOneItem
 );
 
+router.put("/myitems/id/:id",
+  stuff_controllers.editOneItem
+);
+
 
 module.exports = router;
