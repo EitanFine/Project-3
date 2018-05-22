@@ -63,38 +63,46 @@ module.exports = {
         id: req.params.id
       }
     }).then(function (result) {
-      db.User.findOne({
+      db.RentedDates.findAll({
         where: {
-          id: result.dataValues.itemUserId
+          rentItemId: req.params.id
         }
       })
-        .then(function (results) {
-          var address =
-            results.streetAddress +
-            " " +
-            results.city +
-            " " +
-            results.state +
-            " " +
-            results.zipcode;
-          console.log(address);
-          geocodio.get("geocode", { q: address }, function (err, response) {
-            if (err) throw err;
-            res.json({
-              itemInfo: result,
-              userInfo: results,
-              lat: JSON.parse(response)
+        .then(function (resultdates) {
+          db.User.findOne({
+            where: {
+              id: result.dataValues.itemUserId
+            }
+          })
+            .then(function (results) {
+              var address =
+                results.streetAddress +
+                " " +
+                results.city +
+                " " +
+                results.state +
+                " " +
+                results.zipcode;
+              console.log(address);
+              geocodio.get("geocode", { q: address }, function (err, response) {
+                if (err) throw err;
+                res.json({
+                  itemInfo: result,
+                  userInfo: results,
+                  renteddates: resultdates,
+                  lat: JSON.parse(response)
+                });
+              });
+            })
+            .catch(err => {
+              console.log(err);
             });
-          });
-        })
-        .catch(err => {
-          console.log(err);
         });
     });
   },
 
-  findAllCategories: function(req, res) {
-    db.Category.findAll({order: [["id", "DESC"]]}).then(function(results) {
+  findAllCategories: function (req, res) {
+    db.Category.findAll({ order: [["id", "DESC"]] }).then(function (results) {
       res.json(results);
     });
   },
@@ -106,7 +114,7 @@ module.exports = {
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       },
       order: [["id", "DESC"]]
-    }).then(function(results) {
+    }).then(function (results) {
       res.json(results);
     });
   },
