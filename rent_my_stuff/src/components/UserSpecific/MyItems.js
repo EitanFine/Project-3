@@ -66,7 +66,7 @@ class MyItems extends Component {
       return <Redirect to="/" />;
     }
     return this.state.stuff.map(item => {
-      return <Item key={`${item.itemName+item.itemPrice}`} 
+      return <Item key={`${item.itemName+item.itemPrice+item.itemDescription}`} 
                    deleteMe={this.deleteOne} item={item}
                    reloadItems={this.loadItems}
                   />
