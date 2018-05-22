@@ -4,7 +4,9 @@ import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
 import CommentBox from "./CommentBox";
 import DayPicker from 'react-day-picker';
+import "./DatePicker.css";
 
+//.DayPicker-Day--disabled
 
 class SingleItem extends Component {
     constructor() {
@@ -12,8 +14,10 @@ class SingleItem extends Component {
         this.state = {
             item: [],
             latitude: "",
-            longitude: ""
+            longitude: "",
+            renteddates: []
         }
+
     }
 
 
@@ -30,14 +34,30 @@ class SingleItem extends Component {
     }
 
 
+    createUnavailDates = (rentedDates) => {
+        //the argument rentedDates is res.data.renteddates array 
+        // splitted[1] is for month -- need to -1, (indexed from 0 to 11)
+        if (rentedDates.length < 1) return [];
+        let dayRentedDate = rentedDates.map(strdate => {
+            let splitted = strdate.rentedDate.split("-");
+            return new Date(splitted[0], splitted[1] - 1, splitted[2])
+        })
+        return dayRentedDate;
+    }
+
+    handleDayClick(day) {
+        console.log("date clicked" , day)      
+      }
 
     componentWillMount() {
         API.getOneItem(this.props.match.params.id)
             .then(res => {
+                let newDates = this.createUnavailDates(res.data.renteddates);               
+
                 this.setState({
-                    item: res.data
+                    item: res.data,
+                    renteddates: newDates
                 });
-console.log("SINGLEiTEM: ", res)
             })
             .catch((err) => {
                 console.log(err)
@@ -89,12 +109,19 @@ console.log("SINGLEiTEM: ", res)
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}.</h4> : ""}<br />
                                 </div>
                             </div>
-                            <CommentBox itemId={this.props.match.params.id}/>
+                            <CommentBox itemId={this.props.match.params.id} />
                             <div className='row'>
                                 <div className='col-sm-12 text-right'>
                                     {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
                                         className='text-right'><span>Posted On: </span>
                                         {Moment(item.itemInfo.createdAt).format('LL')}</h5> : ""}
+                                </div>
+                                <div className='row'>
+                                    <div className='col-sm-12 '>
+                                        <DayPicker 
+                                            disabledDays={this.state.renteddates}                                            
+                                            onDayClick={this.handleDayClick} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
