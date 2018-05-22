@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
-import { SignupForm, Login, Navbar, PostListing, Category, About, HowItWorks, Everything, Services, Stuff, SingleItem, MyItems } from "./components";
+import { SignupForm, Login, Navbar, PostListing, Category, About, HowItWorks, Everything, Services, Stuff, SingleItem, MyItems, CommentBox } from "./components";
 
 class App extends Component {
 

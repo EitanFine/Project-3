@@ -16,7 +16,6 @@ router.post("/",
 );
 
 
-
 router.get("/oneitem/:id",
   stuff_controllers.findOneItem
 );
@@ -42,7 +41,7 @@ router.post("/addItem", (req, res) => {
     .catch(err => console.log( 'testing route err ' , err));
 });
 
-router.post("/addComment",
+router.post("/addComment/id/:id",
  stuff_controllers.addComment
 );
 
@@ -57,10 +56,6 @@ router.get("/myitems",
 
 router.delete("/myitems/id/:id",
   stuff_controllers.deleteOneItem
-);
-
-router.put("/myitems/id/:id",
-  stuff_controllers.editOneItem
 );
 
 

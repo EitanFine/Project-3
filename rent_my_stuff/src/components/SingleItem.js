@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
-
+import CommentBox from "./CommentBox";
 
 class SingleItem extends Component {
     constructor() {
@@ -87,6 +87,7 @@ class SingleItem extends Component {
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}.</h4> : ""}<br />
                                 </div>
                             </div>
+                            <CommentBox itemId={this.props.match.params.id}/>
                             <div className='row'>
                                 <div className='col-sm-12 text-right'>
                                     {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}

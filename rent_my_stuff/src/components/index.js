@@ -10,3 +10,4 @@ export { default as MyItems} from "./UserSpecific/MyItems";
 export { default as HowItWorks } from "./HowItWorks";
 export { default as PostListing} from "./PostListing";
 export { default as Category} from "./Category";
+export { default as CommentBox} from "./CommentBox"

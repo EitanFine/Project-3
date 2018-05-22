@@ -15,58 +15,60 @@ var config = {
 var geocodio = new Geocodio(config);
 
 module.exports = {
-  findAllItems: function(req, res) {
+  findAllItems: function (req, res) {
     console.log("findAll");
     db.Item.findAll({
       order: [["id", "DESC"]]
-    }).then(function(results) {
+    }).then(function (results) {
       res.json(results);
     });
   },
 
-  addItem: function(req, res) {
+  addItem: function (req, res) {
     req.body.itemUserId = req.user.id;
-
     console.log("ADD ITEM: ===============>", req.body);
-    db.Item.create(req.body).then(function(result) {
+    db.Item.create(req.body).then(function (result) {
       res.redirect("/");
     });
   },
 
   addComment(req, res) {
     req.body.commentUserId = req.user.id;
+    req.body.commentItemId = req.params.id;
     req.body.commentUserName = req.user.name;
+    console.log("============>", req.body);
     db.Comment.create(req.body)
-      .then( result =>{
+      .then(result => {
         res.redirect('/')
       })
   },
 
   getComments(req, res) {
-  db.Comment.find({
-    where: {
-      commentItemId: req.params.id
-    }
-    .then(res =>{
-      res.json(results)
+    db.Comment.findAll({
+      where: {
+        commentItemId: req.params.id
+      }
     })
-    .catch(err => {console.log(err)})
-  })
+      .then(results => {
+        res.json(results)
+      })
+      .catch(err => { console.log(err) })
+
 
   },
 
-  findOneItem: function(req, res) {
+  findOneItem: function (req, res) {
     db.Item.findOne({
       where: {
         id: req.params.id
       }
-    }).then(function(result) {
+    }).then(function (result) {
       db.User.findOne({
         where: {
           id: result.dataValues.itemUserId
         }
       })
-        .then(function(results) {
+        .then(function (results) {
           var address =
             results.streetAddress +
             " " +
@@ -76,7 +78,7 @@ module.exports = {
             " " +
             results.zipcode;
           console.log(address);
-          geocodio.get("geocode", { q: address }, function(err, response) {
+          geocodio.get("geocode", { q: address }, function (err, response) {
             if (err) throw err;
             res.json({
               itemInfo: result,
@@ -91,45 +93,45 @@ module.exports = {
     });
   },
 
-  findAllCategories: function(req, res) {
-    db.Category.findAll({}).then(function(results) {
+  findAllCategories: function (req, res) {
+    db.Category.findAll({}).then(function (results) {
       res.json(results);
     });
   },
 
-  allItemsByUser: function(req, res) {
+  allItemsByUser: function (req, res) {
     db.Item.findAll({
       where: {
         itemUserId: req.user.id
         //CHANGE THIS SO THAT ITS CURRENT USER...is it req.user.id?
       }
-    }).then(function(results) {
+    }).then(function (results) {
       res.json(results);
     });
   },
 
-  deleteOneItem: function(req, res) {
+  deleteOneItem: function (req, res) {
     db.Item.destroy({
       where: {
         id: req.params.id
       }
     })
-      .then(function(result) {
+      .then(function (result) {
         res.status(200).json(result);
       })
       .catch(err => res.status(500).json(err));
   },
 
-  editOneItem: function(req, res) {
+  editOneItem: function (req, res) {
 
     db.Item.update(req.body, {
       where: {
         id: req.body.id
       }
-    }).then(function(result) {
+    }).then(function (result) {
       res.status(200).json(result);
     })
-    .catch(err => res.status(500).json(err));
+      .catch(err => res.status(500).json(err));
   }
 };
 
