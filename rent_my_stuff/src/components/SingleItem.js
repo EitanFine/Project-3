@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
+import DayPicker from 'react-day-picker';
 
 
 class SingleItem extends Component {
