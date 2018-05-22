@@ -13,7 +13,7 @@ class Item extends React.Component {
     itemPrice: this.props.item.itemPrice,
     itemDescription: this.props.item.itemDescription,
     createdAt: this.props.item.createdAt,
-    itemUrl: this.props.item.itemURL
+    itemURL: this.props.item.itemURL
   };
 
   handleClose = () => {
