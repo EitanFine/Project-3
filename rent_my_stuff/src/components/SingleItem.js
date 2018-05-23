@@ -3,6 +3,7 @@ import API from "../utils/API";
 import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
 import CommentBox from "./CommentBox";
+import CommentDisplay from "./CommentDisplay";
 import { Link } from "react-router-dom";
 import DayPicker from 'react-day-picker';
 
@@ -89,6 +90,9 @@ class SingleItem extends Component {
                                     {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}.</h4> : ""}<br />
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}.</h4> : ""}<br />
                                 </div>
+                            </div>
+                            <div>
+                                <CommentDisplay itemId={this.props.itemId} />
                             </div>
                             {this.props.loggedIn ?
                                 <CommentBox itemId={this.props.itemId} />

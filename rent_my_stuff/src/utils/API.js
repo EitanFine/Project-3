@@ -9,8 +9,6 @@ export default {
     return axios.get("/testingRoutes");
   },
 
-
-
   getOneItem: id => {
     return axios.get(`/testingRoutes/oneitem/${id}`);
   },
@@ -38,6 +36,9 @@ export default {
 
   addComment(comment){
     return axios.post(`/testingRoutes/addComment/id/${comment.commentItemId}`, comment);
+  },
+  getComments: id =>{
+    return axios.get(`testingRoutes/getComment/id/${id}`)
   },
   addItem: item => {
     console.log(" api. additem ", item);

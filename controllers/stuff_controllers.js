@@ -5,13 +5,10 @@ var passport = require("../config/passport");
 var router = express.Router();
 var db = require("../models");
 var Sequelize = require("sequelize");
-
 var Geocodio = require("geocodio");
-
 var config = {
   api_key: "50cad5fed331adf803989a338aee9ffaf5f04a8"
 };
-
 var geocodio = new Geocodio(config);
 
 module.exports = {
@@ -53,8 +50,6 @@ module.exports = {
         res.json(results)
       })
       .catch(err => { console.log(err) })
-
-
   },
 
   findOneItem: function (req, res) {
