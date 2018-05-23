@@ -23,9 +23,9 @@ class Services extends Component {
           <div>
             <div className="container">
               <div className="panel panel-default">
-                <div className="panel-heading">
-                  <h4>
-                    <b>Service:</b> {item.itemName}
+                <div style={{border: '#F19F4D solid 1px'}} className="panel-heading">
+                  <h4 style={{color: '#F19F4D'}}>
+                    <b style={{color: '#4484ce'}}>Service:</b> {item.itemName}
                   </h4>
                 </div>
                 <div className="panel-body">
@@ -61,7 +61,7 @@ class Services extends Component {
                         </div>
                         <div className="col-sm-6 text-right">
                           <Link to={`/singleitem/${item.id}`}>
-                            <button className="btn btn-lg">View Listing</button>
+                            <button style={{background: '#4484ce', color: 'white'}} className="btn btn-lg">View Listing</button>
                           </Link>
                         </div>
                       </div>

@@ -14,3 +14,11 @@
     padding: 7px;
     width: 100%;
 }
+
+button {
+margin-right: 5px;
+}
+
+h4 {
+    display: inline-block;
+}

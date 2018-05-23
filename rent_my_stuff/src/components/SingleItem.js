@@ -171,8 +171,13 @@ class SingleItem extends Component {
                                 :
                                 <div>
                                     <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
+<<<<<<< HEAD
                                 </div>
                             } 
+=======
+                                </div> */}
+                            
+>>>>>>> c6ccc5e59908782a9c54c7df756ac5ca751d8edb
 
 
 

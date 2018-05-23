@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import './App.css';
 import API from "./utils/API";
 import { SignupForm, Login, Navbar, PostListing, Category, About, HowItWorks, Everything, Services, Stuff, SingleItem, MyItems, CommentBox } from "./components";
-
+import Jumbotron from './components/Jumbotron'
 class App extends Component {
 
   state = {
@@ -34,7 +34,7 @@ class App extends Component {
     API.logout()
       .then(() => {
         this.setState({ user: null, loggedIn: false });
-      });
+      })
   }
 
   setUser = (user) => {
@@ -55,6 +55,7 @@ class App extends Component {
         <div>
           {/* <Nav /> */}
           <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
+          <Jumbotron/>
           <Switch>
             <Route exact path="/" component={Everything} />
             <Route exact path="/rentals" component={Stuff} />
