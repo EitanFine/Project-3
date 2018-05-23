@@ -173,8 +173,8 @@ class SignupForm extends Component {
               <button type="submit" className="btn btn-primary btn-lg">Sign Up</button>
           </div>
       </form >
-      <Link className="nav-item nav-link" to="/login">
-    <div className="hint-text">Already have an account? <a href="#">Login here</a></div>
+      <Link  style={{color: '#4484ce'}} className="nav-item nav-link" to="/login">
+    <div className="hint-text">Already have an account? <a style={{color: '#F19F4D'}}  href="#">Login here</a></div>
     </Link>
   </div>
   </body>
