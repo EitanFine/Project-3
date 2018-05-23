@@ -35,9 +35,8 @@ class CommentBox extends Component {
 
     render() {
         return (
-            <Wrapper>
                 <form onSubmit={this.handleComment}>
-                    <Row>
+                    {/* <Row>
                         <Col>
                             <h1> Leave A Comment</h1>
                         </Col>
@@ -45,18 +44,18 @@ class CommentBox extends Component {
                     <Row>
                         <Col span={2} offset={3}>
                             <label>Comment: </label>
-                        </Col>
-                        <Col span={3}>
-                            <input name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange} />
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span={2} offset={3}>
-                            <input type="submit" value="Post Comment" />
-                        </Col>
-                    </Row>
+                        </Col> */}
+                        {/* <Col span={3}> */}
+                    <textarea class="form-control" rows="5" id="comment" name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange}></textarea> 
+                            {/* <input name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange} /> */}
+                        {/* </Col>
+                    </Row> */}
+                    
+                        {/* <button type="submit" value="Post Comment"  name="comment" class="btn btn-info btn-block" value={this.state.comment} onChange={this.handleInputChange}>Submit</button> */}
+
+                            <button  type="submit" value="Post Comment" class="btn btn-info btn-block" >Submit</button>
+                    
                 </form>
-            </Wrapper>
         )
     }
 }

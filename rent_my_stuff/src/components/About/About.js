@@ -9,11 +9,7 @@ class About extends React.Component {
           <div className="panel-heading " />
           <div className="panel-body">
             <div className="row text-center">
-              <img
-                id="meettheteam"
-                src="/images/meettheteam.png"
-                alt="meet the team header"
-              />
+             <h2 id='team'>MEET THE TEAM</h2>
               <br />
               <br />
             </div>
