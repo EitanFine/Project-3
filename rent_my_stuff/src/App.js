@@ -34,7 +34,7 @@ class App extends Component {
     API.logout()
       .then(() => {
         this.setState({ user: null, loggedIn: false });
-      });
+      })
   }
 
   setUser = (user) => {
