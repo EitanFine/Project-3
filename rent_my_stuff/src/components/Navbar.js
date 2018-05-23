@@ -10,7 +10,7 @@ const Navbar = ({ loggedIn, logout }) => {
       <div class="container">
         <div class="navbar-header">
         <br/>
-          <Link   to="/"><span className='navText' class="glyphicon glyphicon-home"></span></Link>
+          <Link className='navText'  to="/"><span  class="glyphicon glyphicon-home"></span></Link>
         </div>
         <ul class="nav navbar-nav">
           <br />
