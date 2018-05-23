@@ -10,6 +10,7 @@ class CommentBox extends Component {
         commentUserName: "",
     }
 
+
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({ [name]: value })
@@ -20,6 +21,7 @@ class CommentBox extends Component {
         API.addComment(this.state)
             .then(res => {
                 this.clearForm();
+                this.props.newComments();
             })
             .catch(err => { console.log(err) })
     }
