@@ -46,13 +46,14 @@ class CommentBox extends Component {
                             <label>Comment: </label>
                         </Col> */}
                         {/* <Col span={3}> */}
+                    <textarea class="form-control" rows="5" id="comment" name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange}></textarea> 
                             {/* <input name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange} /> */}
                         {/* </Col>
                     </Row> */}
                     
-                        <button type="button submit"  name="comment" class="btn btn-info btn-block" value={this.state.comment} onChange={this.handleInputChange}>Submit</button>
+                        {/* <button type="submit" value="Post Comment"  name="comment" class="btn btn-info btn-block" value={this.state.comment} onChange={this.handleInputChange}>Submit</button> */}
 
-                            {/* <input type="submit" value="Post Comment" /> */}
+                            <button  type="submit" value="Post Comment" class="btn btn-info btn-block" >Submit</button>
                     
                 </form>
         )

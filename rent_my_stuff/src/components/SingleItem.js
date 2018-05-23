@@ -225,7 +225,7 @@ class SingleItem extends Component {
                             <div class="form-group">
                                 {/* <label for="comment">Leave a Comment:</label> */}
 
-                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                                {/* <textarea class="form-control" rows="5" id="comment"></textarea> */}
                             </div>
 
                             {this.props.loggedIn ?
