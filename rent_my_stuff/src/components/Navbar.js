@@ -25,7 +25,7 @@ const Navbar = ({ loggedIn, logout }) => {
               <br />,
               <li className='navText' key={1}><Link style={{color: 'white'}}  className="nav-item nav-link" to="/MyItems">My Account</Link></li>,
               <li className='navText' key={2}><Link style={{color: 'white'}}  className="nav-item nav-link" to="/PostListing">Post Listing</Link></li>,
-              <li className='navText' key={3}><a style={{color: 'white'}} className='navText' className="nav-item nav-link" href="/logout" onClick={logout}>Logout</a></li>
+              <li className='navText' key={3}><a style={{color: 'white'}} className='navText' className="nav-item nav-link" href="/" onClick={logout}>Logout</a></li>
             ]
             :
             [
