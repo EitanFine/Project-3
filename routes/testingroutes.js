@@ -62,5 +62,16 @@ router.put("/myitems/id/:id",
   stuff_controllers.editOneItem
 );
 
+// router.post("/addRentedDate",
+//  stuff_controllers.addRentedDate
+// );
+
+router.post("/addRentedDate", (req, res) => {
+  db.RentedDates.create(req.body)  
+    .then(results => res.status(200).json("/"))
+    .catch(err => console.log( 'testing route err ' , err));
+});
+
+
 
 module.exports = router;

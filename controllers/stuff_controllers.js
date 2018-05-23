@@ -141,7 +141,19 @@ module.exports = {
       res.status(200).json(result);
     })
       .catch(err => res.status(500).json(err));
+  },
+
+
+  addRentedDate: function (req, res) {
+    console.log(req.body);
+    db.RentedDates.create(req.body).then(function (result) {
+      res.status(200).json(result);
+    })
+      .catch(err => res.status(500).json(err));
   }
+
+
+
 };
 
 router.use(passport.initialize());

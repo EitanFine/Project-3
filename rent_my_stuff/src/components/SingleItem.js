@@ -7,7 +7,6 @@ import { Link } from "react-router-dom";
 import DayPicker from 'react-day-picker';
 import "./DatePicker.css";
 
-//.DayPicker-Day--disabled
 
 class SingleItem extends Component {
     constructor() {
@@ -16,9 +15,9 @@ class SingleItem extends Component {
             item: [],
             latitude: "",
             longitude: "",
-            renteddates: []
+            renteddates: [],
+            itemId: ""
         }
-
     }
 
 
@@ -46,24 +45,40 @@ class SingleItem extends Component {
         return dayRentedDate;
     }
 
-    handleDayClick(day) {
-        console.log("date clicked" , day)      
-      }
+    handleDayClick(day) {        
+        let itemId = document.getElementById('itemId').innerHTML ;
+        console.log("date clicked\n", day ,  itemId  ); 
+        let dateitem = {
+            rentItemId: itemId,
+            rentedDate:day
+        }
+        API.addRentedDate(dateitem)
+        .then(res => {
+           console.log("res")
+        })
+        .catch((err) => {
+            console.log(err)
+        })
+
+    }
 
     componentWillMount() {
         API.getOneItem(this.props.itemId)
             .then(res => {
-                let newDates = this.createUnavailDates(res.data.renteddates);               
-
+                console.log('res.data\n', res.data , "\nthis.props.itemId: ",this.props.itemId ) //.itemInfo)   //res.data.itemInfo.id)
+                let newDates = this.createUnavailDates(res.data.renteddates);
                 this.setState({
                     item: res.data,
-                    renteddates: newDates
+                    renteddates: newDates,
+                    itemId : this.props.itemId
                 });
             })
             .catch((err) => {
                 console.log(err)
             })
     }
+
+
     render() {
         const { item, latitude, longitude } = this.state;
         var lat = item.lat ? item.lat.results[0].location.lat : "";
@@ -98,7 +113,7 @@ class SingleItem extends Component {
                                 <div className='col-sm-6'>
                                     <h2>Description</h2><br /><br />
                                     {item.itemInfo ? <p style={{ fontSize: '14px' }}>{item.itemInfo.itemDescription}.</p> : ""}<br />
-                                    {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Listing Id:</b>  #{item.itemInfo.id}.</h4> : ""}
+                                    {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Listing Id:</b>  #<span id="itemId">{item.itemInfo.id}</span>.</h4> : ""}
                                     {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Price:</b> ${item.itemInfo.itemPrice}. <span style={{ color: '#626262', fontFamily: "'Timmana', sans-serif" }}>(per day)</span></h4> : ""}
 
                                 </div>
@@ -125,8 +140,8 @@ class SingleItem extends Component {
                                 </div>
                                 <div className='row'>
                                     <div className='col-sm-12 '>
-                                        <DayPicker 
-                                            disabledDays={this.state.renteddates}                                            
+                                        <DayPicker numberOfMonths={2}
+                                            disabledDays={this.state.renteddates}
                                             onDayClick={this.handleDayClick} />
                                     </div>
                                 </div>
