@@ -9,3 +9,24 @@ body {
 b, span{
   color: #4484ce;
 }
+
+.navbar{
+  background: #4484ce;
+}
+
+/* .navbar{
+
+  box-shadow: 0 2px 4px 0 rgba(38, 47, 42, 1.0), 0 6px 15px 0 rgba(0, 0, 0, 0.19);
+  border: 0px solid black;
+  background: linear-gradient(to bottom right, #4484ce, #1e538f);
+} */
+.navText{
+ font-size: 16px;
+}
+
+ .navText:hover {
+  transform: scale(1.1);
+  }
+  .navText:active {
+  transform: translateY(4px);
+  }
