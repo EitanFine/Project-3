@@ -38,7 +38,7 @@ export default {
     return axios.post(`/testingRoutes/addComment/id/${comment.commentItemId}`, comment);
   },
   getComments: id =>{
-    return axios.get(`testingRoutes/getComment/id/${id}`)
+    return axios.get(`/testingRoutes/getComments/id/${id}`)
   },
   addItem: item => {
     console.log(" api. additem ", item);

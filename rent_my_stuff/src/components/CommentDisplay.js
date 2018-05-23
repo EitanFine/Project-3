@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../utils/API"
+import API from "../utils/API";
 
 class CommentDisplay extends Component {
     constructor() {
@@ -11,7 +11,7 @@ class CommentDisplay extends Component {
     }
 
 componentDidMount(){
-    this.loadComments();
+    this.loadComments(this.props);
 };
 
 loadComments = () => {
@@ -28,7 +28,7 @@ loadComments = () => {
 render(){
     return(
         this.state.comments.map(comments =>{
-            console.log("=========>", comments)
+            console.log("=========>", comments);
             return(
                 <div>
                     <h3><span>{comments.commentUserName}</span></h3>
