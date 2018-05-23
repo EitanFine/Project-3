@@ -56,7 +56,8 @@ module.exports = {
     db.Item.findOne({
       where: {
         id: req.params.id
-      }
+      },
+      include: [db.Comment]
     }).then(function (result) {
       db.RentedDates.findAll({
         where: {

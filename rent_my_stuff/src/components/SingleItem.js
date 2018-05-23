@@ -18,7 +18,8 @@ class SingleItem extends Component {
             latitude: "",
             longitude: "",
             renteddates: [],
-            itemId: ""
+            itemId: "",
+            Comments: []
         }
     }
 
@@ -35,6 +36,12 @@ class SingleItem extends Component {
         console.log(positionError);
     }
 
+    reLoadComments = ()=>{
+     API.getComments(this.state.itemId)
+        .then(res=> {
+            this.setState({ Comments: res.data})
+        })   
+    }
 
     createUnavailDates = (rentedDates) => {
         //the argument rentedDates is res.data.renteddates array 
@@ -93,12 +100,14 @@ class SingleItem extends Component {
                 this.setState({
                     item: res.data,
                     renteddates: newDates,
-                    itemId: this.props.itemId
+                    itemId: this.props.itemId,
+                    Comments: res.data.itemInfo.Comments
                 });
             })
             .catch((err) => {
                 console.log(err)
             })
+        
     }
 
 
@@ -158,10 +167,10 @@ class SingleItem extends Component {
                                 </div>
                             </div>
                             <div>
-                                <CommentDisplay itemId={this.props.itemId} />
+                                <CommentDisplay comments={this.state.Comments}  />
                             </div>
                             {this.props.loggedIn ?
-                                <CommentBox itemId={this.props.itemId} />
+                                <CommentBox itemId={this.props.itemId} newComments={this.reLoadComments} />
                                 :
                                 <div>
                                     <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
