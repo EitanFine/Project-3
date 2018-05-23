@@ -156,7 +156,7 @@ class SingleItem extends Component {
                                 </div>
                             </div>
 
-                            <div className='row'>
+                            {/* <div className='row'>
                                 <div className='col-sm-12 text-right'>
                                     {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
                                         className='text-right'><span>Posted On: </span>
@@ -171,8 +171,8 @@ class SingleItem extends Component {
                                 :
                                 <div>
                                     <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
-                                </div>
-                            } */}
+                                </div> */}
+                            
 
 
 
@@ -213,6 +213,9 @@ class SingleItem extends Component {
 
                     <div class="panel panel-default">
                         <div class="panel-body">
+                        <div>
+                                <CommentDisplay comments={this.state.Comments}  />
+                            </div>
 
                             <strong>  Leave a Comment</strong>
                         </div>
@@ -224,10 +227,21 @@ class SingleItem extends Component {
 
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
-                            <button type="button" class="btn btn-info btn-block">Submit</button>
+
+                            {this.props.loggedIn ?
+                                <CommentBox itemId={this.props.itemId} newComments={this.reLoadComments} />
+                                :
+                                <div>
+                                    <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
+                                </div>
+                            } 
+
+
+
+
                         </div>
                     </div>
-                    <div class="bs-callout bs-callout-info">
+                    {/* <div class="bs-callout bs-callout-info">
                         <h4>Amazing</h4>
                         John was fast and curtious. Would definetly rent from here again!!
                         </div>
@@ -235,7 +249,7 @@ class SingleItem extends Component {
                     <div class="bs-callout bs-callout-warning">
                         <h4>Saved a ton of money</h4>
                         John was fast and curtious. Would definetly rent from here again!!
-                        </div>
+                        </div> */}
 
                 </div>
 
