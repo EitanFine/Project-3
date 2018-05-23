@@ -194,7 +194,7 @@ class SingleItem extends Component {
 
                     <div className="panel panel-default">
                         <div className="panel-body">
-                            <strong>Dates and Availability</strong>
+                            <strong>Dates and Availability:  <span style={{color: 'red'}}> (Red marked dates are unavailable)</span></strong>
                         </div>
                         <div class="panel-footer">
 
