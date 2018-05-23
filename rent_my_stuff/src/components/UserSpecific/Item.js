@@ -102,17 +102,19 @@ class Item extends React.Component {
               type="button"
               style={{ float: "right" }}
               onClick={() => this.props.deleteMe(this.state.id)}
-              className="btn btn-danger"
+              className="btn btn-primary"
             >
-              {" "}
-              Delete Listing
+              <span className="glyphicon glyphicon-trash" aria-hidden="true"></span>
+
             </button>
             <button
               type="button"
-              className="btn btn-success"
+              className="btn btn-primary"
+              style={{ float: "right" }}
               onClick={this.handleShow}
             >
-              Edit Item
+             <span className="glyphicon glyphicon-edit" aria-hidden="true"></span>
+
             </button>
 
             <br />
