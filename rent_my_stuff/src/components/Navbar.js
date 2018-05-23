@@ -4,11 +4,13 @@ import logo from './logo.svg';
 
 const Navbar = ({ loggedIn, logout }) => {
   return (
-    <nav className=".navbar-default .navbar-collapse">
-      <br />
+    <div>
+    <nav className="navbar navbar-default navbar-fixed-top">
+    
       <div class="container">
         <div class="navbar-header">
-          <Link to="/"><img style={{ height: '80px', width: '80px' }} src={logo} /></Link>
+        <br/>
+          <Link to="/"><span class="glyphicon glyphicon-home"></span></Link>
         </div>
         <ul class="nav navbar-nav">
           <br />
@@ -33,8 +35,10 @@ const Navbar = ({ loggedIn, logout }) => {
           }
         </ul>
       </div>
-      <hr />
+     
     </nav>
+   
+    </div>
   );
 }
 
