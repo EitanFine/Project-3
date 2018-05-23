@@ -207,17 +207,21 @@ class SingleItem extends Component {
                                         disabledDays={this.state.renteddates}
                                         onDayClick={this.handleDayClick} />
                                 {/* </div> */}
+                                
                             </div>
+
                         </div>
+
                     </div>
 
-                    <div class="panel panel-default">
+
+                        <div class="panel panel-default">
                         <div class="panel-body">
                         <div>
-                                <CommentDisplay comments={this.state.Comments}  />
+                                {/* <CommentDisplay comments={this.state.Comments}  /> */}
                             </div>
 
-                            <strong>  Leave a Comment</strong>
+                            <strong>  Leave a Comment Below</strong>
                         </div>
                         <div class="panel-footer">
 
@@ -241,15 +245,20 @@ class SingleItem extends Component {
 
                         </div>
                     </div>
-                    {/* <div class="bs-callout bs-callout-info">
-                        <h4>Amazing</h4>
-                        John was fast and curtious. Would definetly rent from here again!!
-                        </div>
 
-                    <div class="bs-callout bs-callout-warning">
-                        <h4>Saved a ton of money</h4>
-                        John was fast and curtious. Would definetly rent from here again!!
-                        </div> */}
+
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                        <div>
+                                <CommentDisplay comments={this.state.Comments}  />
+                            </div>
+
+                            <strong>  Leave a Comment</strong>
+                        </div>
+                    </div>
+
 
                 </div>
 
