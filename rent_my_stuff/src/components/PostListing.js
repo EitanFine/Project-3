@@ -63,9 +63,23 @@ class PostListing extends Component {
     });
   };
 
+  //jp test code to add default image for service
+  serviceURL = () => {
+    if (!this.state.itemURL) {
+      console.log(" no url selected")
+      if (this.state.itemCategorytype === 'service') {
+        console.log("service selected");
+      } else{
+        return;
+      }
+    }
+  }
+
+
   handleFormSubmit = event => {
-      alert("    Thank You! \n         Your "+ this.state.itemName+ " is posted!")
+    alert("    Thank You! \n         Your " + this.state.itemName + " is posted!")
     event.preventDefault();
+    this.serviceURL();
     if (this.state.itemCatId && this.state.itemName) {
       console.log(this.state.itemCatId);
       API.addItem({
@@ -137,96 +151,96 @@ class PostListing extends Component {
 
               <div className="panel-heading">Post a Listing</div>
               <div className="panel-body">
-            <form>
-              {/* < radio butons for 'rental' or 'service' - followed with dynamic select category*/}
-              {/* make this a component - will can be used (needed)  in navbar */}
-              <div className="panel panel-default">
-                <div className="panel-heading">
-                  <div className="row">
-                    <div className="col-sm-2">
-                      <div className="radio">
-                        <label>
-                          <input
-                            type="radio"
-                            value="rental"
-                            checked={this.state.itemCategorytype === "rental"}
-                            onChange={this.handleRBchange}
-                          />
-                          Rent your item
+                <form>
+                  {/* < radio butons for 'rental' or 'service' - followed with dynamic select category*/}
+                  {/* make this a component - will can be used (needed)  in navbar */}
+                  <div className="panel panel-default">
+                    <div className="panel-heading">
+                      <div className="row">
+                        <div className="col-sm-2">
+                          <div className="radio">
+                            <label>
+                              <input
+                                type="radio"
+                                value="rental"
+                                checked={this.state.itemCategorytype === "rental"}
+                                onChange={this.handleRBchange}
+                              />
+                              Rent your item
                         </label>
-                      </div>
-                    </div>
-                    <div className="col-sm-2">
-                      <div className="radio">
-                        <label>
-                          <input
-                            type="radio"
-                            value="service"
-                            checked={this.state.itemCategorytype === "service"}
-                            onChange={this.handleRBchange}
-                          />
-                          Offer Services
+                          </div>
+                        </div>
+                        <div className="col-sm-2">
+                          <div className="radio">
+                            <label>
+                              <input
+                                type="radio"
+                                value="service"
+                                checked={this.state.itemCategorytype === "service"}
+                                onChange={this.handleRBchange}
+                              />
+                              Offer Services
                         </label>
-                      </div>
-                    </div>
-                    <div className="col-sm-2" style={styles}>
-                      <select onChange={this.handleSelectedChange}>
-                        <option selected value="">
-                          Please Select...
+                          </div>
+                        </div>
+                        <div className="col-sm-2" style={styles}>
+                          <select onChange={this.handleSelectedChange}>
+                            <option selected value="">
+                              Please Select...
                         </option>
-                        {SelectOptions}
-                      </select>
+                            {SelectOptions}
+                          </select>
+                        </div>
+                      </div>
                     </div>
                   </div>
-                </div>
+
+                  {/* end radio button and select category */}
+                  <label for="itemName">List your Item or Service</label>
+                  <Input
+                    value={this.state.itemName}
+                    onChange={this.handleInputChange}
+                    name="itemName"
+                    placeholder="List Item or Service (required)"
+                  />
+                  <label for="itemDescription">
+                    Description of Item or Service
+              </label>
+                  <TextArea
+                    value={this.state.itemDescription}
+                    onChange={this.handleInputChange}
+                    name="itemDescription"
+                    placeholder="Description (required)"
+                  />
+
+                  <label for="itemURL">Optional Image URL</label>
+                  <Input
+                    value={this.state.itemURL}
+                    onChange={this.handleInputChange}
+                    name="itemURL"
+                    placeholder="Insert Image URL (optional)"
+                  />
+                  <label for="itemPrice">Price </label>
+                  <Input
+                    value={this.state.itemPrice}
+                    onChange={this.handleInputChange}
+                    type="number"
+                    name="itemPrice"
+                    placeholder="Price (required)"
+                  />
+
+                  <FormBtn
+                    disabled={this.validateForm()}
+                    onClick={this.handleFormSubmit}
+                  >
+                    Post Item
+              </FormBtn>
+                </form>
               </div>
 
-              {/* end radio button and select category */}
-              <label for="itemName">List your Item or Service</label>
-              <Input
-                value={this.state.itemName}
-                onChange={this.handleInputChange}
-                name="itemName"
-                placeholder="List Item or Service (required)"
-              />
-              <label for="itemDescription">
-                Description of Item or Service
-              </label>
-              <TextArea
-                value={this.state.itemDescription}
-                onChange={this.handleInputChange}
-                name="itemDescription"
-                placeholder="Description (required)"
-              />
-
-              <label for="itemURL">Optional Image URL</label>
-              <Input
-                value={this.state.itemURL}
-                onChange={this.handleInputChange}
-                name="itemURL"
-                placeholder="Insert Image URL (optional)"
-              />
-              <label for="itemPrice">Price </label>
-              <Input
-                value={this.state.itemPrice}
-                onChange={this.handleInputChange}
-                type="number"
-                name="itemPrice"
-                placeholder="Price (required)"
-              />
-
-              <FormBtn
-                disabled={this.validateForm()}
-                onClick={this.handleFormSubmit}
-              >
-                Post Item
-              </FormBtn>
-            </form>
+            </div>
           </div>
-
-</div>
-</div>
-</div>
+        </div>
 
       );
     }
