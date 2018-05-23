@@ -11,7 +11,7 @@ class HowItWorks extends React.Component {
             <div className="panel-body">
               <div className=" row text-center">
                 <div className="col-sm-12">
-                  <h1>HOW IT WORKS</h1>
+                  <h1 id='howItWorks'>HOW IT WORKS</h1>
                 </div>
               </div>
 
