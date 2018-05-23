@@ -23,8 +23,8 @@ const CommentDisplay = (props) => {
         div.map(item => 
             
         <div className={item.class}>
-            <h4>{item.item.commentUserName}</h4>
-            <h4><span>{item.item.comment}</span></h4>
+            <p><h4>{item.item.commentUserName}</h4></p>
+            <h4>{item.item.comment}</h4>
             <p><span>{Moment(item.item.createdAt).format("dddd, MMMM Do YYYY, h:mm:ss a")}</span></p>
         </div>
             
