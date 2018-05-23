@@ -4,6 +4,7 @@ import API from "../../utils/API";
 
 import Moment from "moment";
 import { Link } from "react-router-dom";
+import "./userspecific.css";
 
 class Item extends React.Component {
   state = {
@@ -33,18 +34,15 @@ class Item extends React.Component {
   };
 
   submitForm = () => {
-    API.updateOneItem(
-      {
-        itemName: this.state.itemName,
-        itemDescription: this.state.itemDescription,
-        itemPrice: this.state.itemPrice,
-        id: this.state.id
-      }
-    ).then(() => {
-        console.log("UPDATE SUCCEEDED!")
-        this.handleClose();
-        this.props.reloadItems();
-
+    API.updateOneItem({
+      itemName: this.state.itemName,
+      itemDescription: this.state.itemDescription,
+      itemPrice: this.state.itemPrice,
+      id: this.state.id
+    }).then(() => {
+      console.log("UPDATE SUCCEEDED!");
+      this.handleClose();
+      this.props.reloadItems();
     });
   };
 
@@ -59,10 +57,10 @@ class Item extends React.Component {
               onHide={this.handleClose}
             >
               <Modal.Header closeButton>
-                <Modal.Title>Modal heading</Modal.Title>
+                <Modal.Title>Editing Listing ID: {this.state.id}</Modal.Title>
               </Modal.Header>
-              <Modal.Body>
-                Item Name:{" "}
+              <Modal.Body className="edit-listing-modal">
+                <b>Item Name:</b> <br />
                 <input
                   type="text"
                   name="itemName"
@@ -70,23 +68,24 @@ class Item extends React.Component {
                   onChange={this.handleInputChange}
                 />
                 <br />
-                Item Description:{" "}
-                <input
-                  type="text"
+                <b>Item Description:</b> <br />
+                <textarea
+                  rows="6"
+                  cols="50"
                   name="itemDescription"
                   value={this.state.itemDescription}
                   onChange={this.handleInputChange}
                 />
                 <br />
-                Item Price:{" "}
+               <b> Item Price: </b><br />
                 <input
-                  type="text"
+                  type="number"
                   name="itemPrice"
                   value={this.state.itemPrice}
                   onChange={this.handleInputChange}
                 />
                 <br />
-                <button onClick={this.submitForm}>Submit Changes</button>
+                <button className="btn btn-warning" onClick={this.submitForm}>Submit Changes</button>
               </Modal.Body>
               <Modal.Footer>
                 <Button onClick={this.handleClose}>Close</Button>
@@ -99,17 +98,25 @@ class Item extends React.Component {
             <h4>
               <b>Personal Listing:</b> {this.state.itemName}
             </h4>
-            <button type="button"
+            <button
+              type="button"
               style={{ float: "right" }}
               onClick={() => this.props.deleteMe(this.state.id)}
-              className="btn btn-danger"> Delete Listing
-
-
+              className="btn btn-danger"
+            >
+              {" "}
+              Delete Listing
             </button>
-            <button type="button" className="btn btn-success"onClick={this.handleShow}>Edit Item</button>
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={this.handleShow}
+            >
+              Edit Item
+            </button>
 
-            <br /><br />
-
+            <br />
+            <br />
           </div>
           <div className="panel-body">
             <div className="row">
