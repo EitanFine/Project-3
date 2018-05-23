@@ -3,6 +3,7 @@ import API from "../utils/API";
 import Moment from "moment";
 import MapWithADirectionsRenderer from "./MyMapComponent";
 import CommentBox from "./CommentBox";
+import CommentDisplay from "./CommentDisplay";
 import { Link } from "react-router-dom";
 import DayPicker from 'react-day-picker';
 import "./DatePicker.css";
@@ -156,10 +157,10 @@ class SingleItem extends Component {
                                         {Moment(item.itemInfo.createdAt).format('LL')}</h5> : ""}
                                 </div>
                             </div>
-                            {/* This needs to be moved to the new comment box */}
-
-
-                            {/* {this.props.loggedIn ?
+                            <div>
+                                <CommentDisplay itemId={this.props.itemId} />
+                            </div>
+                            {this.props.loggedIn ?
                                 <CommentBox itemId={this.props.itemId} />
                                 :
                                 <div>

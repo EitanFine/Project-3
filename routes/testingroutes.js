@@ -45,6 +45,10 @@ router.post("/addComment/id/:id",
  stuff_controllers.addComment
 );
 
+router.get("/getComments/id/:id", 
+  stuff_controllers.getComments
+);
+
 router.get("/oneItem/id/:id", 
   stuff_controllers.getComments
 );
