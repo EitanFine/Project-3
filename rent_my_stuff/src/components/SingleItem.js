@@ -255,7 +255,7 @@ class SingleItem extends Component {
                                 <CommentDisplay comments={this.state.Comments}  />
                             </div>
 
-                            <strong>  Leave a Comment</strong>
+                            {/* <strong>  Leave a Comment</strong> */}
                         </div>
                     </div>
 
