@@ -43,7 +43,7 @@ module.exports = {
   getComments(req, res) {
     db.Comment.findAll({
       where: {
-        commentItemId: req.params.id
+        commentItemId: req.params.id,
       }
     })
       .then(results => {

@@ -7,7 +7,7 @@ import CommentDisplay from "./CommentDisplay";
 import { Link } from "react-router-dom";
 import DayPicker from 'react-day-picker';
 import "./DatePicker.css";
-import "./SingleItem.css"
+import "./SingleItem.css";
 
 
 class SingleItem extends Component {
