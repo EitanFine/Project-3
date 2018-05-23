@@ -51,6 +51,10 @@ export default {
     return axios.get("/testingRoutes/myitems");
   },
 
+  getRentedDates: id => {
+    return axios.get(`/testingRoutes/renteddates/rentid/${id}`);
+  },
+
   addRentedDate: dateitem => {
     return axios.post("/testingRoutes/addrenteddate", dateitem);
   }

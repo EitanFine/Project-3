@@ -144,6 +144,18 @@ module.exports = {
   },
 
 
+  getRentedDates(req, res) {
+    db.RentedDates.findAll({
+      where: {
+        rentItemId: req.params.id
+      }
+    })
+      .then(results => {
+        res.json(results)
+      })
+      .catch(err => { console.log(err) })
+  },
+
   addRentedDate: function (req, res) {
     console.log(req.body);
     db.RentedDates.create(req.body).then(function (result) {

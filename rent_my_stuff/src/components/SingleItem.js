@@ -46,7 +46,8 @@ class SingleItem extends Component {
         return dayRentedDate;
     }
 
-    handleDayClick(day) {
+
+    handleDayClick = day => {
         let itemId = document.getElementById('itemId').innerHTML;
         console.log("date clicked\n", day, itemId);
         let dateitem = {
@@ -55,13 +56,33 @@ class SingleItem extends Component {
         }
         API.addRentedDate(dateitem)
             .then(res => {
-                console.log("res")
+                //console.log("res", res);
+                this.loadRentedDates(itemId)
+            })
+            .catch((err) => {
+                console.log('catch err: ', err)
+            })
+
+    };
+    //jp need to pull from database new list of unaval dates
+    loadRentedDates = itemId => {
+        //let itemId = document.getElementById('itemId').innerHTML;
+        console.log("loadRentedDates , itemId: ", itemId);
+        API.getRentedDates(itemId)
+            .then(res => {
+                console.log('res.data\n', res.data)
+                let newDates = this.createUnavailDates(res.data);
+                this.setState({
+                    renteddates: newDates
+                });
             })
             .catch((err) => {
                 console.log(err)
             })
+    };
 
-    }
+
+
 
     componentWillMount() {
         API.getOneItem(this.props.itemId)
@@ -112,15 +133,15 @@ class SingleItem extends Component {
                             </div>
                             <div className='row'>
                                 <div className='col-sm-6'>
-                                    <strong><h2 className="googleFont"><span class="glyphicon glyphicon-check"></span>           Description</h2></strong><hr/>
-                                    {item.itemInfo ? <p  style={{ fontSize: '14px' }}>{item.itemInfo.itemDescription}.</p> : ""}
+                                    <strong><h2 className="googleFont"><span class="glyphicon glyphicon-check"></span>           Description</h2></strong><hr />
+                                    {item.itemInfo ? <p style={{ fontSize: '14px' }}>{item.itemInfo.itemDescription}.</p> : ""}
                                     {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Listing Id:</b>  #<span id="itemId">{item.itemInfo.id}</span>.</h4> : ""}
                                     {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Price:</b> ${item.itemInfo.itemPrice}. <span style={{ color: '#626262', fontFamily: "'Timmana', sans-serif" }}>(per day)</span></h4> : ""}
 
                                 </div>
 
                                 <div className='col-sm-6 text-left'>
-                                <strong> <h2 className="googleFont "><span class="glyphicon glyphicon-user"></span>              Contact Person</h2> </strong><hr/>
+                                    <strong> <h2 className="googleFont "><span class="glyphicon glyphicon-user"></span>              Contact Person</h2> </strong><hr />
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Name</b>  {item.userInfo.name}.</h4> : ""}
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Address:</b>  {item.userInfo.streetAddress},
                                     {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}.</h4> : ""}
@@ -128,13 +149,13 @@ class SingleItem extends Component {
                                 </div>
                             </div>
 
-                        <div className='row'>
-                        <div className='col-sm-12 text-right'>
-                            {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
-                                className='text-right'><span>Posted On: </span>
-                                {Moment(item.itemInfo.createdAt).format('LL')}</h5> : ""}
-                        </div>
-                        </div>
+                            <div className='row'>
+                                <div className='col-sm-12 text-right'>
+                                    {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
+                                        className='text-right'><span>Posted On: </span>
+                                        {Moment(item.itemInfo.createdAt).format('LL')}</h5> : ""}
+                                </div>
+                            </div>
                             {/* This needs to be moved to the new comment box */}
 
 
@@ -160,32 +181,32 @@ class SingleItem extends Component {
                             {/* </div>
                             </div> */}
 
-                           
+
                         </div>
                     </div>
 
                     <div className="panel panel-default">
-                                <div className="panel-body">
-                                    <strong>Dates and Availability</strong>
-                                </div>
-                                <div class="panel-footer">
-                             
-                             
-                   
+                        <div className="panel-body">
+                            <strong>Dates and Availability</strong>
+                        </div>
+                        <div class="panel-footer">
 
-                        <div className='row'>
-                            <div className='col-sm-12 '>
-                                <DayPicker numberOfMonths={2}
-                                    disabledDays={this.state.renteddates}
-                                    onDayClick={this.handleDayClick} />
+
+
+
+                            <div className='row'>
+                                <div className='col-sm-12 '>
+                                    <DayPicker numberOfMonths={2}
+                                        disabledDays={this.state.renteddates}
+                                        onDayClick={this.handleDayClick} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                            </div>
 
                     <div class="panel panel-default">
                         <div class="panel-body">
-                        
+
                             <strong>  Leave a Comment</strong>
                         </div>
                         <div class="panel-footer">
@@ -193,7 +214,7 @@ class SingleItem extends Component {
 
                             <div class="form-group">
                                 {/* <label for="comment">Leave a Comment:</label> */}
-                                
+
                                 <textarea class="form-control" rows="5" id="comment"></textarea>
                             </div>
                             <button type="button" class="btn btn-info btn-block">Submit</button>

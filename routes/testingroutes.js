@@ -66,6 +66,10 @@ router.put("/myitems/id/:id",
 //  stuff_controllers.addRentedDate
 // );
 
+router.get("/renteddates/rentid/:id", 
+  stuff_controllers.getRentedDates
+);
+
 router.post("/addRentedDate", (req, res) => {
   db.RentedDates.create(req.body)  
     .then(results => res.status(200).json("/"))
