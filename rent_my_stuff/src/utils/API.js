@@ -40,7 +40,6 @@ export default {
     return axios.post(`/testingRoutes/addComment/id/${comment.commentItemId}`, comment);
   },
   addItem: item => {
-    console.log(" api. additem ", item);
     return axios.post("/testingRoutes/additem", item);
   },
 
@@ -50,5 +49,9 @@ export default {
 
   getAllByUser: id => {
     return axios.get("/testingRoutes/myitems");
+  },
+
+  addRentedDate: dateitem => {
+    return axios.post("/testingRoutes/addrenteddate", dateitem);
   }
 };
