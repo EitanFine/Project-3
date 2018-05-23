@@ -48,8 +48,7 @@ class SingleItem extends Component {
 
 
     handleDayClick = day => {
-        let itemId = document.getElementById('itemId').innerHTML;
-        console.log("date clicked\n", day, itemId);
+        let itemId = this.state.itemId; 
         let dateitem = {
             rentItemId: itemId,
             rentedDate: day
@@ -64,21 +63,19 @@ class SingleItem extends Component {
             })
 
     };
-    //jp need to pull from database new list of unaval dates
+    //jp need to pull from database new list of unavailable dates
     loadRentedDates = itemId => {
-        //let itemId = document.getElementById('itemId').innerHTML;
-        console.log("loadRentedDates , itemId: ", itemId);
         API.getRentedDates(itemId)
             .then(res => {
-                console.log('res.data\n', res.data)
                 let newDates = this.createUnavailDates(res.data);
                 this.setState({
-                    renteddates: newDates
+                    renteddates: newDates,
+                    itemId: itemId
                 });
             })
             .catch((err) => {
                 console.log(err)
-            })
+            })           
     };
 
 
@@ -195,11 +192,11 @@ class SingleItem extends Component {
 
 
                             <div className='row'>
-                                <div className='col-sm-12 '>
+                                {/* <div className='col-sm-12 '> */}
                                     <DayPicker numberOfMonths={2}
                                         disabledDays={this.state.renteddates}
                                         onDayClick={this.handleDayClick} />
-                                </div>
+                                {/* </div> */}
                             </div>
                         </div>
                     </div>
