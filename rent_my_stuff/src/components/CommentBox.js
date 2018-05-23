@@ -53,7 +53,7 @@ class CommentBox extends Component {
                     
                         {/* <button type="submit" value="Post Comment"  name="comment" class="btn btn-info btn-block" value={this.state.comment} onChange={this.handleInputChange}>Submit</button> */}
 
-                            <button  type="submit" value="Post Comment" class="btn btn-info btn-block" >Submit</button>
+                            <button style={{backgroundColor: '#4484ce'}}  type="submit" value="Post Comment" class="btn btn-info btn-block" >Submit</button>
                     
                 </form>
         )
