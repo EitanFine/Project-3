@@ -151,7 +151,7 @@ class Item extends React.Component {
                   </div>
                   <div className="col-sm-6 text-right">
                     <Link to={`/singleitem/${this.state.id}`}>
-                      <button className="btn btn-lg">View Listing</button>
+                      <button style={{background: '#F19F4D', color: 'white'}}className="btn btn-lg">View Listing</button>
                     </Link>
                   </div>
                 </div>

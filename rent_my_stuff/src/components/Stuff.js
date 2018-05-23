@@ -23,9 +23,9 @@ class Stuff extends Component {
           <div>
             <div className="container">
               <div className="panel panel-default">
-                <div className="panel-heading">
-                  <h4>
-                    <b>For Rent:</b> {item.itemName}
+                <div style={{border: '#4484ce solid 1px'}} className="panel-heading">
+                  <h4 style={{color: '#4484ce'}}>
+                    <b style={{color: '#F19F4D'}}>For Rent:</b> {item.itemName}
                   </h4>
                 </div>
                 <div className="panel-body">
@@ -61,7 +61,7 @@ class Stuff extends Component {
                         </div>
                         <div className="col-sm-6 text-right">
                           <Link to={`/singleitem/${item.id}`}>
-                            <button className="btn btn-lg">View Listing</button>
+                            <button style={{background: '#F19F4D', color: 'white'}} className="btn btn-lg">View Listing</button>
                           </Link>
                         </div>
                       </div>
