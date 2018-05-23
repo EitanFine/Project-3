@@ -99,13 +99,17 @@ class Item extends React.Component {
             <h4>
               <b>Personal Listing:</b> {this.state.itemName}
             </h4>
-            <button onClick={this.handleShow}>Edit Item</button>
-            <button
+            <button type="button"
               style={{ float: "right" }}
               onClick={() => this.props.deleteMe(this.state.id)}
-            >
-              x
+              className="btn btn-danger"> Delete Listing
+
+
             </button>
+            <button type="button" className="btn btn-success"onClick={this.handleShow}>Edit Item</button>
+
+            <br /><br />
+
           </div>
           <div className="panel-body">
             <div className="row">

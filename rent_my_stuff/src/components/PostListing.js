@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Redirect } from "react-router-dom";
 //import Moment from "moment";
+import './PostListing.css'
 
 import { FormBtn, Input, TextArea } from "./Form";
 
@@ -131,6 +132,11 @@ class PostListing extends Component {
       return (
         <div>
           <div className="container">
+            <div className="panel panel-primary" >
+
+
+              <div className="panel-heading">Post a Listing</div>
+              <div className="panel-body">
             <form>
               {/* < radio butons for 'rental' or 'service' - followed with dynamic select category*/}
               {/* make this a component - will can be used (needed)  in navbar */}
@@ -217,7 +223,11 @@ class PostListing extends Component {
               </FormBtn>
             </form>
           </div>
-        </div>
+
+</div>
+</div>
+</div>
+
       );
     }
   }

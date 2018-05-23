@@ -1,6 +1,16 @@
 .App {
   /* text-align: center; */
 }
+
+.googleFont {
+  font-family: 'Fugaz One', cursive;
+
+}
+
+.googleFont2{
+  font-family: 'Londrina Solid', cursive;
+
+}
 /* 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
