@@ -102,6 +102,8 @@ class SingleItem extends Component {
             })
 
     }
+
+
     render() {
         const { item, latitude, longitude } = this.state;
         var lat = item.lat ? item.lat.results[0].location.lat : "";
@@ -153,15 +155,39 @@ class SingleItem extends Component {
                                 </div>
                             </div>
 
+                        </div>
+                    </div>
+
+                    <div className="panel panel-default">
+                        <div className="panel-body">
+                            <strong>Dates and Availability:  <span style={{ color: 'red' }}> (Red marked dates are unavailable)</span></strong>
+                        </div>
+                        <div class="panel-footer">
+
+
+
+
                             <div className='row'>
-                                <div className='col-sm-12 text-right'>
-                                    {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
-                                        className='text-right'><span>Posted On: </span>
-                                        {Moment(item.itemInfo.createdAt).format('LL')}</h5> : ""}
-                                </div>
+                                <DayPicker numberOfMonths={2}
+                                    disabledDays={this.state.renteddates}
+                                    onDayClick={this.handleDayClick} />
+
                             </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
                             <div>
-                                <CommentDisplay comments={this.state.Comments} />
+                            </div>
+
+                        <strong>  Leave a Comment Below</strong>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="form-group">
                             </div>
                             {this.props.loggedIn ?
                                 <CommentBox itemId={this.props.itemId} newComments={this.reLoadComments} />
@@ -170,26 +196,20 @@ class SingleItem extends Component {
                                     <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
                                 </div>
                             }
+
                         </div>
                     </div>
 
-                    <div className="panel panel-default">
-                        <div className="panel-body">
-                            <strong>Dates and Availability</strong>
-                        </div>
-                        <div class="panel-footer">
 
-                            <div className='row'>
-                                {/* <div className='col-sm-12 '> */}
-                                <DayPicker numberOfMonths={2}
-                                    disabledDays={this.state.renteddates}
-                                    onDayClick={this.handleDayClick} />
-                                {/* </div> */}
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div>
+                                <CommentDisplay comments={this.state.Comments} />
                             </div>
                         </div>
                     </div>
-
-
 
 
                 </div>
