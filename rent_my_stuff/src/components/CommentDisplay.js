@@ -13,7 +13,7 @@ const CommentDisplay = (props) => {
         }
     }
     return (
-        div.map(item =>
+        div.slice(0).reverse().map(item =>
 
             <div className={item.class}>
                 <p><h4>{item.item.commentUserName}</h4></p>
