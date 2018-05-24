@@ -70,7 +70,7 @@ class About extends React.Component {
                   <a href="https://github.com/EitanFine" target="_blank">
                     <i className="fab fa-github" />
                   </a>
-                  <a href="www.linkedin.com/in/eitan-fine-9466b5158" target="_blank">
+                  <a href="https://www.linkedin.com/in/eitan-fine-9466b5158/" target="_blank">
                     <i className="fab fa-linkedin" />
                   </a>
                   <a href="https://www.google.com/" target="_blank">
