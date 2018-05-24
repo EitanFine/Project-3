@@ -5,27 +5,67 @@ import { Link } from "react-router-dom";
 
 class Services extends Component {
   state = {
-    stuff: []
+    stuff: [],
+    filteredStuff: [],
+    cattypes: [],
+    selectOptions:[]
   };
 
   componentDidMount() {
     API.getStuff().then(res => {
       this.setState({
-        stuff: res.data
+        stuff: res.data,
+        filteredStuff: res.data
       });
-    });
+    });    
+    API.findAllCategories()
+      .then(resCats => {        
+        let filteredCats = resCats.data.filter(
+          category => category.categoryType === "service"
+        );
+        this.setState({
+          cattypes: filteredCats
+        })
+      })
+      .finally(()=> {
+        this.setState({
+          selectOptions : this.selectCategories(this.state.cattypes)          
+        })
+      })    
   }
 
+
+  selectCategories = (catTypes) => {
+    let SelectOptions = catTypes.map(selopts =>      
+      <option value={selopts.id} key={selopts.id}> {" "} {selopts.categoryName}{" "}
+            </option>  );
+
+    return SelectOptions;
+  }
+
+  handleSelectedChange = e => {
+    if (!e.target.value){
+      this.setState({
+        filteredStuff: this.state.stuff
+      })
+    } else{
+      let _filterItems = this.state.stuff.filter(items => items.itemCatId == e.target.value  )
+      this.setState({
+        filteredStuff: _filterItems
+      })
+    }
+  };
+
   renderStuff = () => {
-    return this.state.stuff.map(item => {
+    return this.state.filteredStuff.map(item => {
       if (item.itemCategorytype === "service") {
         return (
           <div>
             <div className="container">
               <div className="panel panel-default">
-                <div style={{border: '#F19F4D solid 1px'}} className="panel-heading">
-                  <h4 style={{color: '#F19F4D'}}>
-                    <b style={{color: '#4484ce'}}>Service:</b> {item.itemName}
+                <div style={{ border: '#F19F4D solid 1px' }} className="panel-heading">
+                  <h4 style={{ color: '#F19F4D' }}>
+                    <b style={{ color: '#4484ce' }}>Service:</b> {item.itemName}
                   </h4>
                 </div>
                 <div className="panel-body">
@@ -61,7 +101,7 @@ class Services extends Component {
                         </div>
                         <div className="col-sm-6 text-right">
                           <Link to={`/singleitem/${item.id}`}>
-                            <button style={{background: '#4484ce', color: 'white'}} className="btn btn-lg">View Listing</button>
+                            <button style={{ background: '#4484ce', color: 'white' }} className="btn btn-lg">View Listing</button>
                           </Link>
                         </div>
                       </div>
@@ -97,7 +137,16 @@ class Services extends Component {
   };
 
   render() {
-    return this.renderStuff();
+    return <div>
+        <select onChange={this.handleSelectedChange} >    
+        <option selected value=""> 
+          Please Select...  </option>
+        {this.state.selectOptions}
+      </select>
+      <h1> Before render stuff </h1>
+      {this.renderStuff()}
+    </div>
+    // return  this.renderStuff();
   }
 }
 
