@@ -174,7 +174,7 @@ class SignupForm extends Component {
           </div>
       </form >
       <Link  style={{color: '#4484ce'}} className="nav-item nav-link" to="/login">
-    <div className="hint-text">Already have an account? <a style={{color: '#F19F4D'}}  href="#">Login here</a></div>
+    <div className="hint-text">Already have an account? <Link style={{color: '#F19F4D'}}  to="/login">Login here</Link></div>
     </Link>
   </div>
   </body>
