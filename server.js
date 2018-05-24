@@ -6,7 +6,7 @@ const passport = require("./config/passport");
 const logger = require("morgan");
 var SequelizeStore = require('connect-session-sequelize')(session.Store);
 
-process.env.NODE_ENV = "production";
+
 const {auth} = require("./controllers")
 // Sets up the Express App
 // =============================================================
