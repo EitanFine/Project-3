@@ -142,17 +142,20 @@ class SingleItem extends Component {
                                 <div className='col-sm-6'>
                                     <strong><h2 className="googleFont"><span class="glyphicon glyphicon-check"></span>           Description</h2></strong><hr />
                                     {item.itemInfo ? <p style={{ fontSize: '14px' }}>{item.itemInfo.itemDescription}.</p> : ""}
-                                    {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Listing Id:</b>  #<span id="itemId">{item.itemInfo.id}</span>.</h4> : ""}
-                                    {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Price:</b> ${item.itemInfo.itemPrice}. <span style={{ color: '#626262', fontFamily: "'Timmana', sans-serif" }}>(per day)</span></h4> : ""}
+                                    {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Listing Id:</b>  #<span id="itemId">{item.itemInfo.id}</span></h4> : ""}
+                                    <div />
+                                    {item.itemInfo ? <h4 style={{ fontSize: '18px' }}><b>Price:</b> ${item.itemInfo.itemPrice} <span style={{ color: '#626262', fontFamily: "'Timmana', sans-serif" }}>(per day)</span></h4> : ""}
 
                                 </div>
 
                                 <div className='col-sm-6 text-left'>
                                     <strong> <h2 className="googleFont "><span class="glyphicon glyphicon-user"></span>              Contact Person</h2> </strong><hr />
-                                    {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Name</b>  {item.userInfo.name}.</h4> : ""}
-                                    {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Address:</b>  {item.userInfo.streetAddress},
-                                    {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}.</h4> : ""}
-                                    {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}.</h4> : ""}
+                                    {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Name</b>  {item.userInfo.name}</h4> : " "}
+                                    <div />
+                                    {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Address:</b>  {item.userInfo.streetAddress}, {" "}
+                                    {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}</h4> : " "} 
+                                    <div />
+                                    {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}</h4> : ""}
                                 </div>
                             </div>
 

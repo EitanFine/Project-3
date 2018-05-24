@@ -45,10 +45,11 @@ class Stuff extends Component {
                       <div className="row">
                         <div className="col-sm-6">
                           <h4>
-                            <b>Listing Id:</b> {item.id}.
+                            <b>Listing Id:</b> {item.id}
                           </h4>
+                          <div />
                           <h4>
-                            <b>Price:</b> ${item.itemPrice}.{" "}
+                            <b>Price:</b> ${item.itemPrice}{" "}
                             <span
                               style={{
                                 color: "#626262",
