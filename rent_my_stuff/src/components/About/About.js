@@ -88,6 +88,7 @@ class About extends React.Component {
                   alt="..."
                 />
                 <h3 className="team">John Palumbo</h3>
+                <p>Full Stack Web Developer</p>
                 <p>
                   <a href="https://www.google.com/" target="_blank">
                     <i className="fab fa-github" />
