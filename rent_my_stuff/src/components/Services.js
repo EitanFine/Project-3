@@ -40,7 +40,8 @@ class Services extends Component {
       <option value={selopts.id} key={selopts.id}> {" "} {selopts.categoryName}{" "}
             </option>  );
 
-    return SelectOptions;
+console.log( ' rtn: selectCategories , Selectioptions: ' , SelectOptions);
+return SelectOptions;
   }
 
   handleSelectedChange = e => {
@@ -138,17 +139,17 @@ class Services extends Component {
   };
 
   render() {
-    return <div>
-        <select onChange={this.handleSelectedChange} >    
-        <option selected value=""> 
-          Please Select...  </option>
+    return <div className='container'>
+        <select style={{width: '220px', background: 'white', color: '#4484ce', border: '1px solid #F19F4D', marginLeft: '15px'}} class="form-control" onChange={this.handleSelectedChange}>    
+        <option  value=""> 
+          All Categories...  </option>
         {this.state.selectOptions}
       </select>
-      <h1> Before render stuff </h1>
+      <br/><br/><br/>
       {this.renderStuff()}
     </div>
-    // return  this.renderStuff();
   }
 }
+
 
 export default Services;
