@@ -138,13 +138,13 @@ class Stuff extends Component {
   };
 
   render() {
-    return <div>
-        <select onChange={this.handleSelectedChange} >    
-        <option selected value=""> 
-          Please Select...  </option>
+    return <div className='container'>
+          <select style={{width: '220px', background: 'white', color: '#F19F4D', border: '1px solid #4484ce', marginLeft: '15px'}} class="form-control" onChange={this.handleSelectedChange}>    
+        <option  value=""> 
+          All Categories...  </option>
         {this.state.selectOptions}
       </select>
-      <h1> Before render stuff </h1>
+      <br/><br/><br/>
       {this.renderStuff()}
     </div>
   }
