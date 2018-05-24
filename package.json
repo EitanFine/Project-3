@@ -6,7 +6,8 @@
   "scripts": {
     "client": "node scripts/start-client.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "concurrently \"nodemon server.js\" \"npm run client\""
+    "dev": "concurrently \"nodemon server.js\" \"npm run client\"",
+    "start": "node server"
   },
   "repository": {
     "type": "git",
