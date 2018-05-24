@@ -63,7 +63,6 @@ class SingleItem extends Component {
         }
         API.addRentedDate(dateitem)
             .then(res => {
-                //console.log("res", res);
                 this.loadRentedDates(itemId)
             })
             .catch((err) => {
@@ -86,13 +85,10 @@ class SingleItem extends Component {
             })
     };
 
-
-
-
     componentWillMount() {
         API.getOneItem(this.props.itemId)
             .then(res => {
-                console.log('res.data\n', res.data, "\nthis.props.itemId: ", this.props.itemId) //.itemInfo)   //res.data.itemInfo.id)
+                console.log('res.data\n', res.data, "\nthis.props.itemId: ", this.props.itemId)
                 let newDates = this.createUnavailDates(res.data.renteddates);
                 this.setState({
                     item: res.data,
@@ -106,8 +102,6 @@ class SingleItem extends Component {
             })
 
     }
-
-
     render() {
         const { item, latitude, longitude } = this.state;
         var lat = item.lat ? item.lat.results[0].location.lat : "";
@@ -153,7 +147,7 @@ class SingleItem extends Component {
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Name</b>  {item.userInfo.name}</h4> : " "}
                                     <div />
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Address:</b>  {item.userInfo.streetAddress}, {" "}
-                                    {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}</h4> : " "} 
+                                        {item.userInfo.city}, {item.userInfo.state}, {item.userInfo.zipcode}</h4> : " "}
                                     <div />
                                     {item.userInfo ? <h4 style={{ fontSize: '18px' }}><b>Email:</b>  {item.userInfo.email}</h4> : ""}
                                 </div>
@@ -176,9 +170,6 @@ class SingleItem extends Component {
                                     <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
                                 </div>
                             }
-
-
-
                         </div>
                     </div>
 
@@ -187,9 +178,6 @@ class SingleItem extends Component {
                             <strong>Dates and Availability</strong>
                         </div>
                         <div class="panel-footer">
-
-
-
 
                             <div className='row'>
                                 {/* <div className='col-sm-12 '> */}

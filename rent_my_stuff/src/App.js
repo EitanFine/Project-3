@@ -53,7 +53,6 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Nav /> */}
           <Navbar loggedIn={this.state.loggedIn} logout={this.handleLogout} />
           <Jumbotron/>
           <Switch>
@@ -68,8 +67,6 @@ class App extends Component {
             <Route exact path="/myitems" render={() => <MyItems loggedIn={this.state.loggedIn} />} />
             <Route exact path="/login" render={() => <Login setUser={this.setUser} />} />
             <Route exact path="/postlisting" render={() => <PostListing loggedIn={this.state.loggedIn} loadItems={this.loadItems} />} />
-            {/* <Route exact path="/category/:id" component={Category} /> */}
-            {/* <Route component={NoMatch} /> */}
           </Switch>
         </div>
       </Router>

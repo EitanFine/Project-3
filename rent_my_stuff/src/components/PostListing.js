@@ -120,9 +120,7 @@ class PostListing extends Component {
             });
           })
           .catch(err => console.log(err));
-        // setTimeout(() => {
-        //   this.serviceURL();
-        // }, 1)
+      
       };
     };
 

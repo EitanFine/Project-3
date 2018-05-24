@@ -1,13 +1,6 @@
 import React, { Component } from "react";
-
 import API from "../../utils/API";
-//import SingleItem from "../SingleItem";
-// import Stuff from "../Stuff";
 import {Redirect} from "react-router-dom"
-
-// import Moment from "moment";
-// import {Link } from "react-router-dom";
-// import { Modal, Button } from "react-bootstrap";
 import Item from './Item';
 
 class MyItems extends Component {
@@ -18,10 +11,6 @@ class MyItems extends Component {
     };
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   console.log('next props: ', nextProps);
-  // }
-
   componentDidMount() {
     this.loadItems();
   }
@@ -30,7 +19,6 @@ class MyItems extends Component {
     console.log("inside of load items");
     API.getAllByUser()
       .then(res => {
-        //console.log("item", res.data);
         this.setState({
           stuff: res.data
         });

@@ -13,7 +13,6 @@ var geocodio = new Geocodio(config);
 
 module.exports = {
   findAllItems: function (req, res) {
-    console.log("findAll");
     db.Item.findAll({
       order: [["id", "DESC"]]
     }).then(function (results) {
@@ -23,7 +22,6 @@ module.exports = {
 
   addItem: function (req, res) {
     req.body.itemUserId = req.user.id;
-    console.log("ADD ITEM: ===============>", req.body);
     db.Item.create(req.body).then(function (result) {
       res.redirect("/");
     });
@@ -33,7 +31,6 @@ module.exports = {
     req.body.commentUserId = req.user.id;
     req.body.commentItemId = req.params.id;
     req.body.commentUserName = req.user.name;
-    console.log("============>", req.body);
     db.Comment.create(req.body)
       .then(result => {
         res.redirect('/')
@@ -79,7 +76,6 @@ module.exports = {
                 results.state +
                 " " +
                 results.zipcode;
-              console.log(address);
               geocodio.get("geocode", { q: address }, function (err, response) {
                 if (err) throw err;
                 res.json({

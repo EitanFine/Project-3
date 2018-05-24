@@ -42,8 +42,6 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("rent_my_stuff/build"));
 }
 
-// const exphbs = require("express-handlebars");
-
 
 // Routes
 // =============================================================

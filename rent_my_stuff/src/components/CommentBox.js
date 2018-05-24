@@ -17,7 +17,7 @@ class CommentBox extends Component {
     }
     handleComment = event => {
         event.preventDefault();
-        
+
         API.addComment(this.state)
             .then(res => {
                 this.clearForm();
@@ -35,27 +35,12 @@ class CommentBox extends Component {
 
     render() {
         return (
-                <form onSubmit={this.handleComment}>
-                    {/* <Row>
-                        <Col>
-                            <h1> Leave A Comment</h1>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col span={2} offset={3}>
-                            <label>Comment: </label>
-                        </Col> */}
-                        {/* <Col span={3}> */}
-                    <textarea class="form-control" rows="5" id="comment" name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange}></textarea> 
-                            {/* <input name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange} /> */}
-                        {/* </Col>
-                    </Row> */}
-                    
-                        {/* <button type="submit" value="Post Comment"  name="comment" class="btn btn-info btn-block" value={this.state.comment} onChange={this.handleInputChange}>Submit</button> */}
+            <form onSubmit={this.handleComment}>
 
-                            <button style={{backgroundColor: '#4484ce'}}  type="submit" value="Post Comment" class="btn btn-info btn-block" >Submit</button>
-                    
-                </form>
+                <textarea class="form-control" rows="5" id="comment" name="comment" required type="text" value={this.state.comment} onChange={this.handleInputChange}></textarea>
+                <button style={{ backgroundColor: '#4484ce' }} type="submit" value="Post Comment" class="btn btn-info btn-block" >Submit</button>
+
+            </form>
         )
     }
 }
