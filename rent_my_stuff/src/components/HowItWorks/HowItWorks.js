@@ -31,7 +31,7 @@ class HowItWorks extends React.Component {
               <hr />
               <div className="row howitworks-textcenter">
                 <div className="col-sm-4 asd">
-                  <span className="glyphicon glyphicon-search" />
+                  <span className="glyphicon glyphicon-search" /><br />
                   <h4> Find the Perfect Stuff or Service</h4>
                   <p>
                     Search through thousands of stuff and services all over the
@@ -39,7 +39,7 @@ class HowItWorks extends React.Component {
                   </p>
                 </div>
                 <div className="col-sm-4 asd">
-                  <span className="glyphicon glyphicon-list-alt" />
+                  <span className="glyphicon glyphicon-list-alt" /><br />
                   <h4>Book a Stuff/Service and Pay</h4>
                   <p>
                     Check the available dates and put in a request or two and
@@ -48,7 +48,7 @@ class HowItWorks extends React.Component {
                   </p>
                 </div>
                 <div className="col-sm-4 asd">
-                  <span className="glyphicon glyphicon-tree-conifer" />
+                  <span className="glyphicon glyphicon-tree-conifer" /><br />
                   <h4> Post your stuff and have fun</h4>
                   <p>
                     Make money by renting out stuff you dont even use anyway or
