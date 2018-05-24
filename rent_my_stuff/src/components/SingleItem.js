@@ -49,8 +49,12 @@ class SingleItem extends Component {
         if (rentedDates.length < 1) return [];
         let dayRentedDate = rentedDates.map(strdate => {
             let splitted = strdate.rentedDate.split("-");
-            return new Date(splitted[0], splitted[1] - 1, splitted[2])
+            //return new Date(splitted[0], splitted[1] - 1, splitted[2])
+            let xxx =  new Date(splitted[0], splitted[1] - 1, splitted[2])
+            console.log('xxx' , xxx)
+            return xxx
         })
+        console.log('createUnavailDates: ' , dayRentedDate);
         return dayRentedDate;
     }
 
@@ -100,7 +104,6 @@ class SingleItem extends Component {
             .catch((err) => {
                 console.log(err)
             })
-
     }
 
 

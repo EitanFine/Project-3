@@ -59,7 +59,8 @@ module.exports = {
       db.RentedDates.findAll({
         where: {
           rentItemId: req.params.id
-        }
+        },
+         order: [["rentedDate", "DESC"]] 
       })
         .then(function (resultdates) {
           db.User.findOne({
