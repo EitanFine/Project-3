@@ -38,7 +38,8 @@ class Item extends React.Component {
       itemName: this.state.itemName,
       itemDescription: this.state.itemDescription,
       itemPrice: this.state.itemPrice,
-      id: this.state.id
+      id: this.state.id,
+      itemURL: this.state.itemURL
     }).then(() => {
       console.log("UPDATE SUCCEEDED!");
       this.handleClose();
@@ -82,6 +83,14 @@ class Item extends React.Component {
                   type="number"
                   name="itemPrice"
                   value={this.state.itemPrice}
+                  onChange={this.handleInputChange}
+                />
+                <br />
+               <b> Image URL: </b><br />
+                <input
+                  type="text"
+                  name="itemURL"
+                  value={this.state.itemURL}
                   onChange={this.handleInputChange}
                 />
                 <br />
