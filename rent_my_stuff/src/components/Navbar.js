@@ -19,7 +19,7 @@ const Navbar = ({ loggedIn, logout }) => {
           <li><Link style={{color: 'white'}} className='navText' to="/About">About</Link></li>
           <li><Link style={{color: 'white'}} className='navText' to="/HowItWorks">How It Works</Link></li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <ul className="nav navbar-nav navbar-right">
           {loggedIn ?
             [
               <br />,
@@ -37,7 +37,7 @@ const Navbar = ({ loggedIn, logout }) => {
       </div>
      <br/>
     </nav>
-   
+
     </div>
   );
 }
