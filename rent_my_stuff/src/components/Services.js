@@ -40,7 +40,8 @@ class Services extends Component {
       <option value={selopts.id} key={selopts.id}> {" "} {selopts.categoryName}{" "}
             </option>  );
 
-    return SelectOptions;
+console.log( ' rtn: selectCategories , Selectioptions: ' , SelectOptions);
+return SelectOptions;
   }
 
   handleSelectedChange = e => {
@@ -147,7 +148,6 @@ class Services extends Component {
       <h1> Before render stuff </h1>
       {this.renderStuff()}
     </div>
-    // return  this.renderStuff();
   }
 }
 
