@@ -29,7 +29,6 @@ class Login extends Component {
     event.preventDefault();
     API.login({ email: this.state.email, password: this.state.password })
       .then((res) => {
-        //console.log("login RES.data", res.data);
         this.props.setUser(res.data)
         this.setState({
           redirectTo: "/myitems"
@@ -54,8 +53,6 @@ class Login extends Component {
           <p><input name="password" value={this.state.password} onChange={this.handleInputChange} type="password" placeholder="Password" /></p>
           <p><input type="submit" value="Log in" /></p>
         </form>
-        {/* <img src="/rms_logo.png" className="logo" alt="logo" /> */}
-
       </div>
     );
   }
