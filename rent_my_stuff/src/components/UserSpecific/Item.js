@@ -139,6 +139,7 @@ class Item extends React.Component {
                     <h4>
                       <b>Listing Id:</b> {this.state.id}.
                     </h4>
+                    <br />
                     <h4>
                       <b>Price:</b> ${this.state.itemPrice}.{" "}
                       <span
