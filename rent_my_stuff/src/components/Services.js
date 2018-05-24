@@ -40,7 +40,8 @@ class Services extends Component {
       <option value={selopts.id} key={selopts.id}> {" "} {selopts.categoryName}{" "}
             </option>  );
 
-    return SelectOptions;
+console.log( ' rtn: selectCategories , Selectioptions: ' , SelectOptions);
+return SelectOptions;
   }
 
   handleSelectedChange = e => {
