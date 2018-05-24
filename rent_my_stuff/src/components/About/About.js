@@ -25,13 +25,13 @@ class About extends React.Component {
                   <h3 className="team">Alex Baranov</h3>
                   <p>Full Stack Web Developer</p>
                   <p>
-                    <a href="https://www.google.com/">
+                    <a href="https://github.com/alexbaranov43" target="_blank">
                       <i className="fab fa-github" />
                     </a>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.linkedin.com/in/alex-baranov-285b31159/" target="_blank">
                       <i className="fab fa-linkedin" />
                     </a>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.google.com/" target="_blank">
                       <i className="fab fa-stack-overflow" />
                     </a>
                   </p>
@@ -48,16 +48,14 @@ class About extends React.Component {
                   <h3 className="team">Inom Ibragimov</h3>
                   <p>Full Stack Web Developer</p>
                   <p>
-                    <a href="https://github.com/mail4inom">
+                    <a href="https://github.com/mail4inom" target="_blank">
                       <i className="fab fa-github" />
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/inomzhon-ibragimov-0091b2156/
-"
-                    >
+                      href="https://www.linkedin.com/in/inomzhon-ibragimov-0091b2156/" target="_blank">
                       <i className="fab fa-linkedin" />
                     </a>
-                    <a href="https://stackexchange.com/users/12854870/inomzhon-ibragimov">
+                    <a href="https://stackexchange.com/users/12854870/inomzhon-ibragimov" target="_blank">
                       <i className="fab fa-stack-overflow" />
                     </a>
                   </p>
@@ -74,13 +72,13 @@ class About extends React.Component {
                   <h3 className="team">Eitan Fine</h3>
                   <p>Full Stack Web Developer</p>
                   <p>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.google.com/" target="_blank">
                       <i className="fab fa-github" />
                     </a>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.google.com/" target="_blank">
                       <i className="fab fa-linkedin" />
                     </a>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.google.com/" target="_blank">
                       <i className="fab fa-stack-overflow" />
                     </a>
                   </p>
@@ -100,13 +98,13 @@ class About extends React.Component {
                   <h3 className="team">John Palumbo</h3>
                   <p>Full Stack Web Developer</p>
                   <p>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.google.com/" target="_blank">
                       <i className="fab fa-github" />
                     </a>
-                    <a href="https://www.linkedin.com/in/john-palumbo-nj">
+                    <a href="https://www.linkedin.com/in/john-palumbo-nj" target="_blank">
                       <i className="fab fa-linkedin" />
                     </a>
-                    <a href="https://www.google.com/">
+                    <a href="https://www.google.com/" target="_blank">
                       <i className="fab fa-stack-overflow" />
                     </a>
                   </p>
@@ -123,13 +121,13 @@ class About extends React.Component {
                   <h3 className="team">Lan Ejiri</h3>
                   <p>Full Stack Web Developer</p>
                   <p>
-                    <a href="https://github.com/lan-ejiri">
+                    <a href="https://github.com/lan-ejiri" target="_blank">
                       <i className="fab fa-github" />
                     </a>
-                    <a href="https://www.linkedin.com/in/lanejiri/">
+                    <a href="https://www.linkedin.com/in/lanejiri/" target="_blank">
                       <i className="fab fa-linkedin" />
                     </a>
-                    <a href="https://stackoverflow.com/users/9201899/lan">
+                    <a href="https://stackoverflow.com/users/9201899/lan" target="_blank">
                       <i className="fab fa-stack-overflow" />
                     </a>
                   </p>

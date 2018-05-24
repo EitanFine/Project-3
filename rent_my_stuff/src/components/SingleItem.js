@@ -36,11 +36,11 @@ class SingleItem extends Component {
         console.log(positionError);
     }
 
-    reLoadComments = ()=>{
-     API.getComments(this.state.itemId)
-        .then(res=> {
-            this.setState({ Comments: res.data})
-        })   
+    reLoadComments = () => {
+        API.getComments(this.state.itemId)
+            .then(res => {
+                this.setState({ Comments: res.data })
+            })
     }
 
     createUnavailDates = (rentedDates) => {
@@ -56,7 +56,7 @@ class SingleItem extends Component {
 
 
     handleDayClick = day => {
-        let itemId = this.state.itemId; 
+        let itemId = this.state.itemId;
         let dateitem = {
             rentItemId: itemId,
             rentedDate: day
@@ -83,7 +83,7 @@ class SingleItem extends Component {
             })
             .catch((err) => {
                 console.log(err)
-            })           
+            })
     };
 
 
@@ -104,7 +104,7 @@ class SingleItem extends Component {
             .catch((err) => {
                 console.log(err)
             })
-        
+
     }
 
 
@@ -159,7 +159,7 @@ class SingleItem extends Component {
                                 </div>
                             </div>
 
-                            {/* <div className='row'>
+                            <div className='row'>
                                 <div className='col-sm-12 text-right'>
                                     {item.itemInfo ? <h5 style={{ fontFamily: "'Timmana', sans-serif" }}
                                         className='text-right'><span>Posted On: </span>
@@ -167,29 +167,16 @@ class SingleItem extends Component {
                                 </div>
                             </div>
                             <div>
-                                <CommentDisplay comments={this.state.Comments}  />
+                                <CommentDisplay comments={this.state.Comments} />
                             </div>
                             {this.props.loggedIn ?
                                 <CommentBox itemId={this.props.itemId} newComments={this.reLoadComments} />
                                 :
                                 <div>
                                     <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
-                                </div> */}
-                            
+                                </div>
+                            }
 
-
-
-                            {/* <div className="card border-primary mb-3">
-                                <div className="card-header bg-transparent border-warning">Header</div>
-                                <div className="card-body text-success">
-                                    <h5 className="card-title">Success card title</h5>
-                                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-
-
-                            {/* <div className="card-footer bg-transparent border-warning">Footer</div> */}
-
-                            {/* </div>
-                            </div> */}
 
 
                         </div>
@@ -197,7 +184,7 @@ class SingleItem extends Component {
 
                     <div className="panel panel-default">
                         <div className="panel-body">
-                            <strong>Dates and Availability:  <span style={{color: 'red'}}> (Red marked dates are unavailable)</span></strong>
+                            <strong>Dates and Availability</strong>
                         </div>
                         <div class="panel-footer">
 
@@ -206,61 +193,15 @@ class SingleItem extends Component {
 
                             <div className='row'>
                                 {/* <div className='col-sm-12 '> */}
-                                    <DayPicker numberOfMonths={2}
-                                        disabledDays={this.state.renteddates}
-                                        onDayClick={this.handleDayClick} />
+                                <DayPicker numberOfMonths={2}
+                                    disabledDays={this.state.renteddates}
+                                    onDayClick={this.handleDayClick} />
                                 {/* </div> */}
-                                
                             </div>
-
-                        </div>
-
-                    </div>
-
-
-                        <div class="panel panel-default">
-                        <div class="panel-body">
-                        <div>
-                                {/* <CommentDisplay comments={this.state.Comments}  /> */}
-                            </div>
-
-                            <strong>  Leave a Comment Below</strong>
-                        </div>
-                        <div class="panel-footer">
-
-
-                            <div class="form-group">
-                                {/* <label for="comment">Leave a Comment:</label> */}
-
-                                {/* <textarea class="form-control" rows="5" id="comment"></textarea> */}
-                            </div>
-
-                            {this.props.loggedIn ?
-                                <CommentBox itemId={this.props.itemId} newComments={this.reLoadComments} />
-                                :
-                                <div>
-                                    <h3><Link to="/signup">Sign Up</Link> or <Link to="/login">Log In </Link> To Leave A Comment </h3>
-                                </div>
-                            } 
-
-
-
-
                         </div>
                     </div>
 
 
-
-
-                    <div class="panel panel-default">
-                        <div class="panel-body">
-                        <div>
-                                <CommentDisplay comments={this.state.Comments}  />
-                            </div>
-
-                            {/* <strong>  Leave a Comment</strong> */}
-                        </div>
-                    </div>
 
 
                 </div>
