@@ -166,10 +166,7 @@ class SingleItem extends Component {
                             <strong>Dates and Availability:  <span style={{ color: 'red' }}> (Red marked dates are unavailable)</span></strong>
                         </div>
                         <div class="panel-footer">
-
-
-
-
+                        
                             <div className='row'>
                                 <DayPicker numberOfMonths={2}
                                     disabledDays={this.state.renteddates}

@@ -7,8 +7,7 @@
 }
 img.ah {
   border-radius: 50%;
-  width: 100%;
-  height: 250px;
+  width: 250px;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
   text-align: center;
   margin: auto;
@@ -27,3 +26,7 @@ img.ah {
   font-size: 50px;
   margin: 5px;
 }
+
+
+
+.i-am-centered { margin: auto; max-width: 750px;}
