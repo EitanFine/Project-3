@@ -7,12 +7,12 @@ const Navbar = ({ loggedIn, logout }) => {
     <div>
     <nav className="navbar navbar-default navbar-fixed-top">
     
-      <div class="container">
-        <div class="navbar-header">
+      <div className="container">
+        <div className="navbar-header">
         <br/>
-          <Link className='navText'  to="/"><span  class="glyphicon glyphicon-home"></span></Link>
+          <Link className='navText'  to="/"><span  className="glyphicon glyphicon-home"></span></Link>
         </div>
-        <ul class="nav navbar-nav">
+        <ul className="nav navbar-nav">
           <br />
           <li><Link style={{color: 'white'}} className='navText' to="/rentals">Rentals</Link></li>
           <li><Link style={{color: 'white'}} className='navText' to="/services">Services</Link></li>
@@ -29,8 +29,8 @@ const Navbar = ({ loggedIn, logout }) => {
             ]
             :
             [
-              <li><Link style={{color: 'white'}} className='navText' to="/signup"><span class="glyphicon glyphicon-user"></span>Signup</Link></li>,
-              <li><Link style={{color: 'white'}} className='navText' to="/login"><span class="glyphicon glyphicon-log-in"></span>Login</Link></li>
+              <li><Link style={{color: 'white'}} className='navText' to="/signup"><span className="glyphicon glyphicon-user"></span>Signup</Link></li>,
+              <li><Link style={{color: 'white'}} className='navText' to="/login"><span className="glyphicon glyphicon-log-in"></span>Login</Link></li>
             ]
           }
         </ul>

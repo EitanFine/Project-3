@@ -3,8 +3,8 @@ import API from "../utils/API";
 import Moment from "moment";
 import { Link } from "react-router-dom";
 import './Everything.css';
-import RentImg from './rms_rent.png';
-import Service from './rms_service.png';
+import RentImg from './rms_rent1.png';
+import Service from './rms_service1.png';
 class Everything extends Component {
   state = {
     stuff: []
